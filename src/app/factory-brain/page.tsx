@@ -40,7 +40,7 @@ export default function FactoryBrainPage() {
                         l.tone === "neutral" && "border-line bg-surface",
                       )}
                     >
-                      <p className={cn("eyebrow", l.tone === "brand" && "text-violet")}>{l.layer}</p>
+                      <p className={cn("eyebrow", l.tone === "brand" && "text-lavender")}>{l.layer}</p>
                       <p className={cn("mt-1.5 text-[0.9375rem]", l.tone === "brand" ? "text-white" : "text-fg")}>{l.body}</p>
                     </div>
                     {i < factoryStack.length - 1 && (
@@ -71,7 +71,7 @@ export default function FactoryBrainPage() {
         </div>
       </Section>
 
-      <Section theme="dark" pad="lg" id="functions">
+      <Section theme="lilac" pad="lg" id="functions">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <SectionHeader eyebrow="What the Factory Brain does" title="Seven areas, one planning layer." lead="AI never replaces the PLC. It makes PLC-driven factories smarter." />
           <Reveal className="mt-14" delay={0.1}>

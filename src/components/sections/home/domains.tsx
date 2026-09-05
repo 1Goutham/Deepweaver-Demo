@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 export default function Domains() {
   const [hover, setHover] = useState<string | null>(null);
   return (
-    <Section id="domains" theme="dark">
+    <Section id="domains" theme="lilac">
       <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
         <div className="grid-12 gap-y-10">
           <Reveal className="col-span-12 lg:col-span-6">
@@ -44,15 +44,15 @@ export default function Domains() {
                     )}
                   >
                     <span className="col-span-12 lg:col-span-6">
-                      <span className="block font-display text-sm text-fg-soft">{p.index}</span>
-                      <span className="mt-3 block text-display-md text-fg">{p.name}</span>
+                      <span className="block font-display text-sm text-accent">{p.index}</span>
+                      <span className="mt-3 block text-display-md text-fg transition-colors duration-300 group-hover:text-lavender">{p.name}</span>
                     </span>
                     <span className="col-span-11 mt-4 max-w-[40ch] text-[0.9375rem] leading-relaxed text-fg-muted lg:col-span-5 lg:col-start-7 lg:mt-0 lg:pb-2 lg:text-base">
                       {p.short}
                     </span>
                     <span
                       aria-hidden
-                      className="col-span-1 col-start-12 hidden justify-self-end pb-2 text-fg opacity-0 transition-[opacity,transform] duration-500 ease-out-expo group-hover:translate-x-1 group-hover:opacity-100 lg:block"
+                      className="col-span-1 col-start-12 hidden justify-self-end pb-2 text-lavender opacity-0 transition-[opacity,transform] duration-500 ease-out-expo group-hover:translate-x-1 group-hover:opacity-100 lg:block"
                     >
                       →
                     </span>

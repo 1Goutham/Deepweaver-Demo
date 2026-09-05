@@ -47,7 +47,7 @@ export default function DigitalDeep() {
         </div>
       </Section>
 
-      <Section theme="dark" pad="lg">
+      <Section theme="lilac" pad="lg">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <SectionHeader
             eyebrow="Agentic use cases by domain"

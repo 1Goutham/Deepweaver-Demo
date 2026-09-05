@@ -5,6 +5,7 @@ import { footerNav, site } from "@/lib/site";
 export default function Footer() {
   return (
     <footer data-theme="deep" className="relative bg-bg text-fg">
+      <div aria-hidden className="bg-brand-gradient h-px w-full" />
       <div className="mx-auto max-w-wide px-5 pb-10 pt-20 sm:px-8 lg:px-12 lg:pt-28">
         <div className="grid-12 gap-y-12">
           <div className="col-span-12 lg:col-span-4">

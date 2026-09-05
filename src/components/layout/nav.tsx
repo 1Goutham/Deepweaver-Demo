@@ -27,7 +27,7 @@ function useSectionTheme(): Theme {
         for (const e of entries) {
           if (e.isIntersecting) {
             const t = e.target.getAttribute("data-theme");
-            setTheme(t === "light" || t === "mist" ? "light" : "dark");
+            setTheme(t === "light" || t === "paper" || t === "lilac" || t === "mist" ? "light" : "dark");
           }
         }
       },

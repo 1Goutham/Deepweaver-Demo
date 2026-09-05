@@ -47,7 +47,7 @@ export default function FrontierDeep() {
         </div>
       </Section>
 
-      <Section theme="dark" pad="lg" id="fde">
+      <Section theme="mist" pad="lg" id="fde">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <div className="grid-12 gap-y-12">
             <div className="col-span-12 lg:col-span-5">

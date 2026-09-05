@@ -56,7 +56,7 @@ export default function PhysicalDeep() {
         </div>
       </Section>
 
-      <Section theme="dark" pad="md">
+      <Section theme="mist" pad="md">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <div className="grid-12 gap-y-10 lg:items-end">
             <div className="col-span-12 lg:col-span-7">

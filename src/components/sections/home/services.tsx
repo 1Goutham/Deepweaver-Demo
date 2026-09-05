@@ -29,7 +29,7 @@ export default function Services() {
               <li key={s.index} className="border-b border-line">
                 <Link href={s.href} className="group grid-12 items-baseline py-7 md:py-8">
                   <span className="col-span-12 flex items-baseline gap-5 lg:col-span-6">
-                    <span className="w-6 font-display text-sm text-fg-soft">{s.index}</span>
+                    <span className="w-6 font-display text-sm text-accent">{s.index}</span>
                     <span className="font-display text-display-sm text-fg">{s.name}</span>
                   </span>
                   <span className="col-span-12 mt-2 pl-11 text-[0.9375rem] text-fg-muted lg:col-span-5 lg:col-start-7 lg:mt-0 lg:pl-0">

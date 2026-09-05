@@ -28,9 +28,9 @@
 
   /* Editorial type scale. Regular weight throughout; sizes restrained,
      tracking slightly negative, line-height tight. Body small and grey. */
-  --text-hero: clamp(2.75rem, 1.2rem + 4.6vw, 6rem);
-  --text-hero--line-height: 1;
-  --text-hero--letter-spacing: -0.032em;
+  --text-hero: clamp(2.5rem, 1.35rem + 3.1vw, 4.375rem);
+  --text-hero--line-height: 1.06;
+  --text-hero--letter-spacing: -0.028em;
   --text-display-xl: clamp(2.625rem, 1.6rem + 3.4vw, 4.75rem);
   --text-display-xl--line-height: 1.04;
   --text-display-xl--letter-spacing: -0.028em;
@@ -46,7 +46,7 @@
   --text-display-xs: clamp(1.125rem, 1.05rem + 0.3vw, 1.3125rem);
   --text-display-xs--line-height: 1.3;
   --text-display-xs--letter-spacing: -0.008em;
-  --text-lead: clamp(1.0625rem, 0.98rem + 0.4vw, 1.3125rem);
+  --text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
   --text-lead--line-height: 1.55;
   --text-eyebrow: 0.6875rem;
   --text-eyebrow--line-height: 1;
@@ -77,10 +77,15 @@
   --color-line-strong: var(--line-strong);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
+  --color-accent: var(--accent);
 }
 
 /* Section themes. Every section declares data-theme; components use
    semantic colours so one component works on navy and on canvas. */
+/* Section themes, built from the brand palette. Every section declares one;
+   components use the semantic tokens so one component works on any ground.
+   --accent is the eyebrow/rule colour: lavender on light grounds, the
+   lighter violet on navy, white on the brand gradient. */
 :root,
 [data-theme="light"] {
   --bg: #eae8e1;
@@ -91,6 +96,31 @@
   --line-strong: rgba(12, 33, 48, 0.3);
   --surface: #f4f3ee;
   --surface-2: #dce4ea;
+  --accent: #6151c2;
+  color-scheme: light;
+}
+[data-theme="paper"] {
+  --bg: #ffffff;
+  --fg: #0c2130;
+  --fg-muted: #4f5f6c;
+  --fg-soft: #8a97a2;
+  --line: rgba(12, 33, 48, 0.12);
+  --line-strong: rgba(12, 33, 48, 0.28);
+  --surface: #f6f6f4;
+  --surface-2: #eae8e1;
+  --accent: #6151c2;
+  color-scheme: light;
+}
+[data-theme="lilac"] {
+  --bg: #e5daeb;
+  --fg: #0c2130;
+  --fg-muted: #4b5566;
+  --fg-soft: #7c8391;
+  --line: rgba(12, 33, 48, 0.14);
+  --line-strong: rgba(12, 33, 48, 0.3);
+  --surface: #ede5f1;
+  --surface-2: #dccfe4;
+  --accent: #6151c2;
   color-scheme: light;
 }
 [data-theme="mist"] {
@@ -102,19 +132,8 @@
   --line-strong: rgba(12, 33, 48, 0.3);
   --surface: #e8eef2;
   --surface-2: #eae8e1;
+  --accent: #166dea;
   color-scheme: light;
-}
-/* The brand's own pairing: lavender into blue. Used once per page. */
-[data-theme="brand"] {
-  --bg: #6151c2;
-  --fg: #ffffff;
-  --fg-muted: rgba(255, 255, 255, 0.78);
-  --fg-soft: rgba(255, 255, 255, 0.55);
-  --line: rgba(255, 255, 255, 0.22);
-  --line-strong: rgba(255, 255, 255, 0.45);
-  --surface: rgba(255, 255, 255, 0.08);
-  --surface-2: rgba(255, 255, 255, 0.12);
-  color-scheme: dark;
 }
 [data-theme="dark"] {
   --bg: #0c2130;
@@ -125,6 +144,7 @@
   --line-strong: rgba(255, 255, 255, 0.28);
   --surface: #16293a;
   --surface-2: #112535;
+  --accent: #a792fd;
   color-scheme: dark;
 }
 [data-theme="deep"] {
@@ -136,6 +156,20 @@
   --line-strong: rgba(255, 255, 255, 0.28);
   --surface: #0c2130;
   --surface-2: #16293a;
+  --accent: #a792fd;
+  color-scheme: dark;
+}
+/* The brand's own pairing: lavender into blue. Used once per page. */
+[data-theme="brand"] {
+  --bg: #6151c2;
+  --fg: #ffffff;
+  --fg-muted: rgba(255, 255, 255, 0.8);
+  --fg-soft: rgba(255, 255, 255, 0.55);
+  --line: rgba(255, 255, 255, 0.22);
+  --line-strong: rgba(255, 255, 255, 0.45);
+  --surface: rgba(255, 255, 255, 0.08);
+  --surface-2: rgba(255, 255, 255, 0.12);
+  --accent: #ffffff;
   color-scheme: dark;
 }
 
@@ -157,8 +191,8 @@
     overflow-x: clip;
   }
   ::selection {
-    background: #a792fd;
-    color: #0c2130;
+    background: #6151c2;
+    color: #ffffff;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
@@ -190,7 +224,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 500;
-  color: var(--fg-muted);
+  color: var(--accent);
 }
 /* Section rhythm: one value, used everywhere. */
 @utility section-pad { padding-block: clamp(6rem, 4rem + 9vw, 12rem); }
@@ -202,6 +236,14 @@
 @utility rail-amber { box-shadow: inset 2px 0 0 0 var(--color-amber); }
 @utility rail-violet { box-shadow: inset 2px 0 0 0 var(--color-violet); }
 @utility bg-brand-gradient { background-image: linear-gradient(115deg, #6151c2 0%, #166dea 100%); }
+/* Hero ground: navy lifting into indigo, with the illustration's two glows. */
+@utility bg-hero {
+  background-color: #0c2130;
+  background-image:
+    radial-gradient(56rem 56rem at 76% 52%, rgba(64, 80, 220, 0.24), transparent 62%),
+    radial-gradient(56rem 38rem at 8% 0%, rgba(97, 81, 194, 0.18), transparent 60%),
+    linear-gradient(180deg, #0c2130 0%, #0e1f3d 100%);
+}
 
 /* Two-tone display headline: first part fg, tail fades to muted.
    Used sparingly — one per page. */

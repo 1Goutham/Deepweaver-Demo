@@ -61,7 +61,7 @@ export default function ServicesPage() {
         </div>
       </Section>
 
-      <Section theme="dark" pad="lg" id="fde">
+      <Section theme="lilac" pad="lg" id="fde">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <SectionHeader eyebrow="Service line · Forward-deployed engineering" title="AI forward-deployed engineering." lead={fde.intro} size="lg" />
           <div className="mt-14 grid gap-px border-y border-line bg-line lg:grid-cols-3">

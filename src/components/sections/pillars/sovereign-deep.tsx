@@ -38,7 +38,7 @@ export default function SovereignDeep() {
         </div>
       </Section>
 
-      <Section theme="dark" pad="lg" id="australia">
+      <Section theme="lilac" pad="lg" id="australia">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <SectionHeader eyebrow="Sovereign AI · Australia" title="Australian sovereign experience." lead={australia.intro} />
           <div className="mt-14 grid-12 gap-y-12">
@@ -47,7 +47,7 @@ export default function SovereignDeep() {
               <ol className="divide-y divide-line border-y border-line">
                 {australia.layers.map((l) => (
                   <li key={l.name} className="grid gap-3 py-6 md:grid-cols-12 md:gap-6">
-                    <span className="col-span-12 font-display text-sm font-medium text-violet md:col-span-3">{l.partner}</span>
+                    <span className="col-span-12 font-display text-sm font-medium text-lavender md:col-span-3">{l.partner}</span>
                     <div className="col-span-12 md:col-span-9">
                       <h3 className="text-display-xs">{l.name}</h3>
                       <p className="mt-1 text-[0.9375rem] text-fg-muted">{l.body}</p>

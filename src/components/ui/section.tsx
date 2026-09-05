@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-export type Theme = "light" | "mist" | "dark" | "deep" | "brand";
+export type Theme = "light" | "paper" | "lilac" | "mist" | "dark" | "deep" | "brand";
 
 type Props = {
   children: ReactNode;

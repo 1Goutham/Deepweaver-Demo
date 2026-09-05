@@ -4,7 +4,7 @@ import Reveal from "@/components/motion/reveal";
 /** The hinge of the story: one large, quiet statement on a light field. Title on edge 1, paragraph on edge 2. */
 export default function Statement() {
   return (
-    <Section theme="light">
+    <Section theme="paper">
       <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
         <div className="grid-12 gap-y-12">
           <Reveal className="col-span-12 lg:col-span-11">

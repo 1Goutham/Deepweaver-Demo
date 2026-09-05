@@ -72,7 +72,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section theme="dark" pad="lg" id="regions">
+      <Section theme="mist" pad="lg" id="regions">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <SectionHeader eyebrow="Where we operate" title="Two regions, one practice." />
           <div className="mt-14 grid gap-px border-y border-line bg-line md:grid-cols-2">

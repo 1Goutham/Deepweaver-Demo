@@ -69,7 +69,7 @@ export default function WorkPage() {
         </div>
       </Section>
 
-      <Section theme="dark" pad="lg" id="case-studies">
+      <Section theme="mist" pad="lg" id="case-studies">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <SectionHeader eyebrow="Case studies" title="Eighteen engagements, three sectors." />
           <Reveal className="mt-12" delay={0.1}>

@@ -43,7 +43,7 @@ export default function GovernancePage() {
         </div>
       </Section>
 
-      <Section theme="dark" pad="lg">
+      <Section theme="mist" pad="lg">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <SectionHeader eyebrow="Six pillars hold it up" title="Leadership, policies, risk, controls, training, reporting." />
           <div className="grid-12 gap-y-12 mt-14">
