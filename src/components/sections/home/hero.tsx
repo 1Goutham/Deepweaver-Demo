@@ -16,12 +16,9 @@ export default function Hero() {
         <div className="grid-12 items-center gap-y-14 pb-20 pt-[120px] sm:pt-[136px] lg:min-h-[min(100svh,900px)] lg:pb-[96px] lg:pt-[136px]">
           {/* Copy — left */}
           <div className="col-span-12 lg:col-span-6 lg:pr-6">
-            <motion.div className="flex flex-wrap items-center gap-3" {...anim(0)}>
-              <span className="inline-flex h-8 items-center rounded-full bg-[#d2e8c8] px-3.5 text-[0.75rem] font-medium tracking-[0.02em] text-ink">
-                ISO/IEC 42001 certified
-              </span>
-              <span className="eyebrow">AI-native services · Australia · India</span>
-            </motion.div>
+            <motion.p className="eyebrow" {...anim(0)}>
+              AI-native services · Australia · India
+            </motion.p>
             <motion.h1 className="mt-9 max-w-[13ch] text-hero" {...anim(1)}>
               Frontier and sovereign AI, <span className="text-white/60">across the physical and digital worlds.</span>
             </motion.h1>
