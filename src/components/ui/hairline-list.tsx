@@ -26,7 +26,7 @@ export function HairlineRow({
       <div className="flex items-baseline gap-4 md:col-span-4">
         {index && <span className="font-display text-sm font-medium tabular-nums text-fg-soft">{index}</span>}
         <div>
-          <h3 className="text-display-xs font-medium text-fg">{title}</h3>
+          <h3 className="text-display-xs text-fg">{title}</h3>
           {kicker && <p className="mt-1 text-sm text-fg-muted">{kicker}</p>}
         </div>
       </div>

@@ -121,7 +121,7 @@ export default function Nav() {
               onClick={() => setMega((v) => !v)}
               onFocus={openMega}
               className={cn(
-                "inline-flex h-10 items-center gap-1.5 rounded-full px-3.5 text-[0.875rem] transition-colors",
+                "inline-flex h-10 items-center gap-1.5 rounded-full px-3.5 text-[0.8125rem] transition-colors",
                 isPillar ? "text-fg" : "text-fg-muted hover:text-fg",
               )}
             >
@@ -139,7 +139,7 @@ export default function Nav() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "inline-flex h-10 items-center rounded-full px-3.5 text-[0.875rem] transition-colors",
+                  "inline-flex h-10 items-center rounded-full px-3.5 text-[0.8125rem] transition-colors",
                   active ? "text-fg" : "text-fg-muted hover:text-fg",
                 )}
               >
@@ -240,7 +240,7 @@ export default function Nav() {
                   <li key={p.href}>
                     <Link href={p.href} className="flex items-baseline gap-4 py-4">
                       <span className="font-display text-xs text-white/40">0{i + 1}</span>
-                      <span className="font-display text-display-sm font-medium">{p.label}</span>
+                      <span className="font-display text-display-sm">{p.label}</span>
                     </Link>
                   </li>
                 ))}

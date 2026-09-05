@@ -45,7 +45,7 @@ export default function Domains() {
                   >
                     <span className="col-span-12 lg:col-span-6">
                       <span className="block font-display text-sm text-fg-soft">{p.index}</span>
-                      <span className="mt-3 block text-display-lg text-fg">{p.name}</span>
+                      <span className="mt-3 block text-display-md text-fg">{p.name}</span>
                     </span>
                     <span className="col-span-11 mt-4 max-w-[40ch] text-[0.9375rem] leading-relaxed text-fg-muted lg:col-span-5 lg:col-start-7 lg:mt-0 lg:pb-2 lg:text-base">
                       {p.short}

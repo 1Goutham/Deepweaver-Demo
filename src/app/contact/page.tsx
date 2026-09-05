@@ -23,7 +23,7 @@ export default function ContactPage() {
             </Reveal>
             <Reveal className="lg:col-span-5 lg:col-start-8" delay={0.1}>
               <p className="eyebrow">Email</p>
-              <a href={`mailto:${site.email}`} className="link-wipe mt-3 inline-block font-display text-display-xs font-medium">
+              <a href={`mailto:${site.email}`} className="link-wipe mt-3 inline-block font-display text-display-xs">
                 {site.email}
               </a>
               <p className="eyebrow mt-10">Offices</p>

@@ -52,7 +52,7 @@ export default function AboutPage() {
                   ))}
                 </ul>
                 <p className="eyebrow mt-10">Core values</p>
-                <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 font-display text-display-xs font-medium">
+                <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 font-display text-display-xs">
                   {values.map((v) => (
                     <li key={v}>{v}</li>
                   ))}
@@ -60,7 +60,7 @@ export default function AboutPage() {
               </Reveal>
               <Reveal delay={0.16} className="rail-amber pl-5">
                 <p className="eyebrow text-amber">Outcomes</p>
-                <p className="mt-4 text-display-xs font-display font-medium">We own the outcome end to end.</p>
+                <p className="mt-4 text-display-xs font-display">We own the outcome end to end.</p>
                 <ul className="mt-5 space-y-2.5 text-[0.9375rem] text-fg-muted">
                   {outcomes.map((o) => (
                     <li key={o}>{o}</li>

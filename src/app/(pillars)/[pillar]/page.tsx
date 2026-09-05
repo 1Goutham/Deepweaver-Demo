@@ -80,7 +80,7 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
                   <li key={c.name} className="grid gap-2 py-6 md:grid-cols-[2rem_1fr] md:gap-x-6">
                     <span className="font-display text-sm text-fg-soft">0{i + 1}</span>
                     <div>
-                      <h3 className="text-display-xs font-medium">{c.name}</h3>
+                      <h3 className="text-display-xs">{c.name}</h3>
                       <p className="mt-2 max-w-[48ch] text-[0.9375rem] leading-relaxed text-fg-muted">{c.body}</p>
                     </div>
                   </li>
@@ -98,7 +98,7 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
               <SectionHeader eyebrow="Applications" title="Where it is already running." />
               <div className="rail-amber mt-10 pl-5">
                 <p className="eyebrow text-amber">Outcome</p>
-                <p className="mt-3 text-display-xs font-display font-medium">{p.outcome}</p>
+                <p className="mt-3 text-display-xs font-display">{p.outcome}</p>
                 <p className="mt-2 text-sm text-fg-muted">{p.outcomeDetail}</p>
               </div>
             </div>
@@ -132,7 +132,7 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
           <p className="eyebrow">Next domain</p>
           <Link href={`/${next.slug}`} className="group flex items-baseline gap-4 text-right">
             <span className="font-display text-sm text-fg-soft">{next.index}</span>
-            <span className="link-wipe font-display text-display-sm font-medium">{next.name}</span>
+            <span className="link-wipe font-display text-display-sm">{next.name}</span>
           </Link>
         </div>
       </Section>

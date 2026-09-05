@@ -8,7 +8,7 @@ export default function Statement() {
       <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
         <div className="grid-12 gap-y-12">
           <Reveal className="col-span-12 lg:col-span-11">
-            <h2 className="text-display-lg font-light text-fg">
+            <h2 className="max-w-[24ch] text-display-lg text-fg">
               Most AI stops at the screen. <span className="text-fg-soft">Ours reaches the factory floor, the field and the front office.</span>
             </h2>
           </Reveal>

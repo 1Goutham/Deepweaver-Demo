@@ -30,7 +30,7 @@ export default function Services() {
                 <Link href={s.href} className="group grid-12 items-baseline py-7 md:py-8">
                   <span className="col-span-12 flex items-baseline gap-5 lg:col-span-6">
                     <span className="w-6 font-display text-sm text-fg-soft">{s.index}</span>
-                    <span className="font-display text-display-sm font-medium text-fg">{s.name}</span>
+                    <span className="font-display text-display-sm text-fg">{s.name}</span>
                   </span>
                   <span className="col-span-12 mt-2 pl-11 text-[0.9375rem] text-fg-muted lg:col-span-5 lg:col-start-7 lg:mt-0 lg:pl-0">
                     {s.kicker} — {s.outcome.charAt(0).toLowerCase() + s.outcome.slice(1)}.

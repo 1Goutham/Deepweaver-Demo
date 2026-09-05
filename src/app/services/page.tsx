@@ -38,7 +38,7 @@ export default function ServicesPage() {
                 <div className="flex items-baseline gap-4 md:col-span-6">
                   <span className="font-display text-sm text-fg-soft">{s.index}</span>
                   <div>
-                    <h2 className="text-display-sm font-medium">
+                    <h2 className="text-display-sm">
                       <Link href={s.href} className="link-wipe">
                         {s.name}
                       </Link>
@@ -112,7 +112,7 @@ export default function ServicesPage() {
               {engagementModels.map((m, i) => (
                 <li key={m.name} className="bg-surface p-6">
                   <span className="font-display text-sm text-fg-soft">0{i + 1}</span>
-                  <h3 className="mt-3 text-display-xs font-medium">{m.name}</h3>
+                  <h3 className="mt-3 text-display-xs">{m.name}</h3>
                   <p className="mt-3 text-[0.875rem] leading-relaxed text-fg-muted">{m.body}</p>
                 </li>
               ))}

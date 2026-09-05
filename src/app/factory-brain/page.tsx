@@ -78,7 +78,7 @@ export default function FactoryBrainPage() {
             <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
               {factoryFunctions.map((f) => (
                 <div key={f.area} className="border-t border-line pt-4">
-                  <h3 className="text-display-xs font-medium">{f.area}</h3>
+                  <h3 className="text-display-xs">{f.area}</h3>
                   <ul className="mt-3 space-y-1.5 text-[0.875rem] text-fg-muted">
                     {f.items.map((i) => (
                       <li key={i}>{i}</li>

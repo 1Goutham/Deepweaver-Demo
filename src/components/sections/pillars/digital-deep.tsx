@@ -56,7 +56,7 @@ export default function DigitalDeep() {
           <Reveal className="mt-14 grid gap-px border-y border-line bg-line md:grid-cols-2 xl:grid-cols-4" delay={0.1}>
             {agenticUseCases.map((d) => (
               <div key={d.domain} className="bg-bg p-6 lg:p-8">
-                <h3 className="text-display-xs font-medium">{d.domain}</h3>
+                <h3 className="text-display-xs">{d.domain}</h3>
                 <ul className="mt-6 divide-y divide-line">
                   {d.cases.map(([name, body]) => (
                     <li key={name} className="py-3.5">

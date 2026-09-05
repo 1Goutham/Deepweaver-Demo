@@ -35,7 +35,7 @@ export default function Capabilities() {
                   className="group flex flex-col gap-4 border-b border-line py-7 sm:px-6 sm:[&:nth-child(odd)]:pl-0 sm:[&:nth-child(even)]:border-l"
                 >
                   <div className="flex items-baseline justify-between gap-4">
-                    <h3 className="text-display-xs font-medium">{c.name}</h3>
+                    <h3 className="text-display-xs">{c.name}</h3>
                     <Link href={`/${c.pillar}`} className="eyebrow shrink-0 hover:text-fg">
                       {pillarLabel[c.pillar]}
                     </Link>

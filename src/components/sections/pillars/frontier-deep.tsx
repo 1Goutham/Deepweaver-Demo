@@ -21,7 +21,7 @@ export default function FrontierDeep() {
                 {sovereignStack.stages.map((s) => (
                   <li key={s.step} className="bg-surface p-6">
                     <span className="font-display text-sm text-fg-soft">{s.step}</span>
-                    <h3 className="mt-3 text-display-xs font-medium">{s.name}</h3>
+                    <h3 className="mt-3 text-display-xs">{s.name}</h3>
                     <ul className="mt-5 space-y-1.5 text-[0.875rem] text-fg-muted">
                       {s.items.map((i) => (
                         <li key={i}>{i}</li>
@@ -52,7 +52,7 @@ export default function FrontierDeep() {
           <div className="grid-12 gap-y-12">
             <div className="lg:col-span-5">
               <SectionHeader eyebrow="Forward-deployed engineering" title="Pilots into production, with an owner." lead={fde.intro} />
-              <p className="mt-8 rail-amber pl-5 text-display-xs font-display font-medium">{fde.sameProblem}</p>
+              <p className="mt-8 rail-amber pl-5 text-display-xs font-display">{fde.sameProblem}</p>
               <Link href="/services#fde" className="link-wipe mt-8 inline-block text-sm font-medium">
                 The FDE service line
               </Link>

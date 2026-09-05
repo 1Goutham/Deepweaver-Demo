@@ -20,10 +20,10 @@ export default function Hero() {
             <motion.p className="eyebrow" {...anim(0)}>
               AI-native services · ISO/IEC 42001 certified · Australia · India
             </motion.p>
-            <motion.h1 className="mt-8 max-w-[11ch] text-display-xl text-white" {...anim(1)}>
+            <motion.h1 className="mt-7 max-w-[13ch] text-display-xl text-white" {...anim(1)}>
               Frontier and sovereign AI, across the physical and digital worlds.
             </motion.h1>
-            <motion.p className="mt-8 max-w-[38ch] text-lead font-light text-white/70" {...anim(2)}>
+            <motion.p className="mt-8 max-w-[40ch] text-lead font-light text-white/68" {...anim(2)}>
               Digital, Physical, Frontier and Sovereign AI for enterprise and government — governed end to end, and already in production.
             </motion.p>
             <motion.div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4" {...anim(3)}>

@@ -22,7 +22,7 @@ export default function SovereignDeep() {
             <ol className="divide-y divide-line border-b border-line">
               {platformPosition.map((r) => (
                 <li key={r.platform} className="grid gap-3 py-6 md:grid-cols-12 md:gap-8">
-                  <h3 className="text-display-xs font-medium md:col-span-4">{r.platform}</h3>
+                  <h3 className="text-display-xs md:col-span-4">{r.platform}</h3>
                   <div className="md:col-span-8">
                     <p className="text-[0.9375rem] text-fg">{r.delivers}</p>
                     <ul className="mt-3 flex flex-wrap gap-2">
@@ -49,7 +49,7 @@ export default function SovereignDeep() {
                   <li key={l.name} className="grid gap-3 py-6 md:grid-cols-12 md:gap-6">
                     <span className="font-display text-sm font-medium text-violet md:col-span-3">{l.partner}</span>
                     <div className="md:col-span-9">
-                      <h3 className="text-display-xs font-medium">{l.name}</h3>
+                      <h3 className="text-display-xs">{l.name}</h3>
                       <p className="mt-1 text-[0.9375rem] text-fg-muted">{l.body}</p>
                       <ul className="mt-3 flex flex-wrap gap-2">
                         {l.tags.map((t) => (

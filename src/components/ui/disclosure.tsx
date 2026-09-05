@@ -23,7 +23,7 @@ export default function Disclosure({
         {code && <span className="w-8 shrink-0 pt-1 font-display text-sm font-medium text-fg-soft">{code}</span>}
         <span className="flex-1">
           <span className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-            <span className="text-display-xs font-display font-medium text-fg">{title}</span>
+            <span className="text-display-xs font-display text-fg">{title}</span>
             {meta && <span className="text-xs font-medium tabular-nums text-fg-muted">{meta}</span>}
           </span>
           {summary && <span className="mt-1.5 block max-w-[64ch] text-[0.9375rem] text-fg-muted">{summary}</span>}

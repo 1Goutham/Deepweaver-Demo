@@ -41,7 +41,7 @@ export default function PhysicalDeep() {
               </ul>
               <div className="rail-amber mt-8 pl-5">
                 <p className="eyebrow text-amber">Why it matters</p>
-                <p className="mt-3 text-display-xs font-display font-medium">Frontier-grade perception, running inside a pair of glasses.</p>
+                <p className="mt-3 text-display-xs font-display">Frontier-grade perception, running inside a pair of glasses.</p>
                 <p className="mt-3 text-[0.9375rem] leading-relaxed text-fg-muted">
                   Shipping AI into hardware forces discipline that cloud-only teams never build: model compression, latency budgets, thermal limits, offline reliability and safety with no fallback. That discipline is what we bring back into enterprise work.
                 </p>

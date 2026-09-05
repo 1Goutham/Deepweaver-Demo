@@ -45,7 +45,7 @@ function Band({ label, items, className }: { label: string; items: string[]; cla
 function Column({ title, groups, tone }: { title: string; groups: { h: string; items: string[] }[]; tone: "sky" | "violet" }) {
   return (
     <div className="flex flex-col">
-      <p className={cn("font-display text-display-xs font-medium", tone === "sky" ? "text-sky" : "text-violet")}>{title}</p>
+      <p className={cn("font-display text-display-xs", tone === "sky" ? "text-sky" : "text-violet")}>{title}</p>
       <dl className="mt-5 grid grid-cols-2 gap-x-6 gap-y-5">
         {groups.map((g) => (
           <div key={g.h}>
