@@ -11,11 +11,11 @@ import { cn } from "@/lib/utils";
  */
 const container: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.045, delayChildren: 0.2 } },
+  visible: { transition: { staggerChildren: 0.035, delayChildren: 0.12 } },
 };
 const word: Variants = {
   hidden: { y: "105%", opacity: 0 },
-  visible: { y: "0%", opacity: 1, transition: { duration: 0.85, ease: EASE } },
+  visible: { y: "0%", opacity: 1, transition: { duration: 0.7, ease: EASE } },
 };
 
 type Props = { text: string; muted?: number; className?: string; as?: "h1" | "h2" };

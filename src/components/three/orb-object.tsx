@@ -86,11 +86,11 @@ function Core() {
   return (
     <group>
       <mesh>
-        <sphereGeometry args={[0.62, 64, 64]} />
+        <sphereGeometry args={[0.62, 40, 40]} />
         <meshBasicMaterial color={nucleusColor} />
       </mesh>
       <mesh>
-        <sphereGeometry args={[1.0, 96, 96]} />
+        <sphereGeometry args={[1.0, 56, 56]} />
         <meshPhysicalMaterial
           color={0x9db8ff}
           transparent
@@ -104,7 +104,7 @@ function Core() {
         />
       </mesh>
       <mesh material={fresnel}>
-        <sphereGeometry args={[1.01, 96, 96]} />
+        <sphereGeometry args={[1.01, 56, 56]} />
       </mesh>
     </group>
   );
@@ -119,7 +119,7 @@ const RINGS: RingSpec[] = [
 function Rings() {
   const refs = useRef<THREE.Mesh[]>([]);
   useFrame((_, delta) => {
-    const k = delta * 60;
+    const k = Math.min(delta, 1 / 30) * 60;
     refs.current.forEach((m, i) => {
       if (!m) return;
       const s = RINGS[i].spd;
@@ -138,7 +138,7 @@ function Rings() {
           }}
           rotation={d.rot}
         >
-          <torusGeometry args={[d.r, d.tube, 64, 256]} />
+          <torusGeometry args={[d.r, d.tube, 40, 160]} />
           <meshPhysicalMaterial color={d.col} metalness={1} roughness={0.1} clearcoat={1} clearcoatRoughness={0.06} envMapIntensity={1.5} />
         </mesh>
       ))}
@@ -158,7 +158,7 @@ function Orbits() {
   const t = useRef(0);
   const lineColor = useMemo(() => new THREE.Color(GLOW).multiplyScalar(0.9), []);
   useFrame((_, delta) => {
-    t.current += delta * 60;
+    t.current += Math.min(delta, 1 / 30) * 60;
     electrons.current.forEach((e, i) => {
       if (!e) return;
       const o = ORBITS[i];
@@ -171,7 +171,7 @@ function Orbits() {
       {ORBITS.map((o, i) => (
         <group key={i} rotation={o.rot}>
           <mesh>
-            <torusGeometry args={[o.r, 0.008, 6, 320]} />
+            <torusGeometry args={[o.r, 0.008, 4, 200]} />
             <meshBasicMaterial color={lineColor} transparent opacity={0.75} />
           </mesh>
           <mesh
@@ -179,7 +179,7 @@ function Orbits() {
               if (el) electrons.current[i] = el;
             }}
           >
-            <sphereGeometry args={[0.115, 48, 48]} />
+            <sphereGeometry args={[0.115, 24, 24]} />
             <meshPhysicalMaterial color={0x3f55ff} emissive={0x8fa0ff} emissiveIntensity={2.2} roughness={0.05} metalness={0.1} clearcoat={1} envMapIntensity={1} />
           </mesh>
         </group>
@@ -198,10 +198,11 @@ function createPipeline() {
     minFilter: THREE.LinearFilter,
     magFilter: THREE.LinearFilter,
     format: THREE.RGBAFormat,
-    type: THREE.HalfFloatType,
+    type: THREE.UnsignedByteType,
     colorSpace: THREE.LinearSRGBColorSpace,
   };
-  const rtScene = new THREE.WebGLRenderTarget(2, 2, opts);
+  // MSAA on the scene target only; the bloom targets are quarter-res and blurred anyway.
+  const rtScene = new THREE.WebGLRenderTarget(2, 2, { ...opts, samples: 4 });
   const rtA = new THREE.WebGLRenderTarget(2, 2, opts);
   const rtB = new THREE.WebGLRenderTarget(2, 2, opts);
   const quad = (frag: string, uniforms: Record<string, THREE.IUniform>) => {
@@ -274,8 +275,8 @@ function BloomPipeline() {
       p.w = w;
       p.h = h;
       p.rtScene.setSize(w, h);
-      p.rtA.setSize(Math.floor(w / 2), Math.floor(h / 2));
-      p.rtB.setSize(Math.floor(w / 2), Math.floor(h / 2));
+      p.rtA.setSize(Math.floor(w / 4), Math.floor(h / 4));
+      p.rtB.setSize(Math.floor(w / 4), Math.floor(h / 4));
     }
     gl.setRenderTarget(p.rtScene);
     gl.clear();
@@ -284,14 +285,14 @@ function BloomPipeline() {
     gl.setRenderTarget(p.rtA);
     gl.clear();
     gl.render(p.bright.scene, p.ortho);
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 1; i++) {
       p.blur.m.uniforms.t.value = p.rtA.texture;
-      p.blur.m.uniforms.d.value.set(1.6 / p.rtA.width, 0);
+      p.blur.m.uniforms.d.value.set(1.2 / p.rtA.width, 0);
       gl.setRenderTarget(p.rtB);
       gl.clear();
       gl.render(p.blur.scene, p.ortho);
       p.blur.m.uniforms.t.value = p.rtB.texture;
-      p.blur.m.uniforms.d.value.set(0, 1.6 / p.rtA.height);
+      p.blur.m.uniforms.d.value.set(0, 1.2 / p.rtA.height);
       gl.setRenderTarget(p.rtA);
       gl.clear();
       gl.render(p.blur.scene, p.ortho);
@@ -313,8 +314,9 @@ export default function OrbObject() {
   useFrame(({ pointer }, delta) => {
     const g = root.current;
     if (!g) return;
-    t.current += delta * 60;
-    intro.current = Math.min(1, intro.current + delta / 2.0);
+    const dt = Math.min(delta, 1 / 30);
+    t.current += dt * 60;
+    intro.current = Math.min(1, intro.current + dt / 1.4);
     const e = 1 - Math.pow(1 - intro.current, 3);
     const tx = pointer.x * 0.15 + (1 - e) * 0.28;
     const ty = -pointer.y * 0.1 + (1 - e) * -0.08;

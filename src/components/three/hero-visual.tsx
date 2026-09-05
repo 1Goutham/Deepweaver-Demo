@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { Component, useState, useSyncExternalStore, type ReactNode } from "react";
+import { Component, useEffect, useState, useSyncExternalStore, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 const HeroScene = dynamic(() => import("./hero-scene"), { ssr: false });
@@ -36,6 +36,7 @@ function decide(): Mode {
 }
 function decideOnce(): Mode {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return "static";
+  if (window.innerWidth < 768) return "static";
   const nav = navigator as Navigator & { connection?: { saveData?: boolean }; deviceMemory?: number };
   if (nav.connection?.saveData) return "static";
   if ((nav.hardwareConcurrency ?? 8) <= 2) return "static";
@@ -60,7 +61,13 @@ export default function HeroVisual({ className }: { className?: string }) {
   const simplified = useSyncExternalStore(noop, isSimplified, () => false);
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
-  const live = mode === "3d" && !failed;
+  // The still is on screen first; the canvas mounts once the hero text has revealed.
+  const [armed, setArmed] = useState(false);
+  useEffect(() => {
+    const t = window.setTimeout(() => setArmed(true), 1100);
+    return () => window.clearTimeout(t);
+  }, []);
+  const live = mode === "3d" && armed && !failed;
 
   return (
     <div className={cn("relative aspect-square w-full", className)}>

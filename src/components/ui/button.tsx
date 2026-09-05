@@ -10,13 +10,16 @@ type Base = {
   size?: Size;
   children: ReactNode;
   className?: string;
+  /** Trailing arrow. Off automatically when a leading icon is given. */
   icon?: boolean;
+  /** Leading icon, e.g. a mail glyph. */
+  leading?: ReactNode;
 };
 type AsLink = Base & { href: string } & Omit<ComponentProps<typeof Link>, "href" | "className" | "children">;
 type AsButton = Base & { href?: undefined } & Omit<ComponentProps<"button">, "className" | "children">;
 
 const base =
-  "group inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full font-medium transition-[background-color,color,border-color,transform] duration-200 ease-out-expo focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber disabled:pointer-events-none disabled:opacity-50";
+  "group inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full font-medium transition-[background-color,color,border-color,transform] duration-200 ease-out-expo will-change-transform focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber disabled:pointer-events-none disabled:opacity-50";
 
 const sizes: Record<Size, string> = {
   sm: "h-10 px-5 text-[0.875rem]",
@@ -24,8 +27,6 @@ const sizes: Record<Size, string> = {
   lg: "h-14 px-8 text-base",
 };
 
-// Theme-aware: primary is fg-on-bg inversion, so it reads as white-on-navy
-// in dark sections and navy-on-canvas in light ones.
 const variants: Record<Variant, string> = {
   primary: "bg-blue text-white hover:-translate-y-px hover:bg-lavender",
   light: "bg-white text-ink hover:-translate-y-px hover:bg-ink hover:text-white",
@@ -52,14 +53,20 @@ function Arrow() {
 }
 
 export default function Button(props: AsLink | AsButton) {
-  const { variant = "primary", size = "md", className, children, icon = true, ...rest } = props;
-  const cls = cn(base, sizes[size], variants[variant], className);
+  const { variant = "primary", size = "md", className, children, icon = true, leading, ...rest } = props;
+  const cls = cn(base, sizes[size], variants[variant], leading && "pl-6", className);
+  const inner = (
+    <>
+      {leading && <span aria-hidden className="-ml-0.5 inline-flex size-[18px] items-center justify-center [&>svg]:size-full">{leading}</span>}
+      {children}
+      {icon && !leading && <Arrow />}
+    </>
+  );
   if ("href" in rest && rest.href) {
     const { href, ...linkRest } = rest as Omit<AsLink, keyof Base>;
     return (
       <Link href={href} className={cls} {...linkRest}>
-        {children}
-        {icon && <Arrow />}
+        {inner}
       </Link>
     );
   }
@@ -67,8 +74,7 @@ export default function Button(props: AsLink | AsButton) {
   void _href;
   return (
     <button className={cls} {...buttonRest}>
-      {children}
-      {icon && <Arrow />}
+      {inner}
     </button>
   );
 }

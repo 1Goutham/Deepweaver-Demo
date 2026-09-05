@@ -99,11 +99,11 @@ export default function Nav() {
     <header
       data-theme={dark ? "dark" : "light"}
       className={cn(
-        "fixed inset-x-0 top-0 z-50 text-fg transition-[background-color,border-color,backdrop-filter] duration-300",
+        "fixed inset-x-0 top-0 z-50 text-fg transition-[background-color,border-color] duration-300",
         scrolled || mega
           ? dark
-            ? "border-b border-white/10 bg-ink/85 backdrop-blur-md"
-            : "border-b border-ink/10 bg-canvas/85 backdrop-blur-md"
+            ? "border-b border-white/10 bg-ink/95"
+            : "border-b border-ink/10 bg-canvas/95"
           : "border-b border-transparent bg-transparent",
       )}
       onMouseLeave={closeMega}

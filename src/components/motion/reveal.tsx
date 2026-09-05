@@ -58,13 +58,13 @@ type RevealProps = {
 export default function Reveal({
   children,
   delay = 0,
-  y = 18,
-  duration = 0.7,
+  y = 14,
+  duration = 0.55,
   className,
   as = "div",
   id,
   once = true,
-  amount = 0.25,
+  amount = 0.15,
 }: RevealProps) {
   // Reduced motion is handled by <MotionConfig reducedMotion="user"> at the root:
   // branching on it here would desync server and client markup during hydration.
@@ -94,7 +94,7 @@ export default function Reveal({
     <MotionTag
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once, amount }}
+      viewport={{ once, amount, margin: "0px 0px -8% 0px" }}
       transition={{ duration, delay, ease: EASE }}
       className={className}
       id={id}

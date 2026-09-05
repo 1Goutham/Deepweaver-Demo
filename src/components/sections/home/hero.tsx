@@ -7,6 +7,7 @@ import HeroVisual from "@/components/three/hero-visual";
 import RevealText from "@/components/motion/reveal-text";
 import { EASE } from "@/components/motion/reveal";
 import { site } from "@/lib/site";
+import { CollaborateIcon, MailIcon } from "@/components/ui/icons";
 
 const rise = (delay: number) => ({
   initial: { opacity: 0, y: 14 },
@@ -39,19 +40,21 @@ export default function Hero() {
               Digital, Physical, Frontier and Sovereign AI for enterprise and government — governed end to end, and already in production.
             </motion.p>
             <motion.div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5" {...rise(0.9)}>
-              <Button href="/contact" size="lg">
-                Talk to us
+              <Button href="/contact" size="lg" leading={<CollaborateIcon />}>
+                Let&rsquo;s collaborate
               </Button>
-              <a href={`mailto:${site.email}`} className="group inline-flex items-center gap-2 text-[0.9375rem] font-medium text-white/85 transition-colors hover:text-white">
+              <a href={`mailto:${site.email}`} className="inline-flex items-center gap-2.5 text-[0.9375rem] font-medium text-white/85 transition-colors hover:text-white">
+                <span aria-hidden className="inline-flex size-[18px] items-center justify-center [&>svg]:size-full">
+                  <MailIcon />
+                </span>
                 {site.email}
-                <span aria-hidden className="inline-block transition-transform duration-300 ease-out-expo group-hover:translate-x-1">→</span>
               </a>
             </motion.div>
           </div>
 
           {/* Orb — right: a slow settle on entrance, then a slight depth drift on scroll */}
           <motion.div
-            className="col-span-12 lg:col-span-6"
+            className="col-span-12 will-change-transform lg:col-span-6"
             style={{ y: orbY, opacity: orbOpacity }}
             initial={{ opacity: 0, scale: 0.96, y: 12 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
