@@ -6,7 +6,6 @@ import Section from "@/components/ui/section";
 import SectionHeader from "@/components/ui/section-header";
 import Reveal from "@/components/motion/reveal";
 import Facts from "@/components/ui/facts";
-import PillarGlyph from "@/components/ui/pillar-glyph";
 import Cta from "@/components/sections/cta";
 import { pillars, pillarBySlug } from "@/content/pillars";
 import DigitalDeep from "@/components/sections/pillars/digital-deep";
@@ -58,11 +57,7 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
         lead={p.intro}
         aside={
           <div>
-            <div className="aspect-[4/3] overflow-hidden rounded-md bg-ink-deep">
-              <PillarGlyph pillar={p.slug} className="size-full" />
-            </div>
             <Facts
-              className="mt-6"
               items={[
                 ["Outcome", p.outcome],
                 ...(p.proof ? ([["Proof", `${p.proof.metric} ${p.proof.label}`]] as [string, string][]) : []),

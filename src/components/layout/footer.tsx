@@ -3,13 +3,6 @@ import Image from "next/image";
 import Logo from "./logo";
 import { footerNav, site } from "@/lib/site";
 
-const trust = [
-  { src: "/logos/iso-42001.png", alt: "ISO/IEC 42001 certified" },
-  { src: "/logos/nist-ai-rmf.png", alt: "NIST AI RMF" },
-  { src: "/logos/eu-ai-act.png", alt: "EU AI Act aligned" },
-  { src: "/logos/national-ai-centre.png", alt: "National AI Centre listed" },
-];
-
 export default function Footer() {
   return (
     <footer data-theme="deep" className="relative overflow-hidden bg-bg text-fg">
@@ -17,19 +10,13 @@ export default function Footer() {
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Logo variant="white" />
-            <p className="mt-6 max-w-[34ch] text-[0.9375rem] leading-relaxed text-fg-muted">
-              Two worlds, one stack, governed end to end and human-led — already in production with enterprise and government.
+            <p className="mt-6 max-w-[34ch] text-[0.9375rem] font-light leading-relaxed text-fg-muted">
+              Frontier and sovereign AI, across the physical and digital worlds.
             </p>
             <a href={`mailto:${site.email}`} className="link-wipe mt-6 inline-block text-[0.9375rem] font-medium text-fg">
               {site.email}
             </a>
-            <ul className="mt-8 flex flex-wrap items-center gap-4 opacity-80">
-              {trust.map((t) => (
-                <li key={t.src} className="rounded-xs bg-white p-1">
-                  <Image src={t.src} alt={t.alt} width={64} height={64} className="size-9 object-contain" />
-                </li>
-              ))}
-            </ul>
+            <p className="mt-8 text-xs text-fg-soft">ISO/IEC 42001 certified · NIST AI RMF · EU AI Act aligned · National AI Centre listed</p>
           </div>
 
           <nav aria-label="Footer" className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-6 lg:col-start-6">

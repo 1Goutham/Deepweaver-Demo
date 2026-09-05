@@ -68,11 +68,11 @@ export default function HeroVisual({ className }: { className?: string }) {
       <div
         aria-hidden
         className="absolute left-1/2 top-1/2 size-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-60 blur-3xl"
-        style={{ background: "radial-gradient(closest-side, rgba(22,109,234,0.35), rgba(97,81,194,0.18) 55%, transparent 75%)" }}
+        style={{ background: "radial-gradient(closest-side, rgba(22,109,234,0.28), rgba(97,81,194,0.14) 55%, transparent 75%)" }}
       />
       <Image
         src="/brand/hero-object.webp"
-        alt="The DeepWeaver mark as a dimensional object: the D split along its weave into four parts, bound by a thread of binary digits."
+        alt="The Woven Intelligence Seed: a seed-shaped sculpture of interlaced ribbons around a luminous core."
         width={1200}
         height={1200}
         priority

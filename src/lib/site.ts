@@ -23,10 +23,13 @@ export const pillarsNav: NavLink[] = [
   { label: "Sovereign AI", href: "/sovereign-ai", description: "Frontier capability inside national boundaries, with evidence." },
 ];
 
+export const practicesNav: NavLink[] = [
+  { label: "Services", href: "/services", description: "Five service lines, one owner for the outcome." },
+  { label: "AI Governance", href: "/ai-governance", description: "Governance run as a workflow, ISO/IEC 42001 certified." },
+  { label: "Factory Brain", href: "/factory-brain", description: "The orchestration layer between ERP and PLC." },
+];
+
 export const primaryNav: NavLink[] = [
-  { label: "Services", href: "/services" },
-  { label: "AI Governance", href: "/ai-governance" },
-  { label: "Factory Brain", href: "/factory-brain" },
   { label: "Work", href: "/work" },
   { label: "About", href: "/about" },
 ];

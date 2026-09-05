@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Logo from "./logo";
 import Button from "../ui/button";
-import { pillarsNav, primaryNav } from "@/lib/site";
+import { pillarsNav, practicesNav, primaryNav } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 type Theme = "light" | "dark";
@@ -121,7 +121,7 @@ export default function Nav() {
               onClick={() => setMega((v) => !v)}
               onFocus={openMega}
               className={cn(
-                "inline-flex h-10 items-center gap-1.5 rounded-full px-4 text-[0.9rem] font-medium transition-colors",
+                "inline-flex h-10 items-center gap-1.5 rounded-full px-3.5 text-[0.875rem] transition-colors",
                 isPillar ? "text-fg" : "text-fg-muted hover:text-fg",
               )}
             >
@@ -139,7 +139,7 @@ export default function Nav() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "inline-flex h-10 items-center rounded-full px-4 text-[0.9rem] font-medium transition-colors",
+                  "inline-flex h-10 items-center rounded-full px-3.5 text-[0.875rem] transition-colors",
                   active ? "text-fg" : "text-fg-muted hover:text-fg",
                 )}
               >
@@ -184,37 +184,38 @@ export default function Nav() {
             className={cn("hidden border-t lg:block", dark ? "border-white/10" : "border-ink/10")}
             onMouseEnter={openMega}
           >
-            <div className="mx-auto grid max-w-wide grid-cols-12 gap-8 px-5 py-10 sm:px-8 lg:px-12">
-              <div className="col-span-3 pr-8">
-                <p className="eyebrow">Four AI domains</p>
-                <p className="mt-4 text-display-xs font-display font-semibold text-fg">One stack, governed end to end.</p>
-                <p className="mt-3 text-sm text-fg-muted">
-                  Physical and digital worlds, joined by one convergence layer and one governance layer.
-                </p>
-                <Link href="/services" className="link-wipe mt-6 inline-block text-sm font-medium text-fg">
-                  Five service lines
-                </Link>
+            <div className="mx-auto grid max-w-wide grid-cols-12 gap-8 px-5 py-12 sm:px-8 lg:px-12">
+              <div className="col-span-3">
+                <p className="eyebrow">What we do</p>
+                <p className="mt-5 max-w-[24ch] font-display text-display-xs text-fg">Two worlds, one stack, governed as one.</p>
               </div>
-              <ul className="col-span-9 grid grid-cols-4 gap-2">
-                {pillarsNav.map((p, i) => (
-                  <li key={p.href}>
-                    <Link
-                      href={p.href}
-                      className={cn(
-                        "group flex h-full flex-col rounded-md border p-5 transition-colors",
-                        dark ? "border-white/10 hover:border-white/40 hover:bg-white/[0.04]" : "border-ink/10 hover:border-ink/40 hover:bg-ink/[0.03]",
-                      )}
-                    >
-                      <span className="font-display text-sm font-medium text-fg-soft">0{i + 1}</span>
-                      <span className="mt-6 text-display-xs font-display font-semibold text-fg">{p.label}</span>
-                      <span className="mt-2 text-[0.8125rem] leading-relaxed text-fg-muted">{p.description}</span>
-                      <span className="mt-auto pt-6 text-xs font-medium text-fg opacity-0 transition-opacity group-hover:opacity-100">
-                        Explore →
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <div className="col-span-5">
+                <p className="eyebrow">Four AI domains</p>
+                <ul className="mt-5 divide-y divide-line border-y border-line">
+                  {pillarsNav.map((p, i) => (
+                    <li key={p.href}>
+                      <Link href={p.href} className="group flex items-baseline gap-5 py-3.5">
+                        <span className="w-6 font-display text-xs text-fg-soft">0{i + 1}</span>
+                        <span className="font-display text-display-xs text-fg">{p.label}</span>
+                        <span className="ml-auto hidden max-w-[30ch] text-right text-[0.8125rem] text-fg-muted xl:block">{p.description}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="col-span-3 col-start-10">
+                <p className="eyebrow">Practices</p>
+                <ul className="mt-5 divide-y divide-line border-y border-line">
+                  {practicesNav.map((p) => (
+                    <li key={p.href}>
+                      <Link href={p.href} className="block py-3.5">
+                        <span className="font-display text-display-xs text-fg">{p.label}</span>
+                        <span className="mt-0.5 block text-[0.8125rem] text-fg-muted">{p.description}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </motion.div>
         )}
@@ -245,7 +246,7 @@ export default function Nav() {
                 ))}
               </ul>
               <ul className="mt-8 space-y-1">
-                {primaryNav.map((item) => (
+                {[...practicesNav, ...primaryNav].map((item) => (
                   <li key={item.href}>
                     <Link href={item.href} className="block py-2.5 text-lg font-medium text-white/85">
                       {item.label}
