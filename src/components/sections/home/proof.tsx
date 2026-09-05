@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Section from "@/components/ui/section";
 import Reveal from "@/components/motion/reveal";
+import { StaggerList, StaggerItem } from "@/components/motion/stagger";
 import CountUp from "@/components/motion/count-up";
 import { alliances } from "@/content/home";
 
@@ -24,18 +25,18 @@ export default function Proof() {
               See the work
             </Link>
           </Reveal>
-          <Reveal delay={0.1} className="col-span-12 lg:col-span-6 lg:col-start-7">
-            <dl className="divide-y divide-line border-y border-line">
+          <div className="col-span-12 lg:col-span-6 lg:col-start-7">
+            <StaggerList as="dl" className="divide-y divide-line border-y border-line">
               {numbers.map((n) => (
-                <div key={n.label} className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] items-baseline gap-6 py-7">
+                <StaggerItem key={n.label} className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] items-baseline gap-6 py-7">
                   <dt className="order-2 max-w-[28ch] text-[0.9375rem] leading-relaxed text-fg-muted">{n.label}</dt>
                   <dd className="order-1 font-display text-display-lg tabular-nums text-fg">
                     <CountUp to={n.value} prefix={n.prefix} suffix={n.suffix} decimals={n.decimals} />
                   </dd>
-                </div>
+                </StaggerItem>
               ))}
-            </dl>
-          </Reveal>
+            </StaggerList>
+          </div>
         </div>
 
         <Reveal delay={0.14} className="mt-24 lg:mt-32">

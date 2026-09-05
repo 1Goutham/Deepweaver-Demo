@@ -58,13 +58,13 @@ type RevealProps = {
 export default function Reveal({
   children,
   delay = 0,
-  y = 22,
-  duration = 0.65,
+  y = 18,
+  duration = 0.7,
   className,
   as = "div",
   id,
   once = true,
-  amount = 0.2,
+  amount = 0.25,
 }: RevealProps) {
   // Reduced motion is handled by <MotionConfig reducedMotion="user"> at the root:
   // branching on it here would desync server and client markup during hydration.

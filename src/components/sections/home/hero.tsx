@@ -1,47 +1,61 @@
 "use client";
 
-import Link from "next/link";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Button from "@/components/ui/button";
 import HeroVisual from "@/components/three/hero-visual";
+import RevealText from "@/components/motion/reveal-text";
 import { EASE } from "@/components/motion/reveal";
+import { site } from "@/lib/site";
 
-const stagger = (i: number) => ({ duration: 0.9, delay: 0.15 + i * 0.1, ease: EASE });
-const anim = (i: number) => ({ initial: { opacity: 0, y: 14 }, animate: { opacity: 1, y: 0 }, transition: stagger(i) });
+const rise = (delay: number) => ({
+  initial: { opacity: 0, y: 14 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, delay, ease: EASE },
+});
 
 export default function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  // Depth: the orb drifts at a fraction of scroll speed while the hero leaves the viewport.
+  const { scrollY } = useScroll();
+  const orbY = useTransform(scrollY, [0, 900], [0, 90]);
+  const orbOpacity = useTransform(scrollY, [0, 700], [1, 0.4]);
+
   return (
-    <section id="hero" data-theme="dark" className="bg-hero relative overflow-hidden text-white">
+    <section id="hero" ref={ref} data-theme="dark" className="bg-hero relative overflow-hidden text-white">
       <div className="relative mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
         <div className="grid-12 items-center gap-y-14 pb-20 pt-[120px] sm:pt-[136px] lg:min-h-[min(100svh,900px)] lg:pb-[96px] lg:pt-[136px]">
           {/* Copy — left */}
           <div className="col-span-12 lg:col-span-6 lg:pr-6">
-            <motion.p className="eyebrow" {...anim(0)}>
+            <motion.p className="eyebrow" {...rise(0.1)}>
               AI-native services · Australia · India
             </motion.p>
-            <motion.h1 className="mt-9 max-w-[13ch] text-hero" {...anim(1)}>
-              Frontier and sovereign AI, <span className="text-white/60">across the physical and digital worlds.</span>
-            </motion.h1>
-            <motion.p className="mt-8 max-w-[40ch] text-lead font-light text-white/72" {...anim(2)}>
+            <RevealText
+              text="Frontier and sovereign AI, across the physical and digital worlds."
+              muted={4}
+              className="mt-9 max-w-[13ch] text-hero"
+            />
+            <motion.p className="mt-8 max-w-[40ch] text-lead font-light text-white/72" {...rise(0.75)}>
               Digital, Physical, Frontier and Sovereign AI for enterprise and government — governed end to end, and already in production.
             </motion.p>
-            <motion.div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5" {...anim(3)}>
+            <motion.div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5" {...rise(0.9)}>
               <Button href="/contact" size="lg">
                 Talk to us
               </Button>
-              <Link href="#domains" className="group inline-flex items-center gap-2 text-[0.9375rem] font-medium text-white/85 transition-colors hover:text-white">
-                The four AI domains
+              <a href={`mailto:${site.email}`} className="group inline-flex items-center gap-2 text-[0.9375rem] font-medium text-white/85 transition-colors hover:text-white">
+                {site.email}
                 <span aria-hidden className="inline-block transition-transform duration-300 ease-out-expo group-hover:translate-x-1">→</span>
-              </Link>
+              </a>
             </motion.div>
           </div>
 
-          {/* Orb — right */}
+          {/* Orb — right: a slow settle on entrance, then a slight depth drift on scroll */}
           <motion.div
             className="col-span-12 lg:col-span-6"
-            initial={{ opacity: 0, scale: 0.94 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.4, delay: 0.25, ease: EASE }}
+            style={{ y: orbY, opacity: orbOpacity }}
+            initial={{ opacity: 0, scale: 0.96, y: 12 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 1.6, delay: 0.3, ease: EASE }}
           >
             <HeroVisual className="mx-auto w-full max-w-[380px] sm:max-w-[460px] lg:max-w-[540px] xl:max-w-[580px]" />
           </motion.div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Section from "@/components/ui/section";
 import Reveal from "@/components/motion/reveal";
+import { StaggerList, StaggerItem } from "@/components/motion/stagger";
 import { pillars } from "@/content/pillars";
 import { cn } from "@/lib/utils";
 
@@ -28,12 +29,12 @@ export default function Domains() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.12} className="mt-20 lg:mt-28">
-          <ol className="border-t border-line" onMouseLeave={() => setHover(null)}>
+        <div className="mt-20 lg:mt-28" onMouseLeave={() => setHover(null)}>
+          <StaggerList as="ol" className="border-t border-line">
             {pillars.map((p) => {
               const dim = hover !== null && hover !== p.slug;
               return (
-                <li key={p.slug} className="border-b border-line">
+                <StaggerItem as="li" key={p.slug} className="border-b border-line">
                   <Link
                     href={`/${p.slug}`}
                     onMouseEnter={() => setHover(p.slug)}
@@ -57,11 +58,11 @@ export default function Domains() {
                       →
                     </span>
                   </Link>
-                </li>
+                </StaggerItem>
               );
             })}
-          </ol>
-        </Reveal>
+          </StaggerList>
+        </div>
       </div>
     </Section>
   );

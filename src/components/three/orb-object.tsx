@@ -309,14 +309,18 @@ function BloomPipeline() {
 export default function OrbObject() {
   const root = useRef<THREE.Group>(null);
   const t = useRef(0);
+  const intro = useRef(0); // 0 → 1 over the first ~2s, eased; the orb settles into place
   useFrame(({ pointer }, delta) => {
     const g = root.current;
     if (!g) return;
     t.current += delta * 60;
-    const tx = pointer.x * 0.15;
-    const ty = -pointer.y * 0.1;
+    intro.current = Math.min(1, intro.current + delta / 2.0);
+    const e = 1 - Math.pow(1 - intro.current, 3);
+    const tx = pointer.x * 0.15 + (1 - e) * 0.28;
+    const ty = -pointer.y * 0.1 + (1 - e) * -0.08;
     g.rotation.y += (tx - g.rotation.y) * 0.05;
     g.rotation.x += (ty - g.rotation.x) * 0.05;
+    g.scale.setScalar(0.74 * (0.97 + 0.03 * e));
     g.position.y = Math.sin(t.current * 0.009) * 0.05;
   });
   return (

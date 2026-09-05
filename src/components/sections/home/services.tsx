@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Section from "@/components/ui/section";
 import Reveal from "@/components/motion/reveal";
+import { StaggerList, StaggerItem } from "@/components/motion/stagger";
 import { serviceLines } from "@/content/home";
 
 /** Five service lines, as a numbered editorial list on the same two edges. */
@@ -23,10 +24,10 @@ export default function Services() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.12} className="mt-20 lg:mt-28">
-          <ol className="border-t border-line">
+        <div className="mt-20 lg:mt-28">
+          <StaggerList as="ol" className="border-t border-line">
             {serviceLines.map((s) => (
-              <li key={s.index} className="border-b border-line">
+              <StaggerItem as="li" key={s.index} className="border-b border-line">
                 <Link href={s.href} className="group grid-12 items-baseline py-7 md:py-8">
                   <span className="col-span-12 flex items-baseline gap-5 lg:col-span-6">
                     <span className="w-6 font-display text-sm text-accent">{s.index}</span>
@@ -36,10 +37,10 @@ export default function Services() {
                     {s.kicker} — {s.outcome.charAt(0).toLowerCase() + s.outcome.slice(1)}.
                   </span>
                 </Link>
-              </li>
+              </StaggerItem>
             ))}
-          </ol>
-        </Reveal>
+          </StaggerList>
+        </div>
       </div>
     </Section>
   );
