@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DeepWeaver — website
 
-## Getting Started
+Production site for [deepweaver.ai](https://deepweaver.ai): AI-native services across Australia and India — Digital, Physical, Frontier and Sovereign AI.
 
-First, run the development server:
+Built with Next.js 16 (App Router, TypeScript), Tailwind CSS v4, Framer Motion, Lenis and React Three Fiber.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # every route is prerendered as static HTML
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where things live
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Path | What |
+|---|---|
+| `src/app` | Routes, per-route metadata, `sitemap.ts`, `robots.ts`, `not-found.tsx` |
+| `src/components/layout` | Theme-aware `Nav` (four-domain mega menu, mobile overlay), `Footer`, `Logo` |
+| `src/components/ui` | Primitives: `Section`, `Button`, `Eyebrow`, `SectionHeader`, `Stat`, `Tag`, `Disclosure`, `Facts`, `PillarGlyph` |
+| `src/components/sections` | Composed page sections (`home/`, `pillars/`, `page-hero`, `cta`, `case-studies`, `contact-form`) |
+| `src/components/three` | Hero object: `weave-object` (extruded mark + binary thread), `hero-scene`, `hero-visual` (fallback, gating, error boundary), `mark-shapes.json` (geometry traced from the supplied logo) |
+| `src/components/motion` | `Reveal`, `CountUp`, `LenisProvider`, `Magnetic` |
+| `src/content` | Typed content modules — pillars, services, governance, sovereign, factory, work, about |
+| `public/brand` | Supplied DeepWeaver assets: lockups, mark, deck forms, hero still |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Conventions
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Every section declares `data-theme="light" | "dark" | "deep"`. Components use the semantic tokens (`bg-bg`, `text-fg`, `text-fg-muted`, `border-line`, `bg-surface`) so one component works on navy and on canvas. The nav watches the section beneath it and switches logo and colours.
+- Semantic tokens are declared in `@theme inline` so per-section overrides cascade.
+- Motion honours `prefers-reduced-motion`. The 3D hero is loaded on demand, capped at 1.75 dpr, paused when off-screen, and falls back to a still for reduced-motion, low-tier or WebGL-less devices — and on any runtime error.
+- The contact form composes an email to contact@deepweaver.ai; wire a route handler when a CRM is chosen.

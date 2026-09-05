@@ -32,7 +32,7 @@ const BRAND = {
   blue: new THREE.Color("#3f7cf5"),
   lavender: new THREE.Color("#6151c2"),
   violet: new THREE.Color("#a792fd"),
-  side: new THREE.Color("#9db0f2"),
+  side: new THREE.Color("#b3c1f5"),
 };
 
 /** Paint the front/back faces with the deck's diagonal gradient (sky → violet). */
@@ -73,10 +73,10 @@ function Piece({ polys, depth, z, from, to, offset = [0, 0], floatSeed, floatAmp
     const g = new THREE.ExtrudeGeometry(shape, {
       depth,
       bevelEnabled: true,
-      bevelThickness: 0.045,
-      bevelSize: 0.04,
-      bevelSegments: 6,
-      curveSegments: 16,
+      bevelThickness: 0.05,
+      bevelSize: 0.055,
+      bevelSegments: 9,
+      curveSegments: 18,
     });
     g.translate(0, 0, -depth / 2);
     applyGradient(g, from, to);
@@ -102,11 +102,11 @@ function Piece({ polys, depth, z, from, to, offset = [0, 0], floatSeed, floatAmp
       new THREE.MeshPhysicalMaterial({
         vertexColors: true,
         color: BRAND.side,
-        roughness: 0.5,
+        roughness: 0.62,
         metalness: 0.0,
-        clearcoat: 0.45,
-        clearcoatRoughness: 0.4,
-        envMapIntensity: 0.7,
+        clearcoat: 0.25,
+        clearcoatRoughness: 0.55,
+        envMapIntensity: 0.55,
       }),
     [],
   );
@@ -251,7 +251,7 @@ export default function WeaveObject({ simplified = false }: { simplified?: boole
       <Piece polys={S.capsule} depth={0.2} z={0.22} from={BRAND.sky} to={BRAND.lavender} floatSeed={4.2} floatAmp={0.05} />
       {/* 03 Frontier — stub */}
       <Piece polys={S.stub} depth={0.18} z={0.34} from={BRAND.violet} to={BRAND.lavender} floatSeed={1.3} floatAmp={0.06} />
-      {!simplified && <BinaryThread count={260} />}
+      <BinaryThread count={simplified ? 140 : 260} />
     </group>
   );
 }
