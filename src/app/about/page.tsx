@@ -28,7 +28,7 @@ export default function AboutPage() {
       <Section theme="light" pad="lg">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <div className="grid-12 gap-y-12">
-            <Reveal className="lg:col-span-5">
+            <Reveal className="col-span-12 lg:col-span-5">
               <p className="eyebrow">Vision</p>
               <p className="mt-5 text-display-md font-display">{vision}</p>
               <p className="eyebrow mt-12">Mission</p>
@@ -40,7 +40,7 @@ export default function AboutPage() {
                 ))}
               </ul>
             </Reveal>
-            <div className="grid gap-12 sm:grid-cols-2 lg:col-span-6 lg:col-start-7">
+            <div className="col-span-12 grid gap-12 sm:grid-cols-2 lg:col-span-6 lg:col-start-7">
               <Reveal delay={0.08}>
                 <p className="eyebrow">How we show up</p>
                 <ul className="mt-5 space-y-2.5 text-[0.9375rem]">

@@ -77,7 +77,7 @@ export default function Layers() {
         <Reveal delay={0.1} className="mt-14 md:mt-20">
           <div className="grid gap-px border-y border-line bg-line lg:grid-cols-12">
             {/* Main stack */}
-            <div className="bg-bg p-6 sm:p-8 lg:col-span-9 lg:p-10">
+            <div className="col-span-12 bg-bg p-6 sm:p-8 lg:col-span-9 lg:p-10">
               <Band label="User layer" items={["Chat", "Enterprise apps", "Dashboards", "Voice", "Devices", "Field operations"]} className="border-t-0 pt-0" />
 
               <div className="mt-8 grid gap-10 md:grid-cols-[1fr_auto_1fr] md:gap-8">
@@ -104,7 +104,7 @@ export default function Layers() {
             </div>
 
             {/* Governance rail */}
-            <aside className="rail-amber bg-surface-2 p-6 sm:p-8 lg:col-span-3 lg:p-8">
+            <aside className="col-span-12 rail-amber bg-surface-2 p-6 sm:p-8 lg:col-span-3 lg:p-8">
               <p className="eyebrow text-amber">AI governance layer</p>
               <ul className="mt-5 space-y-3">
                 {governance.map((pair) => (

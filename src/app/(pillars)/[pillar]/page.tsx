@@ -70,10 +70,10 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
       <Section theme="light" pad="lg">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <div className="grid-12 gap-y-12">
-            <div className="lg:col-span-5">
+            <div className="col-span-12 lg:col-span-5">
               <SectionHeader eyebrow="What it means" title={defTitle} lead={defLead} size="md" as="h2" />
             </div>
-            <Reveal className="lg:col-span-6 lg:col-start-7" delay={0.1}>
+            <Reveal className="col-span-12 lg:col-span-6 lg:col-start-7" delay={0.1}>
               <p className="eyebrow mb-2">Capabilities</p>
               <ol className="divide-y divide-line border-y border-line">
                 {p.capabilities.map((c, i) => (
@@ -94,7 +94,7 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
       <Section theme="dark" pad="md">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <div className="grid-12 gap-y-12">
-            <div className="lg:col-span-5">
+            <div className="col-span-12 lg:col-span-5">
               <SectionHeader eyebrow="Applications" title="Where it is already running." />
               <div className="rail-amber mt-10 pl-5">
                 <p className="eyebrow text-amber">Outcome</p>
@@ -102,7 +102,7 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
                 <p className="mt-2 text-sm text-fg-muted">{p.outcomeDetail}</p>
               </div>
             </div>
-            <Reveal className="lg:col-span-6 lg:col-start-7" delay={0.1}>
+            <Reveal className="col-span-12 lg:col-span-6 lg:col-start-7" delay={0.1}>
               <ul className="divide-y divide-line border-y border-line">
                 {p.applications.map((a) => (
                   <li key={a} className="flex items-baseline gap-4 py-4 text-[0.9375rem]">

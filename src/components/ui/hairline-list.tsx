@@ -23,15 +23,15 @@ export function HairlineRow({
 }) {
   return (
     <li className={cn("grid gap-4 py-8 md:grid-cols-12 md:gap-8 md:py-10", className)}>
-      <div className="flex items-baseline gap-4 md:col-span-4">
+      <div className="col-span-12 flex items-baseline gap-4 md:col-span-4">
         {index && <span className="font-display text-sm font-medium tabular-nums text-fg-soft">{index}</span>}
         <div>
           <h3 className="text-display-xs text-fg">{title}</h3>
           {kicker && <p className="mt-1 text-sm text-fg-muted">{kicker}</p>}
         </div>
       </div>
-      <div className="text-[0.9375rem] leading-relaxed text-fg-muted md:col-span-5">{children}</div>
-      {aside && <div className="md:col-span-3">{aside}</div>}
+      <div className="col-span-12 text-[0.9375rem] leading-relaxed text-fg-muted md:col-span-5">{children}</div>
+      {aside && <div className="col-span-12 md:col-span-3">{aside}</div>}
     </li>
   );
 }

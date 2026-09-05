@@ -7,7 +7,7 @@ export default function Footer() {
     <footer data-theme="deep" className="relative bg-bg text-fg">
       <div className="mx-auto max-w-wide px-5 pb-10 pt-20 sm:px-8 lg:px-12 lg:pt-28">
         <div className="grid-12 gap-y-12">
-          <div className="lg:col-span-4">
+          <div className="col-span-12 lg:col-span-4">
             <Logo variant="white" />
             <p className="mt-6 max-w-[34ch] text-[0.9375rem] font-light leading-relaxed text-fg-muted">
               Frontier and sovereign AI, across the physical and digital worlds.
@@ -18,7 +18,7 @@ export default function Footer() {
             <p className="mt-8 text-xs text-fg-soft">ISO/IEC 42001 certified · NIST AI RMF · EU AI Act aligned · National AI Centre listed</p>
           </div>
 
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-6 lg:col-start-7">
+          <nav aria-label="Footer" className="col-span-12 grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-6 lg:col-start-7">
             {Object.entries(footerNav).map(([group, links]) => (
               <div key={group}>
                 <p className="eyebrow">{group}</p>

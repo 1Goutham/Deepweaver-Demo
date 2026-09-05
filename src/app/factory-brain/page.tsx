@@ -27,7 +27,7 @@ export default function FactoryBrainPage() {
       <Section theme="light" pad="lg">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <div className="grid-12 gap-y-12">
-            <Reveal className="lg:col-span-6">
+            <Reveal className="col-span-12 lg:col-span-6">
               <p className="eyebrow mb-5">Where it sits</p>
               <ol className="space-y-2">
                 {factoryStack.map((l, i) => (
@@ -50,7 +50,7 @@ export default function FactoryBrainPage() {
                 ))}
               </ol>
             </Reveal>
-            <div className="lg:col-span-6 lg:col-start-7">
+            <div className="col-span-12 lg:col-span-6 lg:col-start-7">
               <SectionHeader eyebrow="Who needs a Factory Brain" title="If any of these sound familiar." />
               <Reveal className="mt-10" delay={0.1}>
                 <ul className="divide-y divide-line border-y border-line">
@@ -94,7 +94,7 @@ export default function FactoryBrainPage() {
       <Section theme="light" pad="lg">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <div className="grid-12 gap-y-12">
-            <Reveal className="lg:col-span-7">
+            <Reveal className="col-span-12 lg:col-span-7">
               <p className="eyebrow mb-6">Typical measurable outcomes</p>
               <dl className="grid gap-8 sm:grid-cols-2">
                 {factoryOutcomes.map((o) => (
@@ -106,7 +106,7 @@ export default function FactoryBrainPage() {
                 ))}
               </dl>
             </Reveal>
-            <Reveal className="lg:col-span-5 lg:col-start-8" delay={0.1}>
+            <Reveal className="col-span-12 lg:col-span-5 lg:col-start-8" delay={0.1}>
               <p className="eyebrow mb-6">Deployment posture</p>
               <ol className="divide-y divide-line border-y border-line">
                 {deployment.map((d) => (

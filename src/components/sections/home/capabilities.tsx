@@ -17,7 +17,7 @@ export default function Capabilities() {
     <Section theme="light" pad="lg" id="capabilities">
       <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
         <div className="grid-12 gap-y-10">
-          <div className="lg:col-span-4">
+          <div className="col-span-12 lg:col-span-4">
             <SectionHeader
               eyebrow="What we build"
               title="Eight capabilities, each measured by what it delivers."
@@ -27,7 +27,7 @@ export default function Capabilities() {
               See the five service lines
             </Link>
           </div>
-          <Reveal className="lg:col-span-8" delay={0.1}>
+          <Reveal className="col-span-12 lg:col-span-8" delay={0.1}>
             <ol className="grid border-t border-line sm:grid-cols-2">
               {capabilities.map((c, i) => (
                 <li

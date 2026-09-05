@@ -35,7 +35,7 @@ export default function ServicesPage() {
           <ol className="divide-y divide-line border-b border-line">
             {serviceLines.map((s, i) => (
               <Reveal as="li" key={s.index} delay={0.05 * i} className="grid-12 gap-y-4 py-8 md:py-10">
-                <div className="flex items-baseline gap-4 md:col-span-6">
+                <div className="col-span-12 flex items-baseline gap-4 md:col-span-6">
                   <span className="font-display text-sm text-fg-soft">{s.index}</span>
                   <div>
                     <h2 className="text-display-sm">
@@ -46,7 +46,7 @@ export default function ServicesPage() {
                     <p className="mt-1 text-sm text-fg-muted">{s.kicker}</p>
                   </div>
                 </div>
-                <ul className="grid gap-y-1.5 text-[0.9375rem] md:col-span-3">
+                <ul className="col-span-12 grid gap-y-1.5 text-[0.9375rem] md:col-span-3">
                   {s.solutions.map((x) => (
                     <li key={x} className="flex gap-2.5">
                       <span aria-hidden className="mt-[0.65em] h-px w-3 shrink-0 bg-fg-soft" />
@@ -54,7 +54,7 @@ export default function ServicesPage() {
                     </li>
                   ))}
                 </ul>
-                <p className="text-[0.9375rem] leading-relaxed text-fg-muted md:col-span-3">{s.outcome}</p>
+                <p className="col-span-12 text-[0.9375rem] leading-relaxed text-fg-muted md:col-span-3">{s.outcome}</p>
               </Reveal>
             ))}
           </ol>

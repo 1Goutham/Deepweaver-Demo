@@ -7,43 +7,55 @@ import HeroVisual from "@/components/three/hero-visual";
 import { EASE } from "@/components/motion/reveal";
 
 const stagger = (i: number) => ({ duration: 0.9, delay: 0.15 + i * 0.1, ease: EASE });
+const anim = (i: number) => ({ initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 }, transition: stagger(i) });
 
 export default function Hero() {
-  const anim = (i: number) => ({ initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 }, transition: stagger(i) });
-
   return (
     <section id="hero" data-theme="dark" className="relative overflow-hidden bg-ink text-white">
-      <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
-        <div className="grid-12 min-h-[100svh] items-center pb-16 pt-[112px] lg:pb-10 lg:pt-[128px]">
-          {/* Content — left */}
+      {/* Depth: the same two radial glows the illustration was designed against. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(56rem 56rem at 76% 52%, rgba(64,80,220,0.22), transparent 62%), radial-gradient(56rem 38rem at 8% 0%, rgba(40,52,150,0.2), transparent 60%)",
+        }}
+      />
+      <div className="relative mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="grid-12 items-center gap-y-14 pb-20 pt-[112px] sm:pt-[128px] lg:min-h-[min(100svh,960px)] lg:pb-[96px] lg:pt-[132px]">
+          {/* Copy — left */}
           <div className="col-span-12 lg:col-span-6">
-            <motion.p className="eyebrow text-violet" {...anim(0)}>
-              AI-native services · ISO/IEC 42001 certified · Australia · India
+            <motion.p className="eyebrow flex items-center gap-3 text-violet" {...anim(0)}>
+              <span aria-hidden className="inline-block h-px w-7 bg-violet" />
+              <span>
+                AI-native services<span className="hidden xl:inline"> · ISO/IEC 42001 certified</span> · Australia · India
+              </span>
             </motion.p>
-            <motion.h1 className="mt-7 max-w-[13ch] text-display-xl text-white" {...anim(1)}>
-              Frontier and sovereign AI, across the physical and digital worlds.
+            <motion.h1 className="mt-8 max-w-[12ch] text-hero" {...anim(1)}>
+              Frontier and sovereign AI, <span className="text-white/55">across the physical and digital worlds.</span>
             </motion.h1>
-            <motion.p className="mt-8 max-w-[40ch] text-lead font-light text-white/68" {...anim(2)}>
+            <motion.p className="mt-8 max-w-[38ch] text-lead font-light text-white/72 sm:mt-10" {...anim(2)}>
               Digital, Physical, Frontier and Sovereign AI for enterprise and government — governed end to end, and already in production.
             </motion.p>
-            <motion.div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4" {...anim(3)}>
+            <motion.div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5 sm:mt-12" {...anim(3)}>
               <Button href="/contact" size="lg">
                 Talk to us
               </Button>
-              <Link href="#domains" className="link-wipe text-[0.9375rem] font-medium text-white/85">
+              <Link href="#domains" className="group inline-flex items-center gap-2 text-[0.9375rem] font-medium text-white/85 transition-colors hover:text-white">
                 The four AI domains
+                <span aria-hidden className="inline-block transition-transform duration-300 ease-out-expo group-hover:translate-x-1">→</span>
               </Link>
             </motion.div>
           </div>
 
-          {/* Sculpture — right, bleeds past the column on large screens */}
+          {/* Orb — right, centred in its column */}
           <motion.div
-            className="col-span-12 mt-12 lg:col-span-6 lg:mt-0"
+            className="col-span-12 lg:col-span-6"
             initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.4, delay: 0.25, ease: EASE }}
           >
-            <HeroVisual className="mx-auto max-w-[440px] lg:ml-auto lg:mr-0 lg:max-w-[560px]" />
+            <HeroVisual className="mx-auto w-full max-w-[400px] sm:max-w-[480px] lg:max-w-[560px] xl:max-w-[620px]" />
           </motion.div>
         </div>
       </div>

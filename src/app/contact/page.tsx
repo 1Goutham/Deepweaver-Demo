@@ -18,10 +18,10 @@ export default function ContactPage() {
       <Section theme="light" pad="lg">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <div className="grid-12 gap-y-14">
-            <Reveal className="lg:col-span-7">
+            <Reveal className="col-span-12 lg:col-span-7">
               <ContactForm />
             </Reveal>
-            <Reveal className="lg:col-span-5 lg:col-start-8" delay={0.1}>
+            <Reveal className="col-span-12 lg:col-span-5 lg:col-start-8" delay={0.1}>
               <p className="eyebrow">Email</p>
               <a href={`mailto:${site.email}`} className="link-wipe mt-3 inline-block font-display text-display-xs">
                 {site.email}

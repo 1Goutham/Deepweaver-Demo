@@ -50,14 +50,14 @@ export default function FrontierDeep() {
       <Section theme="dark" pad="lg" id="fde">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <div className="grid-12 gap-y-12">
-            <div className="lg:col-span-5">
+            <div className="col-span-12 lg:col-span-5">
               <SectionHeader eyebrow="Forward-deployed engineering" title="Pilots into production, with an owner." lead={fde.intro} />
               <p className="mt-8 rail-amber pl-5 text-display-xs font-display">{fde.sameProblem}</p>
               <Link href="/services#fde" className="link-wipe mt-8 inline-block text-sm font-medium">
                 The FDE service line
               </Link>
             </div>
-            <Reveal className="lg:col-span-6 lg:col-start-7" delay={0.1}>
+            <Reveal className="col-span-12 lg:col-span-6 lg:col-start-7" delay={0.1}>
               <p className="eyebrow">Five disciplines</p>
               <ol className="mt-4 divide-y divide-line border-y border-line">
                 {fde.disciplines.map((d, i) => (
