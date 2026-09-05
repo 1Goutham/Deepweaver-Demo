@@ -8,21 +8,21 @@ import { pillars } from "@/content/pillars";
 import { cn } from "@/lib/utils";
 
 /**
- * The four AI domains as an editorial index: number, name, one line.
- * No cards, no icons. The row is the visual.
+ * The four AI domains as an editorial index. Names sit on edge 1 with the
+ * index number above them; descriptions sit on edge 2. No cards, no icons.
  */
 export default function Domains() {
   const [hover, setHover] = useState<string | null>(null);
   return (
-    <Section id="domains" theme="dark" pad="none" className="section-pad">
+    <Section id="domains" theme="dark">
       <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
-        <div className="grid-12">
-          <Reveal className="col-span-12 lg:col-span-4">
+        <div className="grid-12 gap-y-10">
+          <Reveal className="col-span-12 lg:col-span-6">
             <p className="eyebrow">Four AI domains</p>
-            <h2 className="mt-6 text-display-md text-fg">One stack. Four domains. Governed as one.</h2>
+            <h2 className="mt-8 max-w-[14ch] text-display-md text-fg">One stack. Four domains. Governed as one.</h2>
           </Reveal>
-          <Reveal delay={0.08} className="col-span-12 lg:col-span-5 lg:col-start-8 lg:pt-12">
-            <p className="text-lead font-light text-fg-muted">
+          <Reveal delay={0.08} className="col-span-12 lg:col-span-5 lg:col-start-7 lg:self-end">
+            <p className="max-w-[44ch] text-lead font-light text-fg-muted">
               Not four services — four parts of one system, sharing a convergence layer and a governance layer.
             </p>
           </Reveal>
@@ -39,18 +39,20 @@ export default function Domains() {
                     onMouseEnter={() => setHover(p.slug)}
                     onFocus={() => setHover(p.slug)}
                     className={cn(
-                      "group grid-12 items-baseline py-8 transition-opacity duration-500 ease-out-expo md:py-10 lg:py-12",
+                      "group grid-12 items-end py-9 transition-opacity duration-500 ease-out-expo md:py-12",
                       dim ? "opacity-40" : "opacity-100",
                     )}
                   >
-                    <span className="col-span-2 font-display text-sm text-fg-soft md:col-span-1">{p.index}</span>
-                    <span className="col-span-10 text-display-lg text-fg md:col-span-5">{p.name}</span>
-                    <span className="col-span-10 col-start-3 mt-3 max-w-[36ch] text-[0.9375rem] leading-relaxed text-fg-muted md:col-span-5 md:col-start-7 md:mt-0 md:text-base">
+                    <span className="col-span-12 lg:col-span-6">
+                      <span className="block font-display text-sm text-fg-soft">{p.index}</span>
+                      <span className="mt-3 block text-display-lg text-fg">{p.name}</span>
+                    </span>
+                    <span className="col-span-11 mt-4 max-w-[40ch] text-[0.9375rem] leading-relaxed text-fg-muted lg:col-span-5 lg:col-start-7 lg:mt-0 lg:pb-2 lg:text-base">
                       {p.short}
                     </span>
                     <span
                       aria-hidden
-                      className="col-span-1 col-start-12 hidden justify-self-end text-fg opacity-0 transition-[opacity,transform] duration-500 ease-out-expo group-hover:translate-x-1 group-hover:opacity-100 md:block"
+                      className="col-span-1 col-start-12 hidden justify-self-end pb-2 text-fg opacity-0 transition-[opacity,transform] duration-500 ease-out-expo group-hover:translate-x-1 group-hover:opacity-100 lg:block"
                     >
                       →
                     </span>

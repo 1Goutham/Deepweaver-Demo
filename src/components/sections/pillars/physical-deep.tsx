@@ -20,11 +20,11 @@ export default function PhysicalDeep() {
     <>
       <Section theme="light" pad="lg" id="hearsight">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
-          <div className="grid gap-12 lg:grid-cols-12">
+          <div className="grid-12 gap-y-12">
             <div className="lg:col-span-5">
               <SectionHeader eyebrow="Flagship · Physical AI in production" title={hs.client} lead={hs.kicker} />
               {hs.image && (
-                <div className="mt-10 overflow-hidden rounded-md bg-ink p-8">
+                <div className="mt-10 overflow-hidden bg-ink p-8">
                   <Image src={hs.image.src} alt={hs.image.alt} width={hs.image.w} height={hs.image.h} className="mx-auto w-full max-w-[360px]" />
                 </div>
               )}
@@ -41,7 +41,7 @@ export default function PhysicalDeep() {
               </ul>
               <div className="rail-amber mt-8 pl-5">
                 <p className="eyebrow text-amber">Why it matters</p>
-                <p className="mt-3 text-display-xs font-display font-semibold">Frontier-grade perception, running inside a pair of glasses.</p>
+                <p className="mt-3 text-display-xs font-display font-medium">Frontier-grade perception, running inside a pair of glasses.</p>
                 <p className="mt-3 text-[0.9375rem] leading-relaxed text-fg-muted">
                   Shipping AI into hardware forces discipline that cloud-only teams never build: model compression, latency budgets, thermal limits, offline reliability and safety with no fallback. That discipline is what we bring back into enterprise work.
                 </p>
@@ -58,7 +58,7 @@ export default function PhysicalDeep() {
 
       <Section theme="dark" pad="md">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
+          <div className="grid-12 gap-y-10 lg:items-end">
             <div className="lg:col-span-7">
               <SectionHeader eyebrow="Manufacturing" title="The Factory Brain: the orchestration layer between ERP and PLC." lead="AI recommends. Humans approve. The PLC executes. Cloud, hybrid or on-premise, 4 to 12+ weeks." />
             </div>

@@ -36,7 +36,7 @@ export default function SectionHeader({
       <Heading
         className={cn(
           size === "lg" ? "text-display-lg" : "text-display-md",
-          "max-w-[20ch] font-semibold",
+          "max-w-[18ch]",
           align === "center" && "mx-auto",
         )}
       >
@@ -45,7 +45,7 @@ export default function SectionHeader({
       {lead && (
         <p
           className={cn(
-            "mt-6 max-w-[56ch] text-lead font-light text-fg-muted",
+            "mt-8 max-w-[48ch] text-lead font-light text-fg-muted",
             align === "center" && "mx-auto",
           )}
         >

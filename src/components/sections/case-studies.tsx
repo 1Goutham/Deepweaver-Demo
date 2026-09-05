@@ -27,7 +27,7 @@ export default function CaseStudies() {
             aria-selected={g === group}
             onClick={() => setGroup(g)}
             className={cn(
-              "shrink-0 border-b-2 px-1 pb-3 pr-6 text-left font-display text-display-xs font-semibold transition-colors",
+              "shrink-0 border-b-2 px-1 pb-3 pr-6 text-left font-display text-display-xs font-medium transition-colors",
               g === group ? "border-fg text-fg" : "border-line text-fg-muted hover:text-fg",
             )}
           >
@@ -39,13 +39,13 @@ export default function CaseStudies() {
         <p className="max-w-[60ch] text-[0.9375rem] text-fg-muted">{groupNotes[group]}</p>
         <p className="eyebrow">Client names withheld · available under NDA</p>
       </div>
-      <ol className="mt-8 grid gap-px overflow-hidden rounded-md border border-line bg-line md:grid-cols-2 lg:grid-cols-3">
+      <ol className="mt-8 grid gap-px border-y border-line bg-line md:grid-cols-2 lg:grid-cols-3">
         {items.map((c, i) => (
           <li key={`${c.title}-${i}`} className="flex flex-col bg-bg p-6 lg:p-7">
             <p className="eyebrow">
               {c.sector} · {c.domain}
             </p>
-            <h3 className="mt-3 text-display-xs font-semibold">{c.title}</h3>
+            <h3 className="mt-3 text-display-xs font-medium">{c.title}</h3>
             <p className="mt-3 text-[0.9375rem] leading-relaxed text-fg-muted">{c.body}</p>
             <ul className="mt-auto flex flex-wrap gap-2 pt-6">
               {c.outcomes.map((o) => (

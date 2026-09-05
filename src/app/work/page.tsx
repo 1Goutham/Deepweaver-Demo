@@ -31,10 +31,10 @@ export default function WorkPage() {
           <SectionHeader eyebrow="Flagship stories" title="Three systems, three domains." />
           <ol className="mt-14 divide-y divide-line border-y border-line">
             {flagships.map((f, i) => (
-              <Reveal as="li" key={f.id} id={f.id} delay={0.05 * i} className="grid gap-8 py-12 lg:grid-cols-12 lg:gap-12">
-                <div className="lg:col-span-4">
+              <Reveal as="li" key={f.id} id={f.id} delay={0.05 * i} className="grid-12 gap-y-8 py-12">
+                <div className="col-span-12 lg:col-span-5">
                   <p className="eyebrow">{f.pillar} · {f.region}</p>
-                  <h3 className="mt-3 text-display-md font-semibold">{f.client}</h3>
+                  <h3 className="mt-3 text-display-md">{f.client}</h3>
                   <p className="mt-1 text-sm text-fg-muted">{f.kicker}</p>
                   {f.logo && (
                     <span className="mt-6 inline-block rounded-xs bg-white px-3 py-2 shadow-[0_0_0_1px_var(--line)]">
@@ -42,13 +42,13 @@ export default function WorkPage() {
                     </span>
                   )}
                   {f.image && (
-                    <div className="mt-6 overflow-hidden rounded-md bg-ink p-6">
+                    <div className="mt-6 overflow-hidden bg-ink p-6">
                       <Image src={f.image.src} alt={f.image.alt} width={f.image.w} height={f.image.h} className="mx-auto w-full max-w-[280px]" />
                     </div>
                   )}
                 </div>
-                <div className="lg:col-span-8">
-                  <p className="max-w-[64ch] text-lead font-light text-fg-muted">{f.summary}</p>
+                <div className="col-span-12 lg:col-span-6 lg:col-start-7">
+                  <p className="max-w-[48ch] text-lead font-light text-fg-muted">{f.summary}</p>
                   {f.metrics.length > 0 && f.id !== "hearsight" && (
                     <div className="mt-8 grid grid-cols-2 gap-6 border-t border-line pt-6 sm:grid-cols-3">
                       {f.metrics.map((m) => (

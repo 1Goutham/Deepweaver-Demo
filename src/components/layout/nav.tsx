@@ -240,7 +240,7 @@ export default function Nav() {
                   <li key={p.href}>
                     <Link href={p.href} className="flex items-baseline gap-4 py-4">
                       <span className="font-display text-xs text-white/40">0{i + 1}</span>
-                      <span className="font-display text-display-sm font-semibold">{p.label}</span>
+                      <span className="font-display text-display-sm font-medium">{p.label}</span>
                     </Link>
                   </li>
                 ))}

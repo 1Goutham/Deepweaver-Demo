@@ -21,9 +21,8 @@ export default function Section({ children, theme = "light", className, id, pad 
       data-theme={theme}
       className={cn(
         "relative bg-bg text-fg",
-        pad === "sm" && "py-16 md:py-24",
-        pad === "md" && "py-24 md:py-32",
-        pad === "lg" && "py-32 md:py-44",
+        pad === "sm" && "section-pad-sm",
+        (pad === "md" || pad === "lg") && "section-pad",
         className,
       )}
     >

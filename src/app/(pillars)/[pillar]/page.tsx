@@ -69,18 +69,20 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
 
       <Section theme="light" pad="lg">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
-          <div className="grid gap-12 lg:grid-cols-12">
-            <div className="lg:col-span-4">
+          <div className="grid-12 gap-y-12">
+            <div className="lg:col-span-5">
               <SectionHeader eyebrow="What it means" title={defTitle} lead={defLead} size="md" as="h2" />
             </div>
-            <Reveal className="lg:col-span-8" delay={0.1}>
+            <Reveal className="lg:col-span-6 lg:col-start-7" delay={0.1}>
               <p className="eyebrow mb-2">Capabilities</p>
               <ol className="divide-y divide-line border-y border-line">
                 {p.capabilities.map((c, i) => (
-                  <li key={c.name} className="grid gap-2 py-6 md:grid-cols-12 md:gap-8">
-                    <span className="font-display text-sm text-fg-soft md:col-span-1">0{i + 1}</span>
-                    <h3 className="text-display-xs font-semibold md:col-span-4">{c.name}</h3>
-                    <p className="text-[0.9375rem] leading-relaxed text-fg-muted md:col-span-7">{c.body}</p>
+                  <li key={c.name} className="grid gap-2 py-6 md:grid-cols-[2rem_1fr] md:gap-x-6">
+                    <span className="font-display text-sm text-fg-soft">0{i + 1}</span>
+                    <div>
+                      <h3 className="text-display-xs font-medium">{c.name}</h3>
+                      <p className="mt-2 max-w-[48ch] text-[0.9375rem] leading-relaxed text-fg-muted">{c.body}</p>
+                    </div>
                   </li>
                 ))}
               </ol>
@@ -91,12 +93,12 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
 
       <Section theme="dark" pad="md">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
-          <div className="grid gap-12 lg:grid-cols-12">
+          <div className="grid-12 gap-y-12">
             <div className="lg:col-span-5">
               <SectionHeader eyebrow="Applications" title="Where it is already running." />
               <div className="rail-amber mt-10 pl-5">
                 <p className="eyebrow text-amber">Outcome</p>
-                <p className="mt-3 text-display-xs font-display font-semibold">{p.outcome}</p>
+                <p className="mt-3 text-display-xs font-display font-medium">{p.outcome}</p>
                 <p className="mt-2 text-sm text-fg-muted">{p.outcomeDetail}</p>
               </div>
             </div>
@@ -130,7 +132,7 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
           <p className="eyebrow">Next domain</p>
           <Link href={`/${next.slug}`} className="group flex items-baseline gap-4 text-right">
             <span className="font-display text-sm text-fg-soft">{next.index}</span>
-            <span className="link-wipe font-display text-display-sm font-semibold">{next.name}</span>
+            <span className="link-wipe font-display text-display-sm font-medium">{next.name}</span>
           </Link>
         </div>
       </Section>

@@ -18,7 +18,7 @@ export default function Cta({
             <p className="eyebrow">{eyebrow}</p>
             <h2 className="mt-6 text-display-lg text-fg">{title}</h2>
           </Reveal>
-          <Reveal delay={0.1} className="col-span-12 mt-10 lg:col-span-4 lg:col-start-9 lg:mt-0 lg:self-end">
+          <Reveal delay={0.1} className="col-span-12 mt-10 lg:col-span-5 lg:col-start-8 lg:mt-0 lg:self-end">
             <p className="text-[0.9375rem] leading-relaxed text-fg-muted">{body}</p>
             <div className="mt-8 flex flex-wrap items-center gap-6">
               <Button href="/contact" size="lg" className="bg-white text-ink hover:bg-violet">

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, type ReactNode } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 export const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -66,7 +66,8 @@ export default function Reveal({
   once = true,
   amount = 0.2,
 }: RevealProps) {
-  const reduce = useReducedMotion();
+  // Reduced motion is handled by <MotionConfig reducedMotion="user"> at the root:
+  // branching on it here would desync server and client markup during hydration.
   const [forceShow, setForceShow] = useState(false);
   const Tag = as as "div";
   const MotionTag = MOTION[as] as typeof motion.div;
@@ -81,7 +82,7 @@ export default function Reveal({
     };
   }, []);
 
-  if (forceShow || reduce) {
+  if (forceShow) {
     return (
       <Tag className={className} id={id}>
         {children}

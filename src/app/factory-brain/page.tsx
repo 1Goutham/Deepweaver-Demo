@@ -26,7 +26,7 @@ export default function FactoryBrainPage() {
 
       <Section theme="light" pad="lg">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
-          <div className="grid gap-12 lg:grid-cols-12">
+          <div className="grid-12 gap-y-12">
             <Reveal className="lg:col-span-6">
               <p className="eyebrow mb-5">Where it sits</p>
               <ol className="space-y-2">
@@ -50,7 +50,7 @@ export default function FactoryBrainPage() {
                 ))}
               </ol>
             </Reveal>
-            <div className="lg:col-span-5 lg:col-start-8">
+            <div className="lg:col-span-6 lg:col-start-7">
               <SectionHeader eyebrow="Who needs a Factory Brain" title="If any of these sound familiar." />
               <Reveal className="mt-10" delay={0.1}>
                 <ul className="divide-y divide-line border-y border-line">
@@ -78,7 +78,7 @@ export default function FactoryBrainPage() {
             <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
               {factoryFunctions.map((f) => (
                 <div key={f.area} className="border-t border-line pt-4">
-                  <h3 className="text-display-xs font-semibold">{f.area}</h3>
+                  <h3 className="text-display-xs font-medium">{f.area}</h3>
                   <ul className="mt-3 space-y-1.5 text-[0.875rem] text-fg-muted">
                     {f.items.map((i) => (
                       <li key={i}>{i}</li>
@@ -93,20 +93,20 @@ export default function FactoryBrainPage() {
 
       <Section theme="light" pad="lg">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
-          <div className="grid gap-12 lg:grid-cols-12">
+          <div className="grid-12 gap-y-12">
             <Reveal className="lg:col-span-7">
               <p className="eyebrow mb-6">Typical measurable outcomes</p>
               <dl className="grid gap-8 sm:grid-cols-2">
                 {factoryOutcomes.map((o) => (
                   <div key={o.label} className="border-t border-line pt-4">
-                    <dd className="font-display text-display-md font-semibold">{o.metric}</dd>
+                    <dd className="font-display text-display-md">{o.metric}</dd>
                     <dt className="mt-1 text-[0.9375rem]">{o.label}</dt>
                     <p className="text-sm text-fg-muted">{o.sub}</p>
                   </div>
                 ))}
               </dl>
             </Reveal>
-            <Reveal className="lg:col-span-4 lg:col-start-9" delay={0.1}>
+            <Reveal className="lg:col-span-5 lg:col-start-8" delay={0.1}>
               <p className="eyebrow mb-6">Deployment posture</p>
               <ol className="divide-y divide-line border-y border-line">
                 {deployment.map((d) => (

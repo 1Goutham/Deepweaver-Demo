@@ -17,13 +17,13 @@ export default function ContactPage() {
       <PageHero eyebrow="Contact" title="Tell us where the programme is stuck." lead="We will come back with the right shape of engagement — co-delivery, a centre of excellence, a fixed-scope project, uplift and transition, or as a service." size="md" />
       <Section theme="light" pad="lg">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
-          <div className="grid gap-14 lg:grid-cols-12">
+          <div className="grid-12 gap-y-14">
             <Reveal className="lg:col-span-7">
               <ContactForm />
             </Reveal>
-            <Reveal className="lg:col-span-4 lg:col-start-9" delay={0.1}>
+            <Reveal className="lg:col-span-5 lg:col-start-8" delay={0.1}>
               <p className="eyebrow">Email</p>
-              <a href={`mailto:${site.email}`} className="link-wipe mt-3 inline-block font-display text-display-xs font-semibold">
+              <a href={`mailto:${site.email}`} className="link-wipe mt-3 inline-block font-display text-display-xs font-medium">
                 {site.email}
               </a>
               <p className="eyebrow mt-10">Offices</p>

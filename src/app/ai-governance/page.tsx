@@ -28,11 +28,11 @@ export default function GovernancePage() {
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <SectionHeader eyebrow="The workflow" title="Four steps, then it runs." />
           <Reveal className="mt-14" delay={0.1}>
-            <ol className="grid gap-px overflow-hidden rounded-md border border-line bg-line md:grid-cols-4">
+            <ol className="grid gap-px border-y border-line bg-line md:grid-cols-4">
               {governanceWorkflow.map((w) => (
                 <li key={w.step} className="relative bg-surface p-6 lg:p-8">
                   <span className="font-display text-sm text-fg-soft">{w.step}</span>
-                  <h3 className="mt-3 text-display-xs font-semibold">{w.name}</h3>
+                  <h3 className="mt-3 text-display-xs font-medium">{w.name}</h3>
                   <p className="mt-2 text-[0.9375rem] text-fg-muted">{w.body}</p>
                   <span aria-hidden className="absolute right-4 top-6 hidden text-fg-soft md:block last:hidden">→</span>
                 </li>
@@ -45,14 +45,14 @@ export default function GovernancePage() {
 
       <Section theme="dark" pad="lg">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
-          <div className="grid gap-12 lg:grid-cols-12">
-            <div className="lg:col-span-8">
-              <SectionHeader eyebrow="Six pillars hold it up" title="Leadership, policies, risk, controls, training, reporting." />
-              <Reveal className="mt-12" delay={0.1}>
-                <ol className="grid gap-px overflow-hidden rounded-md border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+          <SectionHeader eyebrow="Six pillars hold it up" title="Leadership, policies, risk, controls, training, reporting." />
+          <div className="grid-12 gap-y-12 mt-14">
+            <div className="col-span-12">
+              <Reveal delay={0.1}>
+                <ol className="grid gap-px border-y border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
                   {sixPillars.map((p) => (
                     <li key={p.name} className="bg-bg p-6">
-                      <h3 className="text-display-xs font-semibold">{p.name}</h3>
+                      <h3 className="text-display-xs font-medium">{p.name}</h3>
                       <p className="mt-2 text-[0.875rem] text-fg-muted">{p.body}</p>
                       <p className="mt-4 border-t border-line pt-3 text-[0.8125rem] text-fg">{p.proof}</p>
                     </li>
@@ -60,7 +60,7 @@ export default function GovernancePage() {
                 </ol>
               </Reveal>
             </div>
-            <Reveal className="lg:col-span-3 lg:col-start-10" delay={0.16}>
+            <Reveal className="col-span-12 lg:col-span-6 lg:col-start-7" delay={0.16}>
               <p className="eyebrow">Established at three levels</p>
               <ol className="mt-5 divide-y divide-line border-y border-line">
                 {threeLevels.map((l) => (

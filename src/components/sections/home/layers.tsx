@@ -45,7 +45,7 @@ function Band({ label, items, className }: { label: string; items: string[]; cla
 function Column({ title, groups, tone }: { title: string; groups: { h: string; items: string[] }[]; tone: "sky" | "violet" }) {
   return (
     <div className="flex flex-col">
-      <p className={cn("font-display text-display-xs font-semibold", tone === "sky" ? "text-sky" : "text-violet")}>{title}</p>
+      <p className={cn("font-display text-display-xs font-medium", tone === "sky" ? "text-sky" : "text-violet")}>{title}</p>
       <dl className="mt-5 grid grid-cols-2 gap-x-6 gap-y-5">
         {groups.map((g) => (
           <div key={g.h}>
@@ -75,7 +75,7 @@ export default function Layers() {
         />
 
         <Reveal delay={0.1} className="mt-14 md:mt-20">
-          <div className="grid gap-px overflow-hidden rounded-md border border-line bg-line lg:grid-cols-12">
+          <div className="grid gap-px border-y border-line bg-line lg:grid-cols-12">
             {/* Main stack */}
             <div className="bg-bg p-6 sm:p-8 lg:col-span-9 lg:p-10">
               <Band label="User layer" items={["Chat", "Enterprise apps", "Dashboards", "Voice", "Devices", "Field operations"]} className="border-t-0 pt-0" />

@@ -12,33 +12,38 @@ type Props = {
   size?: "md" | "lg";
 };
 
-/** Compact dark hero for inner pages. Content left, optional facts aside. */
+/** Inner-page hero. Title on the left edge, lead and aside on the second edge (column 7). */
 export default function PageHero({ eyebrow, title, lead, aside, children, className, size = "lg" }: Props) {
   return (
-    <section data-theme="dark" className={cn("relative overflow-hidden bg-ink pb-16 pt-[136px] text-white md:pb-24 md:pt-[168px]", className)}>
-      <div aria-hidden className="bg-dotgrid absolute inset-0 opacity-[0.28] [mask-image:radial-gradient(55%_70%_at_20%_30%,#000,transparent)]" />
-      <div className="relative mx-auto grid max-w-wide gap-12 px-5 sm:px-8 lg:grid-cols-12 lg:px-12">
-        <div className={aside ? "lg:col-span-7" : "lg:col-span-8"}>
-          {eyebrow && (
-            <Reveal>
-              <p className="eyebrow text-violet">{eyebrow}</p>
+    <section data-theme="dark" className={cn("relative bg-ink pb-20 pt-[152px] text-white md:pb-28 md:pt-[184px]", className)}>
+      <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="grid-12 gap-y-12">
+          <div className="col-span-12 lg:col-span-7">
+            {eyebrow && (
+              <Reveal>
+                <p className="eyebrow">{eyebrow}</p>
+              </Reveal>
+            )}
+            <Reveal delay={0.06}>
+              <h1 className={cn("mt-8 max-w-[14ch] text-white", size === "lg" ? "text-display-xl" : "text-display-lg")}>{title}</h1>
             </Reveal>
+          </div>
+          {(lead || aside || children) && (
+            <div className="col-span-12 lg:col-span-5 lg:col-start-7 lg:self-end">
+              {lead && (
+                <Reveal delay={0.12}>
+                  <p className="max-w-[44ch] text-lead font-light text-white/70">{lead}</p>
+                </Reveal>
+              )}
+              {aside && (
+                <Reveal delay={0.18} className={cn(lead && "mt-10")}>
+                  {aside}
+                </Reveal>
+              )}
+              {children && <Reveal delay={0.2}>{children}</Reveal>}
+            </div>
           )}
-          <Reveal delay={0.06}>
-            <h1 className={cn("mt-6 font-semibold", size === "lg" ? "text-display-xl" : "text-display-lg")}>{title}</h1>
-          </Reveal>
-          {lead && (
-            <Reveal delay={0.12}>
-              <p className="mt-7 max-w-[54ch] text-lead font-light text-white/72">{lead}</p>
-            </Reveal>
-          )}
-          {children && <Reveal delay={0.18}>{children}</Reveal>}
         </div>
-        {aside && (
-          <Reveal delay={0.2} className="lg:col-span-4 lg:col-start-9 lg:self-end">
-            {aside}
-          </Reveal>
-        )}
       </div>
     </section>
   );

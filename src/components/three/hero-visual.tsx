@@ -71,7 +71,7 @@ export default function HeroVisual({ className }: { className?: string }) {
         style={{ background: "radial-gradient(closest-side, rgba(22,109,234,0.28), rgba(97,81,194,0.14) 55%, transparent 75%)" }}
       />
       <Image
-        src="/brand/hero-object.webp"
+        src="/brand/hero-seed.webp"
         alt="The Woven Intelligence Seed: a seed-shaped sculpture of interlaced ribbons around a luminous core."
         width={1200}
         height={1200}

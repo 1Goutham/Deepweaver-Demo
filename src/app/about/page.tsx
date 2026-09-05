@@ -27,10 +27,10 @@ export default function AboutPage() {
 
       <Section theme="light" pad="lg">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
-          <div className="grid gap-12 lg:grid-cols-12">
+          <div className="grid-12 gap-y-12">
             <Reveal className="lg:col-span-5">
               <p className="eyebrow">Vision</p>
-              <p className="mt-5 text-display-md font-display font-semibold">{vision}</p>
+              <p className="mt-5 text-display-md font-display">{vision}</p>
               <p className="eyebrow mt-12">Mission</p>
               <ul className="mt-5 divide-y divide-line border-y border-line">
                 {mission.map((m) => (
@@ -52,7 +52,7 @@ export default function AboutPage() {
                   ))}
                 </ul>
                 <p className="eyebrow mt-10">Core values</p>
-                <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 font-display text-display-xs font-semibold">
+                <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 font-display text-display-xs font-medium">
                   {values.map((v) => (
                     <li key={v}>{v}</li>
                   ))}
@@ -60,7 +60,7 @@ export default function AboutPage() {
               </Reveal>
               <Reveal delay={0.16} className="rail-amber pl-5">
                 <p className="eyebrow text-amber">Outcomes</p>
-                <p className="mt-4 text-display-xs font-display font-semibold">We own the outcome end to end.</p>
+                <p className="mt-4 text-display-xs font-display font-medium">We own the outcome end to end.</p>
                 <ul className="mt-5 space-y-2.5 text-[0.9375rem] text-fg-muted">
                   {outcomes.map((o) => (
                     <li key={o}>{o}</li>
@@ -75,11 +75,11 @@ export default function AboutPage() {
       <Section theme="dark" pad="lg" id="regions">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <SectionHeader eyebrow="Where we operate" title="Two regions, one practice." />
-          <div className="mt-14 grid gap-px overflow-hidden rounded-md border border-line bg-line md:grid-cols-2">
+          <div className="mt-14 grid gap-px border-y border-line bg-line md:grid-cols-2">
             {regions.map((r, i) => (
               <Reveal key={r.country} delay={0.08 * i} className="bg-bg p-7 lg:p-10">
                 <p className="eyebrow">{r.role}</p>
-                <h3 className="mt-3 text-display-md font-semibold">{r.country}</h3>
+                <h3 className="mt-3 text-display-md">{r.country}</h3>
                 <p className="mt-1 text-sm text-fg-muted">{r.cities}</p>
                 <ul className="mt-7 divide-y divide-line border-y border-line">
                   {r.points.map((p) => (
@@ -98,7 +98,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <SectionHeader eyebrow="Alliances" title="Partnerships built for enterprise AI." />
           <Reveal className="mt-14" delay={0.1}>
-            <ol className="grid gap-px overflow-hidden rounded-md border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+            <ol className="grid gap-px border-y border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
               {alliances.map((a) => (
                 <li key={a.name} className="flex flex-col bg-surface p-6 lg:p-7">
                   <div className="flex h-12 items-center">

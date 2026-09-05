@@ -27,18 +27,18 @@ export default function ServicesPage() {
 
       <Section theme="light" pad="lg" id="lines">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
-          <div className="hidden grid-cols-12 gap-8 border-b border-line pb-3 md:grid">
-            <span className="eyebrow col-span-4">Service line</span>
-            <span className="eyebrow col-span-5">Solutions</span>
+          <div className="grid-12 hidden border-b border-line pb-3 md:grid">
+            <span className="eyebrow col-span-6">Service line</span>
+            <span className="eyebrow col-span-3">Solutions</span>
             <span className="eyebrow col-span-3">Outcomes</span>
           </div>
           <ol className="divide-y divide-line border-b border-line">
             {serviceLines.map((s, i) => (
-              <Reveal as="li" key={s.index} delay={0.05 * i} className="grid gap-4 py-8 md:grid-cols-12 md:gap-8 md:py-10">
-                <div className="flex items-baseline gap-4 md:col-span-4">
+              <Reveal as="li" key={s.index} delay={0.05 * i} className="grid-12 gap-y-4 py-8 md:py-10">
+                <div className="flex items-baseline gap-4 md:col-span-6">
                   <span className="font-display text-sm text-fg-soft">{s.index}</span>
                   <div>
-                    <h2 className="text-display-sm font-semibold">
+                    <h2 className="text-display-sm font-medium">
                       <Link href={s.href} className="link-wipe">
                         {s.name}
                       </Link>
@@ -46,7 +46,7 @@ export default function ServicesPage() {
                     <p className="mt-1 text-sm text-fg-muted">{s.kicker}</p>
                   </div>
                 </div>
-                <ul className="grid grid-cols-2 gap-x-6 gap-y-1.5 text-[0.9375rem] md:col-span-5">
+                <ul className="grid gap-y-1.5 text-[0.9375rem] md:col-span-3">
                   {s.solutions.map((x) => (
                     <li key={x} className="flex gap-2.5">
                       <span aria-hidden className="mt-[0.65em] h-px w-3 shrink-0 bg-fg-soft" />
@@ -54,7 +54,7 @@ export default function ServicesPage() {
                     </li>
                   ))}
                 </ul>
-                <p className="rail-amber pl-4 text-[0.9375rem] leading-relaxed md:col-span-3">{s.outcome}</p>
+                <p className="text-[0.9375rem] leading-relaxed text-fg-muted md:col-span-3">{s.outcome}</p>
               </Reveal>
             ))}
           </ol>
@@ -64,7 +64,7 @@ export default function ServicesPage() {
       <Section theme="dark" pad="lg" id="fde">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <SectionHeader eyebrow="Service line · Forward-deployed engineering" title="AI forward-deployed engineering." lead={fde.intro} size="lg" />
-          <div className="mt-14 grid gap-px overflow-hidden rounded-md border border-line bg-line lg:grid-cols-3">
+          <div className="mt-14 grid gap-px border-y border-line bg-line lg:grid-cols-3">
             <Reveal className="bg-bg p-7 lg:p-8">
               <p className="eyebrow">Areas of focus</p>
               <ol className="mt-5 space-y-3">
@@ -108,11 +108,11 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <SectionHeader eyebrow="How we work" title="Five engagement models." lead="Shaped to how you buy and how you are audited." />
           <Reveal className="mt-14" delay={0.1}>
-            <ol className="grid gap-px overflow-hidden rounded-md border border-line bg-line md:grid-cols-5">
+            <ol className="grid gap-px border-y border-line bg-line md:grid-cols-5">
               {engagementModels.map((m, i) => (
                 <li key={m.name} className="bg-surface p-6">
                   <span className="font-display text-sm text-fg-soft">0{i + 1}</span>
-                  <h3 className="mt-3 text-display-xs font-semibold">{m.name}</h3>
+                  <h3 className="mt-3 text-display-xs font-medium">{m.name}</h3>
                   <p className="mt-3 text-[0.875rem] leading-relaxed text-fg-muted">{m.body}</p>
                 </li>
               ))}

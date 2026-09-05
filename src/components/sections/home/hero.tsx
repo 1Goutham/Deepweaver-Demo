@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import Button from "@/components/ui/button";
 import HeroVisual from "@/components/three/hero-visual";
 import { EASE } from "@/components/motion/reveal";
@@ -9,9 +9,7 @@ import { EASE } from "@/components/motion/reveal";
 const stagger = (i: number) => ({ duration: 0.9, delay: 0.15 + i * 0.1, ease: EASE });
 
 export default function Hero() {
-  const reduce = useReducedMotion();
-  const anim = (i: number) =>
-    reduce ? {} : { initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 }, transition: stagger(i) };
+  const anim = (i: number) => ({ initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 }, transition: stagger(i) });
 
   return (
     <section id="hero" data-theme="dark" className="relative overflow-hidden bg-ink text-white">
@@ -41,7 +39,9 @@ export default function Hero() {
           {/* Sculpture — right, bleeds past the column on large screens */}
           <motion.div
             className="col-span-12 mt-12 lg:col-span-6 lg:mt-0"
-            {...(reduce ? {} : { initial: { opacity: 0, scale: 0.94 }, animate: { opacity: 1, scale: 1 }, transition: { duration: 1.4, delay: 0.25, ease: EASE } })}
+            initial={{ opacity: 0, scale: 0.94 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.4, delay: 0.25, ease: EASE }}
           >
             <HeroVisual className="mx-auto max-w-[560px] lg:ml-auto lg:mr-[-10%] lg:max-w-[760px]" />
           </motion.div>

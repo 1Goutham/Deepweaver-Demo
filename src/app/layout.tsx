@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Catamaran, Inter } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/components/motion/lenis-provider";
+import MotionProvider from "@/components/motion/motion-provider";
 import Nav from "@/components/layout/nav";
 import Footer from "@/components/layout/footer";
 import { site } from "@/lib/site";
@@ -82,11 +83,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        <Nav />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <MotionProvider>
+          <Nav />
+          <main id="main" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </MotionProvider>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organisationJsonLd) }}
