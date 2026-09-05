@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ReactNode, ComponentProps } from "react";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "inverse" | "ghost" | "link";
+type Variant = "primary" | "light" | "inverse" | "ghost" | "link";
 type Size = "sm" | "md" | "lg";
 
 type Base = {
@@ -27,7 +27,8 @@ const sizes: Record<Size, string> = {
 // Theme-aware: primary is fg-on-bg inversion, so it reads as white-on-navy
 // in dark sections and navy-on-canvas in light ones.
 const variants: Record<Variant, string> = {
-  primary: "bg-fg text-bg hover:bg-violet hover:text-ink",
+  primary: "bg-blue text-white hover:bg-lavender",
+  light: "bg-white text-ink hover:bg-ink hover:text-white",
   inverse: "bg-bg text-fg border border-line-strong hover:border-fg",
   ghost: "border border-line-strong text-fg hover:border-fg hover:bg-fg/5",
   link: "h-auto rounded-none px-0 text-fg underline-offset-4 hover:underline",

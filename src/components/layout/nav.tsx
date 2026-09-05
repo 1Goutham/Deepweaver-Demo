@@ -27,7 +27,7 @@ function useSectionTheme(): Theme {
         for (const e of entries) {
           if (e.isIntersecting) {
             const t = e.target.getAttribute("data-theme");
-            setTheme(t === "light" ? "light" : "dark");
+            setTheme(t === "light" || t === "mist" ? "light" : "dark");
           }
         }
       },
@@ -260,7 +260,7 @@ export default function Nav() {
                 </li>
               </ul>
               <div className="mt-auto pt-10">
-                <Button href="/contact" size="lg" className="w-full bg-white text-ink hover:bg-violet">
+                <Button href="/contact" size="lg" className="w-full">
                   Get in touch
                 </Button>
                 <p className="mt-6 text-xs text-white/50">contact@deepweaver.ai · Australia · India</p>

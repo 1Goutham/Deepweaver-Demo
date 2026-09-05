@@ -11,7 +11,7 @@
   --color-ink-soft: #16293a;
   --color-ink-mute: #aab1b6;
 
-  --color-canvas: #f7f6f2;
+  --color-canvas: #eae8e1;
   --color-paper: #ffffff;
   --color-stone: #eae8e1;
   --color-mist: #dce4ea;
@@ -80,15 +80,38 @@
    semantic colours so one component works on navy and on canvas. */
 :root,
 [data-theme="light"] {
-  --bg: #f7f6f2;
+  --bg: #eae8e1;
   --fg: #0c2130;
-  --fg-muted: #5b6b78;
+  --fg-muted: #4f5f6c;
   --fg-soft: #8a97a2;
-  --line: rgba(12, 33, 48, 0.12);
-  --line-strong: rgba(12, 33, 48, 0.28);
-  --surface: #ffffff;
+  --line: rgba(12, 33, 48, 0.14);
+  --line-strong: rgba(12, 33, 48, 0.3);
+  --surface: #f4f3ee;
+  --surface-2: #dce4ea;
+  color-scheme: light;
+}
+[data-theme="mist"] {
+  --bg: #dce4ea;
+  --fg: #0c2130;
+  --fg-muted: #4f5f6c;
+  --fg-soft: #7f8e9a;
+  --line: rgba(12, 33, 48, 0.14);
+  --line-strong: rgba(12, 33, 48, 0.3);
+  --surface: #e8eef2;
   --surface-2: #eae8e1;
   color-scheme: light;
+}
+/* The brand's own pairing: lavender into blue. Used once per page. */
+[data-theme="brand"] {
+  --bg: #6151c2;
+  --fg: #ffffff;
+  --fg-muted: rgba(255, 255, 255, 0.78);
+  --fg-soft: rgba(255, 255, 255, 0.55);
+  --line: rgba(255, 255, 255, 0.22);
+  --line-strong: rgba(255, 255, 255, 0.45);
+  --surface: rgba(255, 255, 255, 0.08);
+  --surface-2: rgba(255, 255, 255, 0.12);
+  color-scheme: dark;
 }
 [data-theme="dark"] {
   --bg: #0c2130;
@@ -175,6 +198,7 @@
 @utility hairline-b { border-bottom: 1px solid var(--line); }
 @utility rail-amber { box-shadow: inset 2px 0 0 0 var(--color-amber); }
 @utility rail-violet { box-shadow: inset 2px 0 0 0 var(--color-violet); }
+@utility bg-brand-gradient { background-image: linear-gradient(115deg, #6151c2 0%, #166dea 100%); }
 
 /* Two-tone display headline: first part fg, tail fades to muted.
    Used sparingly — one per page. */

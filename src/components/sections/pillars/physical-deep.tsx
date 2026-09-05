@@ -63,7 +63,7 @@ export default function PhysicalDeep() {
               <SectionHeader eyebrow="Manufacturing" title="The Factory Brain: the orchestration layer between ERP and PLC." lead="AI recommends. Humans approve. The PLC executes. Cloud, hybrid or on-premise, 4 to 12+ weeks." />
             </div>
             <Reveal className="flex flex-wrap items-center gap-5 lg:col-span-5 lg:justify-end" delay={0.1}>
-              <Button href="/factory-brain" className="bg-white text-ink hover:bg-violet">
+              <Button href="/factory-brain">
                 Explore the Factory Brain
               </Button>
               <Link href="/work" className="link-wipe text-sm font-medium">

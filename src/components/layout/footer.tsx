@@ -1,11 +1,10 @@
 import Link from "next/link";
-import Image from "next/image";
 import Logo from "./logo";
 import { footerNav, site } from "@/lib/site";
 
 export default function Footer() {
   return (
-    <footer data-theme="deep" className="relative overflow-hidden bg-bg text-fg">
+    <footer data-theme="deep" className="relative bg-bg text-fg">
       <div className="mx-auto max-w-wide px-5 pb-10 pt-20 sm:px-8 lg:px-12 lg:pt-28">
         <div className="grid-12 gap-y-12">
           <div className="lg:col-span-4">
@@ -57,16 +56,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Wordmark bleed — the deck's own white mark, huge, mostly off-canvas. */}
-      <div aria-hidden className="pointer-events-none relative h-[22vw] max-h-[280px] min-h-[120px] w-full select-none overflow-hidden">
-        <Image
-          src="/brand/deepweaver-lockup-white.png"
-          alt=""
-          width={2048}
-          height={402}
-          className="absolute left-1/2 top-[18%] w-[96vw] max-w-none -translate-x-1/2 opacity-[0.06]"
-        />
-      </div>
     </footer>
   );
 }

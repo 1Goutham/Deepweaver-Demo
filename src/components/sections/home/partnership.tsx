@@ -8,7 +8,7 @@ import Reveal from "@/components/motion/reveal";
  */
 export default function Partnership() {
   return (
-    <Section id="partnership" theme="light">
+    <Section id="partnership" theme="mist">
       <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
         <div className="grid-12">
           <Reveal className="col-span-12 lg:col-span-6">

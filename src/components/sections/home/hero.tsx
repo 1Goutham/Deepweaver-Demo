@@ -17,7 +17,7 @@ export default function Hero() {
         <div className="grid-12 min-h-[100svh] items-center pb-16 pt-[112px] lg:pb-10 lg:pt-[128px]">
           {/* Content — left */}
           <div className="col-span-12 lg:col-span-6">
-            <motion.p className="eyebrow" {...anim(0)}>
+            <motion.p className="eyebrow text-violet" {...anim(0)}>
               AI-native services · ISO/IEC 42001 certified · Australia · India
             </motion.p>
             <motion.h1 className="mt-7 max-w-[13ch] text-display-xl text-white" {...anim(1)}>
@@ -27,7 +27,7 @@ export default function Hero() {
               Digital, Physical, Frontier and Sovereign AI for enterprise and government — governed end to end, and already in production.
             </motion.p>
             <motion.div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4" {...anim(3)}>
-              <Button href="/contact" size="lg" className="bg-white text-ink hover:bg-violet">
+              <Button href="/contact" size="lg">
                 Talk to us
               </Button>
               <Link href="#domains" className="link-wipe text-[0.9375rem] font-medium text-white/85">

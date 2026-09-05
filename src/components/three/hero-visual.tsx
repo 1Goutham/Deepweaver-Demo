@@ -71,7 +71,7 @@ export default function HeroVisual({ className }: { className?: string }) {
         height={1200}
         priority
         fetchPriority="high"
-        sizes="(min-width: 1024px) 48vw, 90vw"
+        sizes="(min-width: 1024px) 560px, 90vw"
         className={cn(
           "relative z-0 h-full w-full object-contain transition-opacity duration-700 ease-out",
           live && ready ? "opacity-0" : "opacity-100",

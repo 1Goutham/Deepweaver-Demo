@@ -7,6 +7,9 @@ import OrbObject from "./orb-object";
 
 type Props = { simplified?: boolean; onReady?: () => void };
 
+// Only the asset-capture tooling needs a readable drawing buffer.
+const captureMode = () => typeof window !== "undefined" && window.location.search.includes("capture");
+
 export default function HeroScene({ onReady }: Props) {
   const [visible, setVisible] = useState(true);
 
@@ -23,7 +26,15 @@ export default function HeroScene({ onReady }: Props) {
     <Canvas
       dpr={[1, 1.75]}
       camera={{ position: [0, 0.25, 8.6], fov: 30, near: 0.1, far: 100 }}
-      gl={{ antialias: true, alpha: true, premultipliedAlpha: false, powerPreference: "high-performance", toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1 }}
+      gl={{
+        antialias: true,
+        alpha: true,
+        premultipliedAlpha: false,
+        preserveDrawingBuffer: captureMode(),
+        powerPreference: "high-performance",
+        toneMapping: THREE.ACESFilmicToneMapping,
+        toneMappingExposure: 1,
+      }}
       frameloop={visible ? "always" : "never"}
       onCreated={({ gl, camera }) => {
         gl.setClearColor(0x000000, 0);

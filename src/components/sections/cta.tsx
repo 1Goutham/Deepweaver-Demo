@@ -11,7 +11,7 @@ export default function Cta({
   body = "Tell us where the programme is stuck and we will bring the right shape of engagement.",
 }: Props) {
   return (
-    <Section theme="deep" pad="none" className="section-pad">
+    <Section theme="brand" className="bg-brand-gradient">
       <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
         <div className="grid-12">
           <Reveal className="col-span-12 lg:col-span-8">
@@ -21,7 +21,7 @@ export default function Cta({
           <Reveal delay={0.1} className="col-span-12 mt-10 lg:col-span-5 lg:col-start-8 lg:mt-0 lg:self-end">
             <p className="text-[0.9375rem] leading-relaxed text-fg-muted">{body}</p>
             <div className="mt-8 flex flex-wrap items-center gap-6">
-              <Button href="/contact" size="lg" className="bg-white text-ink hover:bg-violet">
+              <Button href="/contact" size="lg" variant="light">
                 Get in touch
               </Button>
               <a href={`mailto:${site.email}`} className="link-wipe text-[0.9375rem] font-medium text-fg">
