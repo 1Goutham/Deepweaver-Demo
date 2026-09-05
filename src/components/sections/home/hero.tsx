@@ -43,7 +43,7 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.4, delay: 0.25, ease: EASE }}
           >
-            <HeroVisual className="mx-auto max-w-[560px] lg:ml-auto lg:mr-[-10%] lg:max-w-[760px]" />
+            <HeroVisual className="mx-auto max-w-[440px] lg:ml-auto lg:mr-0 lg:max-w-[560px]" />
           </motion.div>
         </div>
       </div>

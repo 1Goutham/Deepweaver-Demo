@@ -2,12 +2,12 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { ContactShadows, Environment, Lightformer } from "@react-three/drei";
-import SeedObject from "./seed-object";
+import * as THREE from "three";
+import OrbObject from "./orb-object";
 
 type Props = { simplified?: boolean; onReady?: () => void };
 
-export default function HeroScene({ simplified = false, onReady }: Props) {
+export default function HeroScene({ onReady }: Props) {
   const [visible, setVisible] = useState(true);
 
   // Pause the render loop when the hero is scrolled away.
@@ -22,33 +22,19 @@ export default function HeroScene({ simplified = false, onReady }: Props) {
   return (
     <Canvas
       dpr={[1, 1.75]}
-      camera={{ position: [0, 0.05, 5.4], fov: 30, near: 0.1, far: 20 }}
-      gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+      camera={{ position: [0, 0.25, 8.6], fov: 30, near: 0.1, far: 100 }}
+      gl={{ antialias: true, alpha: true, premultipliedAlpha: false, powerPreference: "high-performance", toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1 }}
       frameloop={visible ? "always" : "never"}
-      shadows={false}
-      onCreated={({ gl }) => {
+      onCreated={({ gl, camera }) => {
         gl.setClearColor(0x000000, 0);
+        camera.lookAt(0, 0, 0);
         onReady?.();
       }}
       style={{ position: "absolute", inset: 0 }}
       aria-hidden
     >
       <Suspense fallback={null}>
-        {/* Blue key from upper-left, violet rim from lower-right — the deck's lighting. */}
-        <ambientLight intensity={0.35} color="#c7d6ff" />
-        <directionalLight position={[-4, 5, 4]} intensity={1.05} color="#eef4ff" />
-        <directionalLight position={[4, -2, 3]} intensity={1.3} color="#a792fd" />
-        <directionalLight position={[0, -4, 2]} intensity={0.4} color="#166dea" />
-        {/* Procedural environment (no network fetch): a cool key panel and a violet fill. */}
-        <Environment resolution={64} environmentIntensity={0.5}>
-          <Lightformer intensity={2.2} color="#dfeeff" position={[-4, 5, 4]} rotation={[0, Math.PI / 3, 0]} scale={[8, 4, 1]} />
-          <Lightformer intensity={1.2} color="#a792fd" position={[5, -2, 3]} rotation={[0, -Math.PI / 3, 0]} scale={[6, 3, 1]} />
-          <Lightformer intensity={0.6} color="#afe4fd" position={[0, 6, -2]} rotation={[Math.PI / 2, 0, 0]} scale={[10, 10, 1]} />
-        </Environment>
-        <SeedObject />
-        {!simplified && (
-          <ContactShadows position={[0, -1.62, 0]} opacity={0.32} scale={5} blur={2.8} far={2.4} color="#030b14" />
-        )}
+        <OrbObject />
       </Suspense>
     </Canvas>
   );

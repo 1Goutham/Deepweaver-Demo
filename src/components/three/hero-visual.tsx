@@ -64,15 +64,9 @@ export default function HeroVisual({ className }: { className?: string }) {
 
   return (
     <div className={cn("relative aspect-square w-full", className)}>
-      {/* Soft brand glow behind the object — one gradient, deliberately. */}
-      <div
-        aria-hidden
-        className="absolute left-1/2 top-1/2 size-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-60 blur-3xl"
-        style={{ background: "radial-gradient(closest-side, rgba(22,109,234,0.28), rgba(97,81,194,0.14) 55%, transparent 75%)" }}
-      />
       <Image
-        src="/brand/hero-seed.webp"
-        alt="The Woven Intelligence Seed: a seed-shaped sculpture of interlaced ribbons around a luminous core."
+        src="/brand/hero-orb.webp"
+        alt="The DeepWeaver orb: a luminous core inside a glass shell, held by two chrome rings and three orbits."
         width={1200}
         height={1200}
         priority
