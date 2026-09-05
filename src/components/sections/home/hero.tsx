@@ -56,9 +56,9 @@ export default function Hero() {
           <motion.div
             className="col-span-12 will-change-transform lg:col-span-6"
             style={{ y: orbY, opacity: orbOpacity }}
-            initial={{ opacity: 0, scale: 0.96, y: 12 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1.6, delay: 0.3, ease: EASE }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.9, delay: 0.15, ease: EASE }}
           >
             <HeroVisual className="mx-auto w-full max-w-[380px] sm:max-w-[460px] lg:max-w-[540px] xl:max-w-[580px]" />
           </motion.div>

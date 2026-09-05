@@ -12,30 +12,16 @@ const captureMode = () => typeof window !== "undefined" && window.location.searc
 
 export default function HeroScene({ onReady }: Props) {
   const [visible, setVisible] = useState(true);
-  const [scrolling, setScrolling] = useState(false);
 
-  // Render only while a meaningful part of the hero is on screen.
+  // The loop runs continuously while any part of the hero is on screen, and
+  // only stops once it has fully left the viewport — a state change that
+  // happens at the edges, never per frame and never on scroll.
   useEffect(() => {
     const el = document.getElementById("hero");
     if (!el || typeof IntersectionObserver === "undefined") return;
-    const io = new IntersectionObserver(([e]) => setVisible(e.isIntersecting && e.intersectionRatio > 0.2), { threshold: [0, 0.2, 0.5] });
+    const io = new IntersectionObserver(([e]) => setVisible(e.isIntersecting), { threshold: 0 });
     io.observe(el);
     return () => io.disconnect();
-  }, []);
-
-  // Hand the frame budget to scrolling: pause while the page moves, resume once it settles.
-  useEffect(() => {
-    let timer = 0;
-    const onScroll = () => {
-      setScrolling(true);
-      window.clearTimeout(timer);
-      timer = window.setTimeout(() => setScrolling(false), 140);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.clearTimeout(timer);
-    };
   }, []);
 
   return (
@@ -51,7 +37,7 @@ export default function HeroScene({ onReady }: Props) {
         toneMapping: THREE.ACESFilmicToneMapping,
         toneMappingExposure: 1,
       }}
-      frameloop={visible && !scrolling ? "always" : "never"}
+      frameloop={visible ? "always" : "never"}
       onCreated={({ gl, camera }) => {
         gl.setClearColor(0x000000, 0);
         camera.lookAt(0, 0, 0);

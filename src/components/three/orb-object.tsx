@@ -246,6 +246,12 @@ function createPipeline() {
   return { rtScene, rtA, rtB, bright, blur, comp, ortho, w: 0, h: 0 };
 }
 
+/** A plain flag, flipped by scroll events and cleared shortly after they stop. No React state. */
+let lastScrollAt = 0;
+if (typeof window !== "undefined") {
+  window.addEventListener("scroll", () => { lastScrollAt = performance.now(); }, { passive: true });
+}
+
 function BloomPipeline() {
   const gl = useThree((s) => s.gl);
   const scene = useThree((s) => s.scene);
@@ -265,9 +271,15 @@ function BloomPipeline() {
     };
   }, []);
 
+  const frame = useRef(0);
   useFrame(() => {
     const p = pipe.current;
     if (!p) return;
+    // While the page is moving, present every other frame. Simulation keeps
+    // advancing every frame, so the object never freezes; it just refreshes
+    // at 30fps for the duration of the scroll and hands the rest to the page.
+    frame.current++;
+    if (performance.now() - lastScrollAt < 120 && frame.current % 2 === 1) return;
     const pr = gl.getPixelRatio();
     const w = Math.max(2, Math.floor(size.width * pr));
     const h = Math.max(2, Math.floor(size.height * pr));
@@ -316,13 +328,13 @@ export default function OrbObject() {
     if (!g) return;
     const dt = Math.min(delta, 1 / 30);
     t.current += dt * 60;
-    intro.current = Math.min(1, intro.current + dt / 1.4);
+    intro.current = Math.min(1, intro.current + dt / 1.2);
     const e = 1 - Math.pow(1 - intro.current, 3);
-    const tx = pointer.x * 0.15 + (1 - e) * 0.28;
-    const ty = -pointer.y * 0.1 + (1 - e) * -0.08;
+    const tx = pointer.x * 0.15;
+    const ty = -pointer.y * 0.1;
     g.rotation.y += (tx - g.rotation.y) * 0.05;
     g.rotation.x += (ty - g.rotation.x) * 0.05;
-    g.scale.setScalar(0.74 * (0.97 + 0.03 * e));
+    g.scale.setScalar(0.74 * (0.985 + 0.015 * e));
     g.position.y = Math.sin(t.current * 0.009) * 0.05;
   });
   return (

@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { Component, useEffect, useState, useSyncExternalStore, type ReactNode } from "react";
+import { Component, useState, useSyncExternalStore, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 const HeroScene = dynamic(() => import("./hero-scene"), { ssr: false });
@@ -61,13 +61,7 @@ export default function HeroVisual({ className }: { className?: string }) {
   const simplified = useSyncExternalStore(noop, isSimplified, () => false);
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
-  // The still is on screen first; the canvas mounts once the hero text has revealed.
-  const [armed, setArmed] = useState(false);
-  useEffect(() => {
-    const t = window.setTimeout(() => setArmed(true), 1100);
-    return () => window.clearTimeout(t);
-  }, []);
-  const live = mode === "3d" && armed && !failed;
+  const live = mode === "3d" && !failed;
 
   return (
     <div className={cn("relative aspect-square w-full", className)}>
@@ -80,12 +74,12 @@ export default function HeroVisual({ className }: { className?: string }) {
         fetchPriority="high"
         sizes="(min-width: 1024px) 560px, 90vw"
         className={cn(
-          "relative z-0 h-full w-full object-contain transition-opacity duration-700 ease-out",
+          "relative z-0 h-full w-full object-contain transition-opacity duration-300 ease-out",
           live && ready ? "opacity-0" : "opacity-100",
         )}
       />
       {live && (
-        <div className={cn("absolute inset-0 z-10 transition-opacity duration-700 ease-out", ready ? "opacity-100" : "opacity-0")}>
+        <div className={cn("absolute inset-0 z-10 transition-opacity duration-300 ease-out", ready ? "opacity-100" : "opacity-0")}>
           <SceneBoundary onError={() => setFailed(true)}>
             <HeroScene simplified={simplified} onReady={() => setReady(true)} />
           </SceneBoundary>
