@@ -71,7 +71,7 @@ export default function HeroVisual({ className }: { className?: string }) {
         style={{ background: "radial-gradient(closest-side, rgba(22,109,234,0.35), rgba(97,81,194,0.18) 55%, transparent 75%)" }}
       />
       <Image
-        src="/brand/hero-object.png"
+        src="/brand/hero-object.webp"
         alt="The DeepWeaver mark as a dimensional object: the D split along its weave into four parts, bound by a thread of binary digits."
         width={1200}
         height={1200}

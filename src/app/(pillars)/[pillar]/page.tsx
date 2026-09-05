@@ -46,6 +46,9 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
   const Deep = DEEP[p.slug];
   const idx = pillars.findIndex((x) => x.slug === p.slug);
   const next = pillars[(idx + 1) % pillars.length];
+  // Definitions are written "Layer name: what it covers" — split for display.
+  const [defTitle, ...defRest] = p.definition.split(": ");
+  const defLead = defRest.join(": ");
 
   return (
     <>
@@ -73,7 +76,7 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-4">
-              <SectionHeader eyebrow="What it means" title={p.definition} size="md" as="h2" />
+              <SectionHeader eyebrow="What it means" title={defTitle} lead={defLead} size="md" as="h2" />
             </div>
             <Reveal className="lg:col-span-8" delay={0.1}>
               <p className="eyebrow mb-2">Capabilities</p>
