@@ -1,26 +1,211 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ------------------------------------------------------------------
+   DeepWeaver design tokens
+   Brand: navy ink (deck) · lavender/blue (brand guide) · amber signal
+   Type : Catamaran (display) · Inter (text)
+------------------------------------------------------------------- */
+@theme {
+  --color-ink: #0c2130;
+  --color-ink-deep: #081925;
+  --color-ink-soft: #16293a;
+  --color-ink-mute: #aab1b6;
+
+  --color-canvas: #f7f6f2;
+  --color-paper: #ffffff;
+  --color-stone: #eae8e1;
+  --color-mist: #dce4ea;
+  --color-slate: #5b6b78;
+
+  --color-lavender: #6151c2;
+  --color-blue: #166dea;
+  --color-violet: #a792fd;
+  --color-sky: #afe4fd;
+  --color-amber: #fca311;
+
+  --font-display: var(--font-catamaran), "Catamaran", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --text-display-xl: clamp(2.75rem, 1.4rem + 4.4vw, 5.25rem);
+  --text-display-xl--line-height: 1;
+  --text-display-xl--letter-spacing: -0.025em;
+  --text-display-lg: clamp(2.25rem, 1.25rem + 3.1vw, 4rem);
+  --text-display-lg--line-height: 1.04;
+  --text-display-lg--letter-spacing: -0.022em;
+  --text-display-md: clamp(1.75rem, 1.15rem + 1.9vw, 2.75rem);
+  --text-display-md--line-height: 1.1;
+  --text-display-md--letter-spacing: -0.018em;
+  --text-display-sm: clamp(1.375rem, 1.1rem + 0.9vw, 1.875rem);
+  --text-display-sm--line-height: 1.18;
+  --text-display-sm--letter-spacing: -0.012em;
+  --text-display-xs: clamp(1.125rem, 1rem + 0.4vw, 1.375rem);
+  --text-display-xs--line-height: 1.3;
+  --text-display-xs--letter-spacing: -0.008em;
+  --text-lead: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  --text-lead--line-height: 1.55;
+  --text-eyebrow: 0.6875rem;
+  --text-eyebrow--line-height: 1;
+  --text-eyebrow--letter-spacing: 0.18em;
+
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --container-wide: 90rem;
+  --container-site: 80rem;
+  --container-prose: 44rem;
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
 }
 
+/* Semantic, theme-aware tokens. Declared `inline` so utilities emit
+   var(--bg) directly and [data-theme] overrides cascade per section —
+   a non-inline @theme would resolve them once at :root. */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-soft: var(--fg-soft);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Section themes. Every section declares data-theme; components use
+   semantic colours so one component works on navy and on canvas. */
+:root,
+[data-theme="light"] {
+  --bg: #f7f6f2;
+  --fg: #0c2130;
+  --fg-muted: #5b6b78;
+  --fg-soft: #8a97a2;
+  --line: rgba(12, 33, 48, 0.12);
+  --line-strong: rgba(12, 33, 48, 0.28);
+  --surface: #ffffff;
+  --surface-2: #eae8e1;
+  color-scheme: light;
+}
+[data-theme="dark"] {
+  --bg: #0c2130;
+  --fg: #ffffff;
+  --fg-muted: #aab1b6;
+  --fg-soft: #6f7f8c;
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.28);
+  --surface: #16293a;
+  --surface-2: #112535;
+  color-scheme: dark;
+}
+[data-theme="deep"] {
+  --bg: #081925;
+  --fg: #ffffff;
+  --fg-muted: #aab1b6;
+  --fg-soft: #6f7f8c;
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.28);
+  --surface: #0c2130;
+  --surface-2: #16293a;
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--color-ink);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+  ::selection {
+    background: #a792fd;
+    color: #0c2130;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+  :focus-visible {
+    outline: 2px solid var(--color-amber);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  img, video { display: block; max-width: 100%; height: auto; }
+  button { font: inherit; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-eyebrow);
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--fg-muted);
 }
+@utility hairline-t { border-top: 1px solid var(--line); }
+@utility hairline-b { border-bottom: 1px solid var(--line); }
+@utility rail-amber { box-shadow: inset 2px 0 0 0 var(--color-amber); }
+@utility rail-violet { box-shadow: inset 2px 0 0 0 var(--color-violet); }
+
+/* Two-tone display headline: first part fg, tail fades to muted.
+   Used sparingly — one per page. */
+@utility headline-fade {
+  background-image: linear-gradient(100deg, var(--fg) 55%, var(--fg-soft) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+
+/* Brand gradient text — used only for the logo-adjacent moments */
+@utility text-brand-gradient {
+  background-image: linear-gradient(120deg, #afe4fd 0%, #166dea 45%, #a792fd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Dotted technical grid, deck-style, very low contrast */
+@utility bg-dotgrid {
+  background-image: radial-gradient(var(--line-strong) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Link underline wipe */
+@utility link-wipe {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s var(--ease-out-expo);
+  &:hover, &:focus-visible { background-size: 100% 1px; }
+}
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }

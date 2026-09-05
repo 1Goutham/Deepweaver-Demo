@@ -1,0 +1,143 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import PageHero from "@/components/sections/page-hero";
+import Section from "@/components/ui/section";
+import SectionHeader from "@/components/ui/section-header";
+import Reveal from "@/components/motion/reveal";
+import Facts from "@/components/ui/facts";
+import PillarGlyph from "@/components/ui/pillar-glyph";
+import Cta from "@/components/sections/cta";
+import { pillars, pillarBySlug } from "@/content/pillars";
+import DigitalDeep from "@/components/sections/pillars/digital-deep";
+import PhysicalDeep from "@/components/sections/pillars/physical-deep";
+import FrontierDeep from "@/components/sections/pillars/frontier-deep";
+import SovereignDeep from "@/components/sections/pillars/sovereign-deep";
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return pillars.map((p) => ({ pillar: p.slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ pillar: string }> }): Promise<Metadata> {
+  const { pillar } = await params;
+  const p = pillarBySlug(pillar);
+  if (!p) return {};
+  return {
+    title: p.name,
+    description: p.short,
+    alternates: { canonical: `/${p.slug}` },
+    openGraph: { title: `${p.name} — DeepWeaver`, description: p.short, url: `/${p.slug}` },
+  };
+}
+
+const DEEP = {
+  "digital-ai": DigitalDeep,
+  "physical-ai": PhysicalDeep,
+  "frontier-ai": FrontierDeep,
+  "sovereign-ai": SovereignDeep,
+} as const;
+
+export default async function PillarPage({ params }: { params: Promise<{ pillar: string }> }) {
+  const { pillar } = await params;
+  const p = pillarBySlug(pillar);
+  if (!p) notFound();
+  const Deep = DEEP[p.slug];
+  const idx = pillars.findIndex((x) => x.slug === p.slug);
+  const next = pillars[(idx + 1) % pillars.length];
+
+  return (
+    <>
+      <PageHero
+        eyebrow={`${p.index} · AI domain`}
+        title={p.name}
+        lead={p.intro}
+        aside={
+          <div>
+            <div className="aspect-[4/3] overflow-hidden rounded-md bg-ink-deep">
+              <PillarGlyph pillar={p.slug} className="size-full" />
+            </div>
+            <Facts
+              className="mt-6"
+              items={[
+                ["Outcome", p.outcome],
+                ...(p.proof ? ([["Proof", `${p.proof.metric} ${p.proof.label}`]] as [string, string][]) : []),
+              ]}
+            />
+          </div>
+        }
+      />
+
+      <Section theme="light" pad="lg">
+        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+          <div className="grid gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <SectionHeader eyebrow="What it means" title={p.definition} size="md" as="h2" />
+            </div>
+            <Reveal className="lg:col-span-8" delay={0.1}>
+              <p className="eyebrow mb-2">Capabilities</p>
+              <ol className="divide-y divide-line border-y border-line">
+                {p.capabilities.map((c, i) => (
+                  <li key={c.name} className="grid gap-2 py-6 md:grid-cols-12 md:gap-8">
+                    <span className="font-display text-sm text-fg-soft md:col-span-1">0{i + 1}</span>
+                    <h3 className="text-display-xs font-semibold md:col-span-4">{c.name}</h3>
+                    <p className="text-[0.9375rem] leading-relaxed text-fg-muted md:col-span-7">{c.body}</p>
+                  </li>
+                ))}
+              </ol>
+            </Reveal>
+          </div>
+        </div>
+      </Section>
+
+      <Section theme="dark" pad="md">
+        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+          <div className="grid gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-5">
+              <SectionHeader eyebrow="Applications" title="Where it is already running." />
+              <div className="rail-amber mt-10 pl-5">
+                <p className="eyebrow text-amber">Outcome</p>
+                <p className="mt-3 text-display-xs font-display font-semibold">{p.outcome}</p>
+                <p className="mt-2 text-sm text-fg-muted">{p.outcomeDetail}</p>
+              </div>
+            </div>
+            <Reveal className="lg:col-span-6 lg:col-start-7" delay={0.1}>
+              <ul className="divide-y divide-line border-y border-line">
+                {p.applications.map((a) => (
+                  <li key={a} className="flex items-baseline gap-4 py-4 text-[0.9375rem]">
+                    <span aria-hidden className="h-px w-4 shrink-0 bg-violet" />
+                    {a}
+                  </li>
+                ))}
+              </ul>
+              <ul className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+                {p.related.map((r) => (
+                  <li key={r.href}>
+                    <Link href={r.href} className="link-wipe text-sm font-medium text-fg">
+                      {r.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </div>
+        </div>
+      </Section>
+
+      <Deep />
+
+      <Section theme="light" pad="sm" className="border-t border-line">
+        <div className="mx-auto flex max-w-wide items-center justify-between gap-6 px-5 sm:px-8 lg:px-12">
+          <p className="eyebrow">Next domain</p>
+          <Link href={`/${next.slug}`} className="group flex items-baseline gap-4 text-right">
+            <span className="font-display text-sm text-fg-soft">{next.index}</span>
+            <span className="link-wipe font-display text-display-sm font-semibold">{next.name}</span>
+          </Link>
+        </div>
+      </Section>
+
+      <Cta />
+    </>
+  );
+}
