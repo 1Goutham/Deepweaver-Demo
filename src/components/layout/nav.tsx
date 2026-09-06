@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Logo from "./logo";
 import Button from "../ui/button";
-import { pillarsNav, practicesNav, primaryNav } from "@/lib/site";
+import { pillarsNav, offerNav, primaryNav } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 type Theme = "light" | "dark";
@@ -125,7 +125,7 @@ export default function Nav() {
                 isPillar ? "text-fg" : "text-fg-muted hover:text-fg",
               )}
             >
-              What we do
+              AI Native Services
               <svg aria-hidden viewBox="0 0 12 12" className={cn("size-3 transition-transform duration-300", mega && "rotate-180")} fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="m2.5 4.5 3.5 3.5 3.5-3.5" />
               </svg>
@@ -186,8 +186,8 @@ export default function Nav() {
           >
             <div className="mx-auto grid max-w-wide grid-cols-12 gap-8 px-5 py-12 sm:px-8 lg:px-12">
               <div className="col-span-3">
-                <p className="eyebrow">What we do</p>
-                <p className="mt-5 max-w-[24ch] font-display text-display-xs text-fg">Two worlds, one stack, governed as one.</p>
+                <p className="eyebrow">AI native services</p>
+                <p className="mt-5 max-w-[22ch] font-display text-display-xs text-fg">AI-native services for the physical and digital worlds.</p>
               </div>
               <div className="col-span-5">
                 <p className="eyebrow">Four AI domains</p>
@@ -204,9 +204,9 @@ export default function Nav() {
                 </ul>
               </div>
               <div className="col-span-3 col-start-10">
-                <p className="eyebrow">Practices</p>
+                <p className="eyebrow">What we offer</p>
                 <ul className="mt-5 divide-y divide-line border-y border-line">
-                  {practicesNav.map((p) => (
+                  {offerNav.map((p) => (
                     <li key={p.href}>
                       <Link href={p.href} className="block py-3.5">
                         <span className="font-display text-display-xs text-fg">{p.label}</span>
@@ -234,7 +234,7 @@ export default function Nav() {
           >
             <div className="h-[72px] shrink-0" />
             <nav aria-label="Mobile" className="flex flex-1 flex-col overflow-y-auto px-5 pb-10 sm:px-8">
-              <p className="eyebrow mb-4 text-white/60">What we do</p>
+              <p className="eyebrow mb-4 text-white/60">AI native services</p>
               <ul className="divide-y divide-white/10 border-y border-white/10">
                 {pillarsNav.map((p, i) => (
                   <li key={p.href}>
@@ -246,7 +246,7 @@ export default function Nav() {
                 ))}
               </ul>
               <ul className="mt-8 space-y-1">
-                {[...practicesNav, ...primaryNav].map((item) => (
+                {[...offerNav, ...primaryNav].map((item) => (
                   <li key={item.href}>
                     <Link href={item.href} className="block py-2.5 text-lg font-medium text-white/85">
                       {item.label}

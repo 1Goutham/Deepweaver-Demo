@@ -7,11 +7,10 @@ import Reveal from "@/components/motion/reveal";
 import Facts from "@/components/ui/facts";
 import Cta from "@/components/sections/cta";
 import { vision, mission, howWeShowUp, values, outcomes, regions, verticals } from "@/content/about";
-import { alliances, trustMarks } from "@/content/home";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Who we are: vision, mission, values, two regions and one deep tech practice — enterprise trust in Australia, research-led engineering in India — with alliances built for enterprise AI.",
+  description: "Who we are: vision, mission and outcomes, two regions and one deep tech practice, and the exclusive partnership with Nunnari Labs.",
   alternates: { canonical: "/about" },
 };
 
@@ -25,12 +24,12 @@ export default function AboutPage() {
         aside={<Facts items={[["Australia", "Sydney · Melbourne"], ["India", "Coimbatore · Chennai"], ["Certified", "ISO/IEC 42001"], ["Verticals", verticals.join(" · ")]]} />}
       />
 
-      <Section theme="light" pad="lg">
+      <Section theme="light">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <div className="grid-12 gap-y-12">
             <Reveal className="col-span-12 lg:col-span-5">
               <p className="eyebrow">Vision</p>
-              <p className="mt-5 text-display-md font-display">{vision}</p>
+              <p className="mt-5 max-w-[20ch] text-display-md text-fg">{vision}</p>
               <p className="eyebrow mt-12">Mission</p>
               <ul className="mt-5 divide-y divide-line border-y border-line">
                 {mission.map((m) => (
@@ -72,14 +71,14 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section theme="mist" pad="lg" id="regions">
+      <Section theme="mist" id="regions">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <SectionHeader eyebrow="Where we operate" title="Two regions, one practice." />
-          <div className="mt-14 grid gap-px border-y border-line bg-line md:grid-cols-2">
+          <div className="mt-12 grid gap-px overflow-hidden rounded-md border border-line bg-line md:grid-cols-2 lg:mt-16">
             {regions.map((r, i) => (
-              <Reveal key={r.country} delay={0.08 * i} className="bg-bg p-7 lg:p-10">
+              <Reveal key={r.country} delay={0.08 * i} className="bg-bg p-6 sm:p-8 lg:p-10">
                 <p className="eyebrow">{r.role}</p>
-                <h3 className="mt-3 text-display-md">{r.country}</h3>
+                <h3 className="mt-3 text-display-md text-fg">{r.country}</h3>
                 <p className="mt-1 text-sm text-fg-muted">{r.cities}</p>
                 <ul className="mt-7 divide-y divide-line border-y border-line">
                   {r.points.map((p) => (
@@ -94,32 +93,41 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section theme="light" pad="lg" id="alliances">
+      <Section theme="paper" id="partnership">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
-          <SectionHeader eyebrow="Alliances" title="Partnerships built for enterprise AI." />
-          <Reveal className="mt-14" delay={0.1}>
-            <ol className="grid gap-px border-y border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
-              {alliances.map((a) => (
-                <li key={a.name} className="flex flex-col bg-surface p-6 lg:p-7">
-                  <div className="flex h-12 items-center">
-                    <Image src={a.src} alt={a.name} width={a.w} height={a.h} className="h-7 w-auto max-w-[140px] object-contain" />
-                  </div>
-                  <p className="eyebrow mt-6">{a.role}</p>
-                  <p className="mt-2 text-[0.9375rem]">{a.detail}</p>
-                </li>
-              ))}
-            </ol>
-            <ul className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
-              <li className="eyebrow">Responsible AI by design</li>
-              {trustMarks.map((t) => (
-                <li key={t.label} className="flex items-center gap-2.5 text-sm">
-                  <Image src={t.src} alt="" width={64} height={64} className="size-8 rounded-full object-contain" />
-                  <span>
-                    {t.label} <span className="text-fg-muted">{t.sub}</span>
-                  </span>
-                </li>
-              ))}
-            </ul>
+          <div className="grid-12 gap-y-10">
+            <Reveal className="col-span-12 lg:col-span-6">
+              <p className="eyebrow">Exclusive partnership</p>
+              <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-5">
+                <Image src="/brand/deepweaver-lockup-navy.png" alt="DeepWeaver" width={2048} height={402} className="h-8 w-auto sm:h-9" />
+                <span aria-hidden className="font-display text-display-sm font-light text-fg-soft">×</span>
+                <Image src="/partners/nunnari-labs-navy.png" alt="Nunnari Labs" width={274} height={322} className="h-16 w-auto sm:h-20" />
+              </div>
+            </Reveal>
+            <Reveal delay={0.08} className="col-span-12 lg:col-span-5 lg:col-start-7">
+              <h2 className="max-w-[16ch] text-display-md text-fg">One delivery team across India and Australia.</h2>
+              <p className="mt-6 max-w-[44ch] text-lead font-light text-fg-muted">
+                DeepWeaver leads client engagement in Australia and New Zealand from Sydney. Nunnari Labs leads research and engineering from Coimbatore. One project history, one governance layer, no hand-offs between companies.
+              </p>
+            </Reveal>
+          </div>
+          <Reveal delay={0.14} className="mt-14 lg:mt-20">
+            <div className="grid-12 gap-y-10 border-t border-line pt-10">
+              <div className="col-span-12 lg:col-span-5">
+                <h3 className="font-display text-display-sm text-fg">DeepWeaver</h3>
+                <p className="mt-1 text-sm text-fg-muted">Sydney · Melbourne</p>
+                <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-fg-muted">
+                  Enterprise and public-sector relationships. AI consulting, governance and risk frameworks. Cloud and frontier-model partner channels.
+                </p>
+              </div>
+              <div className="col-span-12 lg:col-span-5 lg:col-start-7">
+                <h3 className="font-display text-display-sm text-fg">Nunnari Labs</h3>
+                <p className="mt-1 text-sm text-fg-muted">Coimbatore · Chennai</p>
+                <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-fg-muted">
+                  Research-led AI engineering, ISO/IEC 42001 certified. Digital AI build, plus Physical AI, edge and robotics. The AI Tamil Nadu community as a talent pipeline.
+                </p>
+              </div>
+            </div>
           </Reveal>
         </div>
       </Section>

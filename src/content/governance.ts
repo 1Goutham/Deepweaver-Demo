@@ -29,11 +29,13 @@ export const governanceModules = [
   { code: "G6", name: "AIOps & Managed Governance", weeks: "Annuity · 12 months+", body: "Continuous monitoring, evidence on demand, retained expertise.", deliverables: "Monthly dashboards, incident register" },
 ];
 
+/** Four-week accelerators — fixed scope, fixed deliverables. Descriptions use the
+ *  deck's own terms for the module each accelerator draws from. */
 export const accelerators = [
-  { code: "A1", name: "Transparency" },
-  { code: "A2", name: "Vendor audit" },
-  { code: "A3", name: "Agent guardrails" },
-  { code: "A4", name: "Red-team sprint" },
-  { code: "A5", name: "GRC literacy" },
-  { code: "A6", name: "AIOps baseline" },
+  { code: "A1", name: "Transparency", weeks: "4 weeks", body: "Explainability, audit trail and reporting for the AI systems already in use.", module: "Reporting" },
+  { code: "A2", name: "Vendor audit", weeks: "4 weeks", body: "Vendor audit against ISO/IEC 42001 and NIST AI RMF, with control scores.", module: "G5 Audit, Certification & Assurance" },
+  { code: "A3", name: "Agent guardrails", weeks: "4 weeks", body: "Guardrail tuning, approval gates and exception and escalation paths for agents in production.", module: "Controls" },
+  { code: "A4", name: "Red-team sprint", weeks: "4 weeks", body: "Evals, red-teaming, bias and drift testing — eval results and red-team findings.", module: "G4 Testing, Evaluation & Red-Teaming" },
+  { code: "A5", name: "GRC literacy", weeks: "4 weeks", body: "AI literacy and role-based enablement, with a certification pathway for key staff.", module: "G2 Policy, Framework & Literacy" },
+  { code: "A6", name: "AIOps baseline", weeks: "4 weeks", body: "Continuous monitoring and evidence on demand — monthly dashboards and an incident register.", module: "G6 AIOps & Managed Governance" },
 ];

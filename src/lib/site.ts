@@ -5,7 +5,7 @@ export const site = {
   email: "contact@deepweaver.ai",
   tagline: "Frontier and sovereign AI, across the physical and digital worlds.",
   description:
-    "DeepWeaver is an ISO/IEC 42001 certified AI-native services company across Australia and India. Digital, Physical, Frontier and Sovereign AI — governed end to end, human-led, and already in production with enterprise and government.",
+    "ISO/IEC 42001 certified AI engineering for enterprise and government across Australia and India. Digital, Physical, Frontier and Sovereign AI — measured on the outcome, not the effort.",
   regions: ["Australia", "India"],
   offices: [
     { country: "Australia", cities: ["Sydney", "Melbourne"] },
@@ -17,32 +17,31 @@ export const site = {
 export type NavLink = { label: string; href: string; description?: string };
 
 export const pillarsNav: NavLink[] = [
-  { label: "Digital AI", href: "/digital-ai", description: "Agents, documents, voice and decisioning in the systems of record." },
-  { label: "Physical AI", href: "/physical-ai", description: "Robots, drones, wearables and vision, running on the device." },
-  { label: "Frontier AI", href: "/frontier-ai", description: "Frontier models, fine-tuning and GPU infrastructure, evaluated." },
-  { label: "Sovereign AI", href: "/sovereign-ai", description: "Frontier capability inside national boundaries, with evidence." },
+  { label: "Digital AI", href: "/digital-ai", description: "Agents, documents and decisions inside the systems of record you already run." },
+  { label: "Physical AI", href: "/physical-ai", description: "Perception and autonomy on robots, drones, cameras and wearables." },
+  { label: "Frontier AI", href: "/frontier-ai", description: "The strongest models available, applied to work that was out of reach." },
+  { label: "Sovereign AI", href: "/sovereign-ai", description: "Self-hosted and in-jurisdiction, for data that cannot leave." },
 ];
 
-export const practicesNav: NavLink[] = [
+export const offerNav: NavLink[] = [
   { label: "Services", href: "/services", description: "Five service lines, one owner for the outcome." },
+  { label: "AI Forward Deployed Engineering", href: "/services#fde", description: "Blended consulting + AI engineering." },
   { label: "AI Governance", href: "/ai-governance", description: "Governance run as a workflow, ISO/IEC 42001 certified." },
   { label: "Factory Brain", href: "/factory-brain", description: "The orchestration layer between ERP and PLC." },
 ];
 
 export const primaryNav: NavLink[] = [
-  { label: "Work", href: "/work" },
+  { label: "Outcomes", href: "/outcomes" },
   { label: "About", href: "/about" },
 ];
 
 export const footerNav = {
-  "What we do": [
+  "AI native services": [
     ...pillarsNav.map(({ label, href }) => ({ label, href })),
-    { label: "Services", href: "/services" },
-    { label: "AI Governance", href: "/ai-governance" },
-    { label: "Factory Brain", href: "/factory-brain" },
   ],
+  "What we offer": offerNav.map(({ label, href }) => ({ label, href })),
   Company: [
-    { label: "Work", href: "/work" },
+    { label: "Outcomes", href: "/outcomes" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ],

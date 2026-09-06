@@ -2,11 +2,43 @@ import Section from "@/components/ui/section";
 import SectionHeader from "@/components/ui/section-header";
 import Reveal from "@/components/motion/reveal";
 import Tag from "@/components/ui/tag";
-import { platformPosition, australia } from "@/content/sovereign";
+import { platformPosition, australia, sovereignStack } from "@/content/sovereign";
 
 export default function SovereignDeep() {
   return (
     <>
+      <Section theme="mist" id="stack">
+        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+          <SectionHeader eyebrow="The sovereign AI stack, end to end" title="Four stages, with assurance across the top and silicon underneath." />
+          <Reveal delay={0.08} className="mt-10 flex flex-wrap items-center gap-2 border-y border-line py-4">
+            <span className="eyebrow mr-2">{sovereignStack.top.label}</span>
+            {sovereignStack.top.items.map((i) => (
+              <Tag key={i}>{i}</Tag>
+            ))}
+          </Reveal>
+          <Reveal delay={0.12} className="mt-6">
+            <ol className="grid gap-px overflow-hidden rounded-md border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+              {sovereignStack.stages.map((st) => (
+                <li key={st.step} className="bg-bg p-6">
+                  <p className="flex items-baseline gap-3"><span className="font-display text-sm text-accent">{st.step}</span><span className="text-display-xs text-fg">{st.name}</span></p>
+                  <ul className="mt-4 divide-y divide-line border-t border-line text-[0.875rem] text-fg-muted">
+                    {st.items.map((i) => (
+                      <li key={i} className="py-2">{i}</li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ol>
+          </Reveal>
+          <Reveal delay={0.16} className="mt-6 flex flex-wrap items-center gap-2 border-y border-line py-4">
+            <span className="eyebrow mr-2">{sovereignStack.bottom.label}</span>
+            {sovereignStack.bottom.items.map((i) => (
+              <Tag key={i}>{i}</Tag>
+            ))}
+            <span className="ml-auto text-sm text-fg-muted">NVIDIA · AMD · Qualcomm</span>
+          </Reveal>
+        </div>
+      </Section>
       <Section theme="light" pad="lg" id="platform">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <SectionHeader

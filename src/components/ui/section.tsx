@@ -11,13 +11,15 @@ type Props = {
   /** vertical rhythm: sm 64/96 · md 96/128 · lg 128/176 */
   pad?: "none" | "sm" | "md" | "lg";
   bleed?: boolean;
+  "aria-label"?: string;
 };
 
 /** Every page section declares its theme so the nav and shared components adapt. */
-export default function Section({ children, theme = "light", className, id, pad = "md" }: Props) {
+export default function Section({ children, theme = "light", className, id, pad = "md", ...rest }: Props) {
   return (
     <section
       id={id}
+      aria-label={rest["aria-label"]}
       data-theme={theme}
       className={cn(
         "relative bg-bg text-fg",

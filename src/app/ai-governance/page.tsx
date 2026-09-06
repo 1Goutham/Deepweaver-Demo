@@ -93,16 +93,22 @@ export default function GovernancePage() {
                 </Disclosure>
               ))}
             </div>
-            <div className="mt-12 flex flex-col gap-4 border-t border-line pt-6 md:flex-row md:items-baseline md:gap-10">
-              <span className="eyebrow shrink-0">Four-week accelerators</span>
-              <ul className="flex flex-wrap gap-x-8 gap-y-2">
+            <div className="mt-16">
+              <p className="eyebrow">Four-week accelerators</p>
+              <p className="mt-3 max-w-[52ch] text-[0.9375rem] text-fg-muted">Fixed scope, fixed deliverables. Each draws on one governance module and lands in four weeks.</p>
+              <ol className="mt-6 grid gap-px overflow-hidden rounded-md border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
                 {accelerators.map((a) => (
-                  <li key={a.code} className="flex items-baseline gap-2 text-[0.9375rem]">
-                    <span className="font-display text-xs text-fg-soft">{a.code}</span>
-                    {a.name}
+                  <li key={a.code} className="flex h-full flex-col bg-bg p-6">
+                    <div className="flex items-baseline justify-between gap-4">
+                      <span className="font-display text-sm text-accent">{a.code}</span>
+                      <span className="text-xs text-fg-muted">{a.weeks}</span>
+                    </div>
+                    <h3 className="mt-3 text-display-xs text-fg">{a.name}</h3>
+                    <p className="mt-2 text-[0.9375rem] leading-relaxed text-fg-muted">{a.body}</p>
+                    <p className="mt-auto pt-5 text-xs text-fg-soft">Draws on {a.module}</p>
                   </li>
                 ))}
-              </ul>
+              </ol>
             </div>
           </Reveal>
         </div>

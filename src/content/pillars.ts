@@ -22,7 +22,7 @@ export const pillars: Pillar[] = [
     slug: "digital-ai",
     index: "01",
     name: "Digital AI",
-    short: "Agents, documents, voice and decisioning, inside the systems of record.",
+    short: "Agents, documents and decisions inside the systems of record you already run.",
     definition:
       "The Digital AI layer: documents and knowledge, interaction, automation and decisioning — delivered as agents that live inside the enterprise applications people already use.",
     intro:
@@ -48,7 +48,7 @@ export const pillars: Pillar[] = [
     proof: { metric: "90%", label: "reduction in invoice processing cost at an ASX-listed manufacturer", source: "ARB Corporation" },
     related: [
       { label: "Enterprise agents in production", href: "/digital-ai#packages" },
-      { label: "Flagship: ARB Corporation", href: "/work#arb" },
+      { label: "Flagship: ARB Corporation", href: "/outcomes#supplier-invoice-automation" },
     ],
     hue: "sky",
   },
@@ -56,7 +56,7 @@ export const pillars: Pillar[] = [
     slug: "physical-ai",
     index: "02",
     name: "Physical AI",
-    short: "Robots, drones, wearables and vision — running on the device, in the field.",
+    short: "Perception and autonomy on robots, drones, cameras and wearables.",
     definition:
       "The Physical AI layer: platforms, perception, deployment and safety. Robots and drones, smart devices, computer vision and on-device inference — our differentiator.",
     intro:
@@ -81,7 +81,7 @@ export const pillars: Pillar[] = [
     outcomeDetail: "Frontier-grade perception running inside a pair of glasses, or across a site — with no cloud round trip and no data leaving the device.",
     proof: { metric: "4,000+", label: "site cameras running edge AI for a national construction security group", source: "Case study" },
     related: [
-      { label: "Flagship: HearSight", href: "/work#hearsight" },
+      { label: "Flagship: HearSight", href: "/outcomes#hearsight-assistive-wearable" },
       { label: "The Factory Brain", href: "/factory-brain" },
     ],
     hue: "blue",
@@ -90,11 +90,11 @@ export const pillars: Pillar[] = [
     slug: "frontier-ai",
     index: "03",
     name: "Frontier AI",
-    short: "Frontier models, fine-tuning and GPU infrastructure — evaluated before they ship.",
+    short: "The strongest models available, applied to work that was out of reach.",
     definition:
       "The model and infrastructure layers: frontier models, sovereign and self-hosted LLM/SLM, multimodal, fine-tuned and on-device — on cloud GPU, NVIDIA AI Enterprise, AMD and edge hardware.",
     intro:
-      "Frontier AI is model capability under control. GPU platform build, distributed training, SFT and LoRA fine-tuning, an evaluation harness and red-teaming — delivered through frontier-model channel and forward-deployed engineering partnerships.",
+      "Where value gets built. Blended consulting and AI engineering, working with business and IT stakeholders to take pilots into production — inside the systems of record you already run.",
     capabilities: [
       { name: "AI infrastructure", body: "GPU platform build, training, fine-tuning and inference management. Model economics under control, capacity that scales with demand." },
       { name: "Model training", body: "Distributed multi-node training, mixed precision, experiment tracking, architecture selection and reproducible runs." },
@@ -122,11 +122,11 @@ export const pillars: Pillar[] = [
     slug: "sovereign-ai",
     index: "04",
     name: "Sovereign AI",
-    short: "Frontier capability inside national boundaries, on infrastructure the customer controls.",
+    short: "Self-hosted and in-jurisdiction, for data that cannot leave.",
     definition:
       "The sovereign AI stack, end to end: data for AI, model training, fine-tuning and inference, on bare-metal GPU, sovereign cloud, on-premise and edge — with MLOps, guardrails and ISO/IEC 42001 controls across the top.",
     intro:
-      "Sovereign AI keeps regulated data in-country, with residency evidence by default. The platform supplies sovereign infrastructure; we are the delivery layer above it, turning capacity into governed production systems.",
+      "Frontier capability inside national boundaries. Self-hosted and in-jurisdiction, for data that cannot leave — refined on infrastructure the customer controls, with ISO/IEC 42001 controls through every stage.",
     capabilities: [
       { name: "Sovereign cloud and residency", body: "Landing-zone design, residency controls, evidence and audit trail. Regulated data stays in-country by default." },
       { name: "AI supercomputing", body: "Cluster orchestration, distributed training, utilisation and cost tuning on single-tenant GPU platforms." },

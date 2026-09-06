@@ -1,20 +1,22 @@
 import Hero from "@/components/sections/home/hero";
-import Statement from "@/components/sections/home/statement";
-import Domains from "@/components/sections/home/domains";
+import TrustedBy from "@/components/sections/home/trusted-by";
+import AiNativeServices from "@/components/sections/home/ai-native-services";
+import CustomerOutcomes from "@/components/sections/home/customer-outcomes";
 import Services from "@/components/sections/home/services";
-import Partnership from "@/components/sections/home/partnership";
-import Proof from "@/components/sections/home/proof";
+import Alliances from "@/components/sections/home/alliances";
+import WhyChooseUs from "@/components/sections/home/why-choose-us";
 import Cta from "@/components/sections/cta";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Statement />
-      <Domains />
+      <TrustedBy />
+      <AiNativeServices />
+      <CustomerOutcomes />
       <Services />
-      <Proof />
-      <Partnership />
+      <Alliances />
+      <WhyChooseUs />
       <Cta />
     </>
   );

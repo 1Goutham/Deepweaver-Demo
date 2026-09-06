@@ -2,7 +2,7 @@
 
 Production site for [deepweaver.ai](https://deepweaver.ai): AI-native services across Australia and India — Digital, Physical, Frontier and Sovereign AI.
 
-Built with Next.js 16 (App Router, TypeScript), Tailwind CSS v4, Framer Motion, Lenis and React Three Fiber.
+Built with Next.js 16 (App Router, TypeScript), Tailwind CSS v4, Framer Motion and Lenis.
 
 ```bash
 npm install
@@ -19,7 +19,6 @@ npm run lint
 | `src/components/layout` | Theme-aware `Nav` (four-domain mega menu, mobile overlay), `Footer`, `Logo` |
 | `src/components/ui` | Primitives: `Section`, `Button`, `Eyebrow`, `SectionHeader`, `Stat`, `Tag`, `Disclosure`, `Facts`, `PillarGlyph` |
 | `src/components/sections` | Composed page sections (`home/`, `pillars/`, `page-hero`, `cta`, `case-studies`, `contact-form`) |
-| `src/components/three` | Hero object: `weave-object` (extruded mark + binary thread), `hero-scene`, `hero-visual` (fallback, gating, error boundary), `mark-shapes.json` (geometry traced from the supplied logo) |
 | `src/components/motion` | `Reveal`, `CountUp`, `LenisProvider`, `Magnetic` |
 | `src/content` | Typed content modules — pillars, services, governance, sovereign, factory, work, about |
 | `public/brand` | Supplied DeepWeaver assets: lockups, mark, deck forms, hero still |
@@ -28,5 +27,5 @@ npm run lint
 
 - Every section declares `data-theme="light" | "dark" | "deep"`. Components use the semantic tokens (`bg-bg`, `text-fg`, `text-fg-muted`, `border-line`, `bg-surface`) so one component works on navy and on canvas. The nav watches the section beneath it and switches logo and colours.
 - Semantic tokens are declared in `@theme inline` so per-section overrides cascade.
-- Motion honours `prefers-reduced-motion`. The 3D hero is loaded on demand, capped at 1.75 dpr, paused when off-screen, and falls back to a still for reduced-motion, low-tier or WebGL-less devices — and on any runtime error.
+- Motion honours `prefers-reduced-motion` through MotionConfig. The hero image is the brand's own weave render, served as WebP with a PNG source.
 - The contact form composes an email to contact@deepweaver.ai; wire a route handler when a CRM is chosen.

@@ -66,7 +66,7 @@ export default function PhysicalDeep() {
               <Button href="/factory-brain">
                 Explore the Factory Brain
               </Button>
-              <Link href="/work" className="link-wipe text-sm font-medium">
+              <Link href="/outcomes" className="link-wipe text-sm font-medium">
                 Edge AI across 4,000+ cameras
               </Link>
             </Reveal>

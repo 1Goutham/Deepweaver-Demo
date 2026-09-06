@@ -1,9 +1,8 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import Button from "@/components/ui/button";
-import HeroVisual from "@/components/three/hero-visual";
 import RevealText from "@/components/motion/reveal-text";
 import { EASE } from "@/components/motion/reveal";
 import { site } from "@/lib/site";
@@ -15,31 +14,26 @@ const rise = (delay: number) => ({
   transition: { duration: 0.8, delay, ease: EASE },
 });
 
+/**
+ * Hero. Copy left, the brand's own weave form right. One fluid grid:
+ * single column to lg, then 6/6. The image scales with its column and
+ * is never cropped; heights come from content, not from the viewport.
+ */
 export default function Hero() {
-  const ref = useRef<HTMLElement>(null);
-  // Depth: the orb drifts at a fraction of scroll speed while the hero leaves the viewport.
-  const { scrollY } = useScroll();
-  const orbY = useTransform(scrollY, [0, 900], [0, 90]);
-  const orbOpacity = useTransform(scrollY, [0, 700], [1, 0.4]);
-
   return (
-    <section id="hero" ref={ref} data-theme="dark" className="bg-hero relative overflow-hidden text-white">
+    <section id="hero" data-theme="dark" className="bg-hero relative overflow-hidden text-white">
       <div className="relative mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
-        <div className="grid-12 items-center gap-y-14 pb-20 pt-[120px] sm:pt-[136px] lg:min-h-[min(100svh,900px)] lg:pb-[96px] lg:pt-[136px]">
-          {/* Copy — left */}
-          <div className="col-span-12 lg:col-span-6 lg:pr-6">
-            <motion.p className="eyebrow" {...rise(0.1)}>
-              AI-native services · Australia · India
-            </motion.p>
+        <div className="grid-12 items-center gap-y-12 pb-16 pt-[104px] sm:gap-y-14 sm:pb-20 sm:pt-[124px] lg:min-h-[min(100svh,880px)] lg:py-[120px]">
+          <div className="col-span-12 lg:col-span-6 lg:pr-4">
             <RevealText
               text="Frontier and sovereign AI, across the physical and digital worlds."
               muted={4}
-              className="mt-9 max-w-[13ch] text-hero"
+              className="max-w-[13ch] text-hero"
             />
-            <motion.p className="mt-8 max-w-[40ch] text-lead font-light text-white/72" {...rise(0.75)}>
-              Digital, Physical, Frontier and Sovereign AI for enterprise and government — governed end to end, and already in production.
+            <motion.p className="mt-7 max-w-[42ch] text-lead font-light text-white/72 sm:mt-8" {...rise(0.7)}>
+              ISO/IEC 42001 certified AI engineering for enterprise and government — measured on the outcome, not the effort.
             </motion.p>
-            <motion.div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5" {...rise(0.9)}>
+            <motion.div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4 sm:mt-10" {...rise(0.85)}>
               <Button href="/contact" size="lg" leading={<CollaborateIcon />}>
                 Let&rsquo;s collaborate
               </Button>
@@ -52,15 +46,22 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Orb — right: a slow settle on entrance, then a slight depth drift on scroll */}
           <motion.div
-            className="col-span-12 will-change-transform lg:col-span-6"
-            style={{ y: orbY, opacity: orbOpacity }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.9, delay: 0.15, ease: EASE }}
+            className="col-span-12 lg:col-span-6"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2, ease: EASE }}
           >
-            <HeroVisual className="mx-auto w-full max-w-[380px] sm:max-w-[460px] lg:max-w-[540px] xl:max-w-[580px]" />
+            <Image
+              src="/brand/hero-weave.webp"
+              alt="The DeepWeaver weave: two capsule forms in the brand gradient, stitched by a thread of binary digits."
+              width={1400}
+              height={1400}
+              priority
+              fetchPriority="high"
+              sizes="(min-width: 1280px) 560px, (min-width: 1024px) 44vw, (min-width: 640px) 420px, 78vw"
+              className="mx-auto h-auto w-full max-w-[min(78vw,340px)] sm:max-w-[420px] lg:max-w-[500px] xl:max-w-[560px]"
+            />
           </motion.div>
         </div>
       </div>
