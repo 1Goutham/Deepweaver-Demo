@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Logo from "./logo";
+import { openConsent } from "./consent";
 import { footerNav, site } from "@/lib/site";
 
 export default function Footer() {
@@ -49,11 +52,25 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div className="mt-16 flex flex-col gap-3 border-t border-line pt-6 text-xs text-fg-soft sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} {site.legalName}. ISO/IEC 42001 certified. Responsible AI by design.</p>
-          <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="link-wipe hover:text-fg">
-            LinkedIn
-          </a>
+        <div className="mt-16 flex flex-col gap-4 border-t border-line pt-6 text-sm text-fg-muted sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} {site.legalName}</p>
+          <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <li>
+              <Link href="/legal/privacy" className="link-wipe hover:text-fg">
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link href="/legal/terms" className="link-wipe hover:text-fg">
+                Terms of Use
+              </Link>
+            </li>
+            <li>
+              <button type="button" onClick={openConsent} className="link-wipe cursor-pointer hover:text-fg">
+                Cookie settings
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
 

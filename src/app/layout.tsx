@@ -5,6 +5,7 @@ import LenisProvider from "@/components/motion/lenis-provider";
 import MotionProvider from "@/components/motion/motion-provider";
 import Nav from "@/components/layout/nav";
 import Footer from "@/components/layout/footer";
+import Consent from "@/components/layout/consent";
 import { site } from "@/lib/site";
 
 const catamaran = Catamaran({
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
           </main>
           <Footer />
+          <Consent />
         </MotionProvider>
         <script
           type="application/ld+json"
