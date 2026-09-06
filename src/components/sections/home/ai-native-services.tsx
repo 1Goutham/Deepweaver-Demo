@@ -11,10 +11,10 @@ import { cn } from "@/lib/utils";
  * brand's own 3D forms as art, copy set over them. No borders, no bullets.
  */
 const tiles = [
-  { bg: "bg-[#e5daeb]", art: "/brand/form-arch.png", w: 1675, h: 1589, artClass: "-right-[16%] -bottom-[20%] w-[46%] sm:w-[52%] lg:w-[56%]" },
-  { bg: "bg-[#dce4ea]", art: "/brand/form-2.png", w: 1311, h: 1399, artClass: "-right-[12%] -bottom-[24%] w-[42%] sm:w-[48%] lg:w-[52%]" },
-  { bg: "bg-[#eae8e1]", art: "/brand/form-split.png", w: 1467, h: 1535, artClass: "-right-[14%] -bottom-[22%] w-[44%] sm:w-[50%] lg:w-[54%]" },
-  { bg: "bg-[#d2e8c8]", art: "/brand/form-arch.png", w: 1675, h: 1589, artClass: "-right-[16%] -bottom-[20%] w-[46%] sm:w-[52%] lg:w-[56%] -scale-x-100" },
+  { bg: "bg-[#e5daeb]", art: "/brand/form-arch.png", w: 1675, h: 1589, artClass: "-right-[10%] -bottom-[12%] w-[52%] sm:-right-[16%] sm:-bottom-[20%] lg:w-[56%]" },
+  { bg: "bg-[#dce4ea]", art: "/brand/form-2.png", w: 1311, h: 1399, artClass: "-right-[8%] -bottom-[14%] w-[48%] sm:-right-[12%] sm:-bottom-[24%] lg:w-[52%]" },
+  { bg: "bg-[#eae8e1]", art: "/brand/form-split.png", w: 1467, h: 1535, artClass: "-right-[9%] -bottom-[13%] w-[50%] sm:-right-[14%] sm:-bottom-[22%] lg:w-[54%]" },
+  { bg: "bg-[#d2e8c8]", art: "/brand/form-arch.png", w: 1675, h: 1589, artClass: "-right-[10%] -bottom-[12%] w-[52%] sm:-right-[16%] sm:-bottom-[20%] lg:w-[56%] -scale-x-100" },
 ];
 
 export default function AiNativeServices() {
@@ -31,7 +31,7 @@ export default function AiNativeServices() {
                 <Link
                   href={p.href}
                   className={cn(
-                    "group relative flex h-full min-h-[300px] flex-col overflow-hidden rounded-lg p-7 text-ink transition-transform duration-500 ease-out-expo hover:-translate-y-1 sm:min-h-[340px] sm:p-9 lg:min-h-[400px] lg:p-11",
+                    "group relative flex h-full min-h-[380px] flex-col overflow-hidden rounded-lg p-7 text-ink transition-transform duration-500 ease-out-expo hover:-translate-y-1 sm:min-h-[340px] sm:p-9 lg:min-h-[400px] lg:p-11",
                     t.bg,
                   )}
                 >
@@ -48,8 +48,8 @@ export default function AiNativeServices() {
                     <h3 className="mt-3 text-display-md">{p.title}</h3>
                     <p className="mt-4 max-w-[34ch] text-[0.9375rem] leading-relaxed text-ink/75 sm:text-base">{p.desc}</p>
                   </div>
-                  <div className="relative mt-auto flex flex-wrap items-end justify-between gap-x-6 gap-y-4 pt-10">
-                    <p className="max-w-[58%] text-[0.8125rem] leading-relaxed text-ink/60 sm:max-w-[30ch]">{p.items.join(" · ")}</p>
+                  <div className="relative mt-auto flex flex-col items-start gap-y-4 pt-10 sm:flex-row sm:items-end sm:justify-between sm:gap-x-6">
+                    <p className="max-w-[56%] text-[0.8125rem] leading-relaxed text-ink/60 sm:max-w-[30ch]">{p.items.join(" · ")}</p>
                     <span className="inline-flex items-center gap-2 text-sm font-medium">
                       Explore
                       <span aria-hidden className="inline-block transition-transform duration-300 ease-out-expo group-hover:translate-x-1">→</span>
