@@ -26,10 +26,10 @@ export const factoryFunctions = [
 ];
 
 export const factoryOutcomes = [
-  { metric: "10–20%", label: "less machine idle time", sub: "Better scheduling" },
-  { metric: "15–30%", label: "less scheduling effort", sub: "AI-assisted planning" },
-  { metric: "Lower", label: "inventory carrying cost", sub: "Demand prediction" },
-  { metric: "Improved", label: "on-time delivery", sub: "Dynamic dispatch" },
+  { label: "Less machine idle time", sub: "Better scheduling" },
+  { label: "Less scheduling effort", sub: "AI-assisted planning" },
+  { label: "Lower inventory carrying cost", sub: "Demand prediction" },
+  { label: "Improved on-time delivery", sub: "Dynamic dispatch" },
 ];
 
 export const deployment = [

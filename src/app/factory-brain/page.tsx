@@ -95,13 +95,12 @@ export default function FactoryBrainPage() {
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <div className="grid-12 gap-y-12">
             <Reveal className="col-span-12 lg:col-span-7">
-              <p className="eyebrow mb-6">Typical measurable outcomes</p>
+              <p className="eyebrow mb-6">What it moves</p>
               <dl className="grid gap-8 sm:grid-cols-2">
                 {factoryOutcomes.map((o) => (
                   <div key={o.label} className="border-t border-line pt-4">
-                    <dd className="font-display text-display-md">{o.metric}</dd>
-                    <dt className="mt-1 text-[0.9375rem]">{o.label}</dt>
-                    <p className="text-sm text-fg-muted">{o.sub}</p>
+                    <dt className="text-display-sm text-fg">{o.label}</dt>
+                    <dd className="mt-2 text-sm text-fg-muted">{o.sub}</dd>
                   </div>
                 ))}
               </dl>
@@ -121,7 +120,7 @@ export default function FactoryBrainPage() {
         </div>
       </Section>
 
-      <Cta eyebrow="Manufacturing" title="Put a planning layer between your ERP and your PLC." body="Start with one plant, one bottleneck — scheduling, maintenance or quality — and measure idle time, scheduling effort and on-time delivery from week one." />
+      <Cta eyebrow="Manufacturing" title="Put a planning layer between your ERP and your PLC." body="Start with one plant, one bottleneck — scheduling, maintenance or quality — and measure it against the numbers you already report on." />
     </>
   );
 }

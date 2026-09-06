@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Section from "@/components/ui/section";
-import SectionHeader from "@/components/ui/section-header";
+import Reveal from "@/components/motion/reveal";
 import { StaggerList, StaggerItem } from "@/components/motion/stagger";
 import { aiNativeServices } from "@/content/home";
 
@@ -8,9 +8,8 @@ import { aiNativeServices } from "@/content/home";
  * The four domains as editorial blocks. No art, no icons, no borders:
  * typography, scale, spacing and a restrained brand tint do the work.
  *
- * Inside each card a two-column grid sets the composition: the title and
- * the capabilities share the left edge; the description and the Explore
- * link share the right column's edge. The empty space is deliberate.
+ * The introduction is a statement, not a labelled header: the title sits on
+ * the left edge, the lead on the second edge, and the four blocks follow.
  */
 const tints = [
   { bg: "#e5daeb", hover: "#dfd2e8" }, // light lavender
@@ -20,12 +19,20 @@ const tints = [
 ];
 
 export default function AiNativeServices() {
-  const { eyebrow, title, sub, pillars } = aiNativeServices;
+  const { title, sub, pillars } = aiNativeServices;
   return (
     <Section id="domains" theme="paper">
       <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
-        <SectionHeader eyebrow={eyebrow} title={title} lead={sub} align="center" size="lg" className="max-w-[46rem]" />
-        <StaggerList className="mt-14 grid gap-4 md:grid-cols-2 md:gap-5 lg:mt-20 lg:gap-6">
+        <div className="grid-12 gap-y-8">
+          <Reveal className="col-span-12 lg:col-span-7">
+            <h2 className="max-w-[16ch] text-display-lg text-fg">{title}</h2>
+          </Reveal>
+          <Reveal delay={0.08} className="col-span-12 lg:col-span-4 lg:col-start-9 lg:self-end">
+            <p className="max-w-[40ch] text-lead font-light text-fg-muted">{sub}</p>
+          </Reveal>
+        </div>
+
+        <StaggerList className="mt-16 grid gap-4 md:grid-cols-2 md:gap-5 lg:mt-24 lg:gap-6">
           {pillars.map((p, i) => {
             const t = tints[i];
             return (
@@ -33,16 +40,13 @@ export default function AiNativeServices() {
                 <Link
                   href={p.href}
                   style={{ "--tile": t.bg, "--tile-hover": t.hover } as React.CSSProperties}
-                  className="group grid h-full min-h-[380px] grid-cols-1 content-between gap-y-10 rounded-lg bg-(--tile) p-8 text-ink transition-colors duration-500 ease-out-expo hover:bg-(--tile-hover) sm:p-10 lg:min-h-[460px] xl:grid-cols-[1.3fr_1fr] xl:gap-x-8 lg:p-12"
+                  className="group grid h-full min-h-[380px] grid-cols-1 content-between gap-y-10 rounded-lg bg-(--tile) p-8 text-ink transition-colors duration-500 ease-out-expo hover:bg-(--tile-hover) sm:p-10 lg:min-h-[460px] lg:p-12 xl:grid-cols-[1.3fr_1fr] xl:gap-x-8"
                 >
-                  {/* Top row: eyebrow + title left; description right, top-aligned with the title. */}
                   <div>
                     <p className="text-[0.8125rem] text-ink/55">{p.kicker}</p>
                     <h3 className="mt-3 text-[clamp(2.25rem,0.75rem+2.35vw,2.875rem)] leading-[1.06] tracking-[-0.024em]">{p.title}</h3>
                   </div>
                   <p className="max-w-[30ch] text-base leading-relaxed text-ink/75 xl:max-w-[26ch] xl:pt-9 xl:text-lead">{p.desc}</p>
-
-                  {/* Bottom row: capabilities left; Explore right, on the description's edge. */}
                   <p className="max-w-[36ch] self-end text-[0.8125rem] leading-relaxed text-ink/60 xl:max-w-[30ch]">{p.items.join(" · ")}</p>
                   <span className="inline-flex items-center gap-2 self-end text-sm font-medium">
                     Explore

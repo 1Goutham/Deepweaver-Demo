@@ -10,12 +10,12 @@ Next.js 16 · TypeScript · Tailwind v4 · Framer Motion.
 
 ## Structure
 
-- `src/app` — routes, metadata, sitemap, robots
+- `src/app` — routes (home, four `(pillars)`, services, ai-fde, ai-governance, factory-brain, outcomes, about, contact, legal), metadata, sitemap, robots
 - `src/components/layout` — Nav (theme-aware, mega menu, mobile overlay), Footer, Logo
 - `src/components/ui` — primitives: Section, Button, Eyebrow, SectionHeader, Stat, Tag, Disclosure, Facts
 - `src/components/sections` — composed page sections (home/, pillars/, shared)
 - `src/components/motion` — Reveal, CountUp, Lenis, Magnetic
-- `src/content` — typed content modules; content traces to the AINS deck, the website changelog and the partner site
+- `src/content` — typed content modules; content traces to the AINS deck, the website changelog and the partner site (primary reference for the four AI domains, service lines, advantages, FDE and logos). No numeric outcome metrics by design.
 - `public/brand` — supplied DeepWeaver assets (never redrawn)
 
 ## Conventions

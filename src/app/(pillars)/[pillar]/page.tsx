@@ -48,23 +48,15 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
   // Definitions are written "Layer name: what it covers" — split for display.
   const [defTitle, ...defRest] = p.definition.split(": ");
   const defLead = defRest.join(": ");
+  const richApps = p.applications.some((a) => a.body);
 
   return (
     <>
       <PageHero
-        eyebrow={`${p.index} · AI domain`}
-        title={p.name}
+        eyebrow={`${p.index} · ${p.name}`}
+        title={p.headline}
         lead={p.intro}
-        aside={
-          <div>
-            <Facts
-              items={[
-                ["Outcome", p.outcome],
-                ...(p.proof ? ([["Proof", `${p.proof.metric} ${p.proof.label}`]] as [string, string][]) : []),
-              ]}
-            />
-          </div>
-        }
+        aside={<Facts items={[["Domain", p.short], ["Outcome", p.outcome]]} />}
       />
 
       <Section theme="light" pad="lg">
@@ -72,9 +64,14 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
           <div className="grid-12 gap-y-12">
             <div className="col-span-12 lg:col-span-5">
               <SectionHeader eyebrow="What it means" title={defTitle} lead={defLead} size="md" as="h2" />
+              <Reveal delay={0.08} className="rail-amber mt-10 max-w-[40ch] pl-5">
+                <p className="eyebrow text-amber">Outcome</p>
+                <p className="mt-3 text-display-xs font-display text-fg">{p.outcome}</p>
+                <p className="mt-2 text-sm leading-relaxed text-fg-muted">{p.outcomeDetail}</p>
+              </Reveal>
             </div>
             <Reveal className="col-span-12 lg:col-span-6 lg:col-start-7" delay={0.1}>
-              <p className="eyebrow mb-2">Capabilities</p>
+              <p className="eyebrow mb-2">{p.capabilitiesEyebrow}</p>
               <ol className="divide-y divide-line border-y border-line">
                 {p.capabilities.map((c, i) => (
                   <li key={c.name} className="grid gap-2 py-6 md:grid-cols-[2rem_1fr] md:gap-x-6">
@@ -82,6 +79,7 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
                     <div>
                       <h3 className="text-display-xs">{c.name}</h3>
                       <p className="mt-2 max-w-[48ch] text-[0.9375rem] leading-relaxed text-fg-muted">{c.body}</p>
+                      {c.outcome && <p className="mt-2 max-w-[48ch] text-[0.9375rem] leading-relaxed text-fg">{c.outcome}</p>}
                     </div>
                   </li>
                 ))}
@@ -95,28 +93,32 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <div className="grid-12 gap-y-12">
             <div className="col-span-12 lg:col-span-5">
-              <SectionHeader eyebrow="Applications" title="Where it is already running." />
-              <div className="rail-amber mt-10 pl-5">
-                <p className="eyebrow text-amber">Outcome</p>
-                <p className="mt-3 text-display-xs font-display">{p.outcome}</p>
-                <p className="mt-2 text-sm text-fg-muted">{p.outcomeDetail}</p>
-              </div>
-            </div>
-            <Reveal className="col-span-12 lg:col-span-6 lg:col-start-7" delay={0.1}>
-              <ul className="divide-y divide-line border-y border-line">
-                {p.applications.map((a) => (
-                  <li key={a} className="flex items-baseline gap-4 py-4 text-[0.9375rem]">
-                    <span aria-hidden className="h-px w-4 shrink-0 bg-violet" />
-                    {a}
-                  </li>
-                ))}
-              </ul>
-              <ul className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+              <SectionHeader eyebrow={p.applicationsEyebrow} title={p.applicationsTitle} />
+              <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
                 {p.related.map((r) => (
                   <li key={r.href}>
                     <Link href={r.href} className="link-wipe text-sm font-medium text-fg">
                       {r.label}
                     </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <Reveal className="col-span-12 lg:col-span-6 lg:col-start-7" delay={0.1}>
+              <ul className="divide-y divide-line border-y border-line">
+                {p.applications.map((a) => (
+                  <li key={a.name} className={richApps ? "py-5" : "flex items-baseline gap-4 py-4 text-[0.9375rem]"}>
+                    {richApps ? (
+                      <>
+                        <p className="text-display-xs text-fg">{a.name}</p>
+                        {a.body && <p className="mt-1.5 max-w-[52ch] text-[0.9375rem] leading-relaxed text-fg-muted">{a.body}</p>}
+                      </>
+                    ) : (
+                      <>
+                        <span aria-hidden className="h-px w-4 shrink-0 bg-violet" />
+                        {a.name}
+                      </>
+                    )}
                   </li>
                 ))}
               </ul>

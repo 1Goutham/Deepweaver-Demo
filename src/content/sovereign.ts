@@ -32,3 +32,26 @@ export const australia = {
     { name: "Compliance from the start", body: "ISO/IEC 42001 and NAIC voluntary AI safety standards applied to the pipeline, not bolted on after." },
   ],
 };
+
+/** Sovereign AI Neocloud Alliance — sovereign compute in both regions, one delivery layer. */
+export const neocloud = {
+  eyebrow: "Sovereign AI Neocloud Alliance",
+  title: "Sovereign compute in both regions, one delivery layer.",
+  lead: "We deliver sovereign AI on infrastructure that stays in-country. The alliance pairs our delivery team with neocloud partners in each region, so regulated data never leaves its jurisdiction and frontier capability still arrives.",
+  members: [
+    { who: "DeepWeaver × Nunnari Labs", where: "Delivery layer", body: "Model engineering, governance and forward-deployed engineers across both regions.", lead: true },
+    { who: "OrionVM", where: "Australia", body: "Single-tenant GPU platform on NVIDIA AI Enterprise for Australian sovereign deployments." },
+    { who: "E2E Networks", where: "India", body: "Indian GPU cloud for in-country training, fine-tuning and inference." },
+  ],
+};
+
+export const india = {
+  eyebrow: "Sovereign AI · India",
+  title: "Built and trained on Indian GPU clouds.",
+  lead: "Research and product work in India runs on Indian infrastructure. JarvisLabs GPU capacity carries training and fine-tuning runs, and E2E Networks anchors in-country deployment through the alliance.",
+  items: [
+    { name: "Research training runs", body: "Vision and language model training and fine-tuning for the applied research programme, on JarvisLabs GPUs." },
+    { name: "Physical AI product development", body: "Model development and compression for HearSight's on-device perception stack, trained in-country before deployment to the glasses." },
+    { name: "Community and enablement", body: "Hands-on GPU capacity for AI Tamil Nadu workshops and enablement sessions, so practitioners train on real hardware." },
+  ],
+};

@@ -1,14 +1,13 @@
 import Section from "@/components/ui/section";
 import SectionHeader from "@/components/ui/section-header";
 import Reveal from "@/components/motion/reveal";
-import CountUp from "@/components/motion/count-up";
 import { StaggerList, StaggerItem } from "@/components/motion/stagger";
 import { whyChooseUs } from "@/content/home";
 import { cn } from "@/lib/utils";
 
-/** Five ways to engage as an editorial list, then four numbers on hairlines. */
+/** Five ways to engage, as an editorial list on hairlines. */
 export default function WhyChooseUs() {
-  const { eyebrow, title, sub, modes, note, stats } = whyChooseUs;
+  const { eyebrow, title, sub, modes, note } = whyChooseUs;
   return (
     <Section id="how-we-work" theme="paper">
       <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
@@ -38,18 +37,6 @@ export default function WhyChooseUs() {
           <p className="mt-6 max-w-[80ch] text-sm text-fg-muted">{note}</p>
         </Reveal>
 
-        <Reveal delay={0.1}>
-          <dl className="mt-16 grid grid-cols-2 gap-y-10 border-y border-line py-10 md:grid-cols-4 lg:mt-24">
-            {stats.map((s, i) => (
-              <div key={s.label} className={cn("px-3 text-center", i > 0 && "md:border-l md:border-line")}>
-                <dd className="font-display text-display-lg tabular-nums text-fg">
-                  <CountUp to={s.value} suffix={s.suffix} />
-                </dd>
-                <dt className="mt-2 text-sm text-fg-muted">{s.label}</dt>
-              </div>
-            ))}
-          </dl>
-        </Reveal>
       </div>
     </Section>
   );

@@ -7,7 +7,9 @@ import Reveal from "@/components/motion/reveal";
 import Facts from "@/components/ui/facts";
 import Cta from "@/components/sections/cta";
 import { serviceLines } from "@/content/home";
-import { fde, engagementModels, howWeWork } from "@/content/services";
+import { engagementModels, howWeWork } from "@/content/services";
+import { fde } from "@/content/fde";
+import Button from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -63,42 +65,12 @@ export default function ServicesPage() {
 
       <Section theme="lilac" pad="lg" id="fde">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
-          <SectionHeader eyebrow="Service line · Forward-deployed engineering" title="AI forward-deployed engineering." lead={fde.intro} size="lg" />
-          <div className="mt-14 grid gap-px border-y border-line bg-line lg:grid-cols-3">
-            <Reveal className="bg-bg p-7 lg:p-8">
-              <p className="eyebrow">Areas of focus</p>
-              <ol className="mt-5 space-y-3">
-                {fde.focus.map((f, i) => (
-                  <li key={f} className="flex gap-4 text-[0.9375rem]">
-                    <span className="font-display text-xs text-fg-soft">0{i + 1}</span>
-                    {f}
-                  </li>
-                ))}
-              </ol>
-              <p className="eyebrow mt-8 text-amber">Enablement · Adoption · ROI</p>
-            </Reveal>
-            <Reveal className="bg-bg p-7 lg:p-8" delay={0.08}>
-              <p className="eyebrow">Who needs an FDE</p>
-              <ul className="mt-5 space-y-5">
-                {fde.who.map((w) => (
-                  <li key={w.who}>
-                    <p className="font-medium">{w.who}</p>
-                    <p className="mt-0.5 text-sm text-fg-muted">{w.body}</p>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-8 rounded-sm bg-surface-2 p-4 text-sm">{fde.sameProblem}</p>
-            </Reveal>
-            <Reveal className="rail-amber bg-surface-2 p-7 lg:p-8" delay={0.16}>
-              <p className="eyebrow text-amber">Skillsets · five disciplines</p>
-              <ul className="mt-5 space-y-4">
-                {fde.disciplines.map((d) => (
-                  <li key={d.name}>
-                    <p className="font-medium">{d.name}</p>
-                    <p className="mt-0.5 text-sm text-fg-muted">{d.body}</p>
-                  </li>
-                ))}
-              </ul>
+          <div className="grid-12 gap-y-10 lg:items-end">
+            <div className="col-span-12 lg:col-span-7">
+              <SectionHeader eyebrow="AI forward-deployed engineering" title="Blended consulting and AI engineering, inside your teams." lead={fde.intro.body} />
+            </div>
+            <Reveal delay={0.1} className="col-span-12 lg:col-span-4 lg:col-start-9 lg:justify-self-end">
+              <Button href="/ai-fde">How an FDE engagement runs</Button>
             </Reveal>
           </div>
         </div>

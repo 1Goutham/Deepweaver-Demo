@@ -102,8 +102,8 @@ export default function Nav() {
         "fixed inset-x-0 top-0 z-50 text-fg transition-[background-color,border-color] duration-300",
         scrolled || mega
           ? dark
-            ? "border-b border-white/10 bg-ink/95"
-            : "border-b border-ink/10 bg-canvas/95"
+            ? cn("border-b border-white/10", mega ? "bg-ink" : "bg-ink/95")
+            : cn("border-b border-ink/10", mega ? "bg-canvas" : "bg-canvas/95")
           : "border-b border-transparent bg-transparent",
       )}
       onMouseLeave={closeMega}
@@ -112,7 +112,17 @@ export default function Nav() {
         <Logo variant={dark ? "white" : "navy"} priority className="relative z-[60]" />
 
         {/* Desktop */}
-        <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-0.5 lg:flex">
+          <Link
+            href="/"
+            aria-current={path === "/" ? "page" : undefined}
+            className={cn(
+              "inline-flex h-10 items-center rounded-full px-3 text-[0.8125rem] transition-colors",
+              path === "/" ? "text-fg" : "text-fg-muted hover:text-fg",
+            )}
+          >
+            Home
+          </Link>
           <div className="relative" onMouseEnter={openMega}>
             <button
               type="button"
@@ -121,7 +131,7 @@ export default function Nav() {
               onClick={() => setMega((v) => !v)}
               onFocus={openMega}
               className={cn(
-                "inline-flex h-10 items-center gap-1.5 rounded-full px-3.5 text-[0.8125rem] transition-colors",
+                "inline-flex h-10 items-center gap-1.5 rounded-full px-3 text-[0.8125rem] transition-colors",
                 isPillar ? "text-fg" : "text-fg-muted hover:text-fg",
               )}
             >
@@ -139,7 +149,7 @@ export default function Nav() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "inline-flex h-10 items-center rounded-full px-3.5 text-[0.8125rem] transition-colors",
+                  "inline-flex h-10 items-center rounded-full px-3 text-[0.8125rem] transition-colors",
                   active ? "text-fg" : "text-fg-muted hover:text-fg",
                 )}
               >
@@ -246,7 +256,7 @@ export default function Nav() {
                 ))}
               </ul>
               <ul className="mt-8 space-y-1">
-                {[...offerNav, ...primaryNav].map((item) => (
+                {[{ label: "Home", href: "/" }, ...primaryNav, ...offerNav.filter((o) => !primaryNav.some((p) => p.href === o.href))].map((item) => (
                   <li key={item.href}>
                     <Link href={item.href} className="block py-2.5 text-lg font-medium text-white/85">
                       {item.label}

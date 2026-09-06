@@ -21,7 +21,7 @@ export default function OutcomesPage() {
         eyebrow="Outcomes"
         title="Systems our clients operate."
         lead="Every entry here is in production or on real hardware — across regulated and public sector, manufacturing, healthcare, and retail, where AI has to hold up under audit and on the floor. Some clients are anonymised; details are available under NDA."
-        aside={<Facts items={[["Stories", String(stories.length)], ["Engagements", String(engagements.length)], ["Regions", "Australia · India"]]} />}
+        aside={<Facts items={[["Sectors", "Public sector · Manufacturing · Health · Retail"], ["Regions", "Australia · India"], ["Detail", "Available under NDA"]]} />}
       />
 
       <Section theme="light" id="stories">
@@ -29,10 +29,7 @@ export default function OutcomesPage() {
           <ol className="grid gap-px overflow-hidden rounded-md border border-line bg-line md:grid-cols-2">
             {stories.map((s, i) => (
               <Reveal as="li" key={s.slug} id={s.slug} delay={0.04 * (i % 2)} className="flex h-full flex-col bg-bg p-6 sm:p-8 lg:p-9">
-                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <p className="text-[0.8125rem] text-fg-muted">{s.industry}</p>
-                  {s.metric && <p className="text-[0.8125rem] font-medium text-fg">{s.metric}</p>}
-                </div>
+                <p className="text-[0.8125rem] text-fg-muted">{s.industry}</p>
                 <h2 className="mt-4 max-w-[26ch] text-display-sm text-fg">{s.title}</h2>
                 <p className="mt-3 text-[0.9375rem] leading-relaxed text-fg-muted">{s.description}</p>
                 <ul className="mt-auto flex flex-wrap gap-2 pt-7">

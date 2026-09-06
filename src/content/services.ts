@@ -1,21 +1,3 @@
-export const fde = {
-  intro: "Blended consulting and AI engineering — working with business and IT stakeholders to take AI pilots into production.",
-  focus: ["Platform security & governance", "Observability & platform integration", "Connectors & vendor integration", "Skills & prompt engineering", "Knowledge management", "Enablement & onboarding"],
-  who: [
-    { who: "Large enterprises", body: "Dozens of pilots, fragmented IT, no one owning outcomes" },
-    { who: "Small & medium business", body: "No AI team to hire and no budget for one — a fractional expert instead" },
-    { who: "ISVs & software vendors", body: "Racing to ship AI features before the roadmap goes stale" },
-  ],
-  sameProblem: "Different size, same problem: capability without an owner.",
-  disciplines: [
-    { name: "Business analysis", body: "Turns business ideas into AI systems, agents and skills" },
-    { name: "Data engineering", body: "Pulls in and transforms the data sources a model actually needs" },
-    { name: "ML engineering", body: "Hosts models and runs post-training to fit the customer's domain" },
-    { name: "Cloud & platform", body: "Deploys and integrates APIs as containers, production-grade" },
-    { name: "Full-stack delivery", body: "Integrates with applications and tests end to end, like a dev" },
-  ],
-};
-
 export const engagementModels = [
   { name: "Co-Delivery", body: "We co-develop and deliver alongside the customer's own delivery teams, sprint by sprint." },
   { name: "Centre of Excellence", body: "We provide strategic guidance and standards while the customer handles delivery." },

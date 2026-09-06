@@ -2,7 +2,8 @@ import Section from "@/components/ui/section";
 import SectionHeader from "@/components/ui/section-header";
 import Reveal from "@/components/motion/reveal";
 import Tag from "@/components/ui/tag";
-import { platformPosition, australia, sovereignStack } from "@/content/sovereign";
+import { platformPosition, australia, sovereignStack, neocloud, india } from "@/content/sovereign";
+import { cn } from "@/lib/utils";
 
 export default function SovereignDeep() {
   return (
@@ -70,6 +71,23 @@ export default function SovereignDeep() {
         </div>
       </Section>
 
+      <Section theme="paper" pad="lg" id="alliance">
+        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+          <SectionHeader eyebrow={neocloud.eyebrow} title={neocloud.title} lead={neocloud.lead} />
+          <Reveal delay={0.1} className="mt-14">
+            <ol className="grid gap-x-8 gap-y-10 border-t border-line pt-10 md:grid-cols-3">
+              {neocloud.members.map((m) => (
+                <li key={m.who}>
+                  <p className={cn("eyebrow", m.lead && "text-amber")}>{m.where}</p>
+                  <h3 className="mt-4 text-display-sm text-fg">{m.who}</h3>
+                  <p className="mt-3 max-w-[36ch] text-[0.9375rem] leading-relaxed text-fg-muted">{m.body}</p>
+                </li>
+              ))}
+            </ol>
+          </Reveal>
+        </div>
+      </Section>
+
       <Section theme="lilac" pad="lg" id="australia">
         <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
           <SectionHeader eyebrow="Sovereign AI · Australia" title="Australian sovereign experience." lead={australia.intro} />
@@ -105,6 +123,21 @@ export default function SovereignDeep() {
               </ul>
             </Reveal>
           </div>
+        </div>
+      </Section>
+      <Section theme="light" pad="lg" id="india">
+        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+          <SectionHeader eyebrow={india.eyebrow} title={india.title} lead={india.lead} />
+          <Reveal delay={0.1} className="mt-14">
+            <ol className="grid gap-x-8 gap-y-10 border-t border-line pt-10 md:grid-cols-3">
+              {india.items.map((it) => (
+                <li key={it.name}>
+                  <h3 className="max-w-[16ch] text-display-sm text-fg">{it.name}</h3>
+                  <p className="mt-3 max-w-[36ch] text-[0.9375rem] leading-relaxed text-fg-muted">{it.body}</p>
+                </li>
+              ))}
+            </ol>
+          </Reveal>
         </div>
       </Section>
     </>
