@@ -100,8 +100,8 @@ export const alliances = [
   { src: "/logos/qualcomm.png", name: "Qualcomm", role: "Physical AI", detail: "On-device inference silicon", w: 754, h: 160 },
   { src: "/logos/ibm.png", name: "IBM", role: "AI governance", detail: "watsonx governance stack", w: 720, h: 284 },
   { src: "/logos/credo-ai.png", name: "Credo AI", role: "AI governance", detail: "Policy and assurance platform", w: 266, h: 67 },
-  { src: "/logos/e2e-networks.png", name: "E2E Networks", role: "Sovereign AI · India", detail: "Indian GPU cloud for sovereign deployments", w: 1208, h: 284 },
-  { src: "/logos/jarvislabs.png", name: "JarvisLabs", role: "Sovereign AI · India", detail: "Indian GPU cloud for training and inference", w: 1167, h: 172 },
+  { src: "/logos/orionvm.png", name: "OrionVM", role: "Sovereign AI · Australia", detail: "Single-tenant GPU platform on NVIDIA AI Enterprise", w: 578, h: 235, compact: true },
+  { src: "/logos/e2e-networks.png", name: "E2E Networks", role: "Sovereign AI · India", detail: "Indian GPU cloud for in-country training and inference", w: 1208, h: 284 },
 ];
 
 export const alliancesSection = {

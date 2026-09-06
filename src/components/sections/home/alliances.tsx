@@ -2,6 +2,7 @@ import Image from "next/image";
 import Section from "@/components/ui/section";
 import Reveal from "@/components/motion/reveal";
 import { alliances, alliancesSection, trustMarks } from "@/content/home";
+import { cn } from "@/lib/utils";
 
 /** Alliances as a calm logo grid with a caption each. Hairlines, no cards. */
 export default function Alliances() {
@@ -24,7 +25,7 @@ export default function Alliances() {
             {alliances.map((a) => (
               <li key={a.name} className="flex flex-col">
                 <div className="flex h-10 items-center">
-                  <Image src={a.src} alt={a.name} width={a.w} height={a.h} className="h-6 w-auto max-w-[132px] object-contain grayscale sm:h-7" />
+                  <Image src={a.src} alt={a.name} width={a.w} height={a.h} className={cn("w-auto max-w-[132px] object-contain grayscale", "compact" in a && a.compact ? "h-8 sm:h-9" : "h-6 sm:h-7")} />
                 </div>
                 <p className="eyebrow mt-6">{a.role}</p>
                 <p className="mt-1.5 max-w-[22ch] text-[0.875rem] leading-snug text-fg-muted">{a.detail}</p>
