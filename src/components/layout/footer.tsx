@@ -13,13 +13,18 @@ export default function Footer() {
         <div className="grid-12 gap-y-12">
           <div className="col-span-12 lg:col-span-4">
             <Logo variant="white" />
-            <p className="mt-6 max-w-[34ch] text-[0.9375rem] font-light leading-relaxed text-fg-muted">
-              Frontier and sovereign AI, across the physical and digital worlds.
+            <p className="mt-6 text-[0.9375rem] text-fg">
+              {site.regions.join(" | ")}
             </p>
-            <a href={`mailto:${site.email}`} className="link-wipe mt-6 inline-block text-[0.9375rem] font-medium text-fg">
-              {site.email}
-            </a>
-            <p className="mt-8 text-xs text-fg-soft">ISO/IEC 42001 certified · NIST AI RMF · EU AI Act aligned · National AI Centre listed</p>
+            <p className="mt-3 flex flex-wrap items-center gap-x-3 text-[0.9375rem]">
+              <a href={`mailto:${site.email}`} className="link-wipe font-medium text-fg">
+                {site.email}
+              </a>
+              <span aria-hidden className="text-fg-soft">|</span>
+              <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="link-wipe font-medium text-fg">
+                LinkedIn
+              </a>
+            </p>
           </div>
 
           <nav aria-label="Footer" className="col-span-12 grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-6 lg:col-start-7">
@@ -37,18 +42,6 @@ export default function Footer() {
                 </ul>
               </div>
             ))}
-            <div>
-              <p className="eyebrow">Where we operate</p>
-              <ul className="mt-5 space-y-2.5 text-[0.9375rem] text-fg-muted">
-                {site.offices.map((o) => (
-                  <li key={o.country}>
-                    <span className="text-fg">{o.country}</span>
-                    <br />
-                    <span className="text-sm">{o.cities.join(" · ")}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </nav>
         </div>
 

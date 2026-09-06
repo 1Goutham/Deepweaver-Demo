@@ -4,9 +4,8 @@ import { oneStack } from "@/content/home";
 import { cn } from "@/lib/utils";
 
 /**
- * Two regions, one delivery team. Australia leads — larger, first, on the left edge —
- * because the site is positioned for the Australian market. India follows on
- * the second edge at a smaller scale. Hairlines, no cards.
+ * Two regions, one delivery team. Australia first on the left edge, India on
+ * the second edge, at the same scale. Hairlines, no cards.
  */
 export default function OneStack() {
   const { eyebrow, title, sub, regions, note } = oneStack;
@@ -28,14 +27,14 @@ export default function OneStack() {
             <Reveal
               key={r.country}
               delay={0.06 * i}
-              className={cn("col-span-12", r.lead ? "lg:col-span-6" : "lg:col-span-4 lg:col-start-9 lg:pt-14")}
+              className={cn("col-span-12 lg:col-span-5", !r.lead && "lg:col-start-8")}
             >
               <p className="eyebrow">{r.role}</p>
-              <h3 className={cn("mt-4 text-fg", r.lead ? "text-display-xl" : "text-display-md")}>{r.country}</h3>
+              <h3 className="mt-4 text-display-lg text-fg">{r.country}</h3>
               <p className="mt-2 text-sm text-fg-muted">{r.cities}</p>
-              <ul className={cn("mt-8 divide-y divide-line border-y border-line", r.lead ? "max-w-[36rem]" : "")}>
+              <ul className="mt-8 divide-y divide-line border-y border-line">
                 {r.points.map((p) => (
-                  <li key={p} className={cn("py-3.5", r.lead ? "text-base sm:text-[1.0625rem]" : "text-[0.9375rem]")}>
+                  <li key={p} className="py-3.5 text-[0.9375rem] sm:text-base">
                     {p}
                   </li>
                 ))}

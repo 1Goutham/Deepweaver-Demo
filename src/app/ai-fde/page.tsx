@@ -95,8 +95,7 @@ export default function AiFdePage() {
             <div className="col-span-12 lg:col-span-5">
               <SectionHeader eyebrow={disciplines.eyebrow} title={disciplines.title} />
               <Reveal delay={0.08} className="mt-8">
-                <p className="max-w-[44ch] text-[0.9375rem] leading-relaxed text-fg-muted sm:text-base">{disciplines.body}</p>
-                <div className="rail-amber mt-10 pl-5">
+                <div className="rail-amber pl-5">
                   <p className="eyebrow text-amber">{disciplines.costEyebrow}</p>
                   <p className="mt-3 max-w-[44ch] text-[0.9375rem] leading-relaxed text-fg">{disciplines.cost}</p>
                 </div>

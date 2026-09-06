@@ -10,7 +10,7 @@ import { uniqueAdvantages } from "@/content/home";
  * pattern is legible without a click.
  */
 export default function UniqueAdvantages() {
-  const { eyebrow, title, sub, items, footnote } = uniqueAdvantages;
+  const { eyebrow, title, sub, items } = uniqueAdvantages;
   return (
     <Section id="advantages" theme="lilac">
       <div className="mx-auto max-w-wide px-gutter">
@@ -39,9 +39,6 @@ export default function UniqueAdvantages() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.12} className="mt-12 grid-12">
-          <p className="col-span-12 text-xs text-fg-soft lg:col-span-10 lg:col-start-2">{footnote}</p>
-        </Reveal>
       </div>
     </Section>
   );

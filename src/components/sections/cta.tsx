@@ -8,7 +8,7 @@ type Props = { eyebrow?: string; title?: string; body?: string };
 export default function Cta({
   eyebrow = "Start the conversation",
   title = "Extending the reach of AI beyond the screen — from the field to the factory floor and everything in between.",
-  body = "Tell us where the programme is stuck and we will bring the right shape of engagement.",
+  body = "Ready to move forward? Let’s talk about your specific needs and how we can help you succeed.",
 }: Props) {
   return (
     <Section theme="brand" className="bg-brand-gradient">

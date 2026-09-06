@@ -57,7 +57,6 @@ export const fde = {
   disciplines: {
     eyebrow: "One engineer, five disciplines",
     title: "Not every AI FDE is built for the job.",
-    body: "Staff-augmentation agencies are supplying cloud engineers, DevOps engineers and software developers as “FDEs”. A real AI FDE is a different breed.",
     costEyebrow: "The cost of getting this wrong",
     cost: "The wrong FDE means failed pilots, lower adoption and no ROI, the exact outcomes the role was created to prevent. Customers do not need more FDEs. They need the right one, embedded with their business and IT teams.",
     items: [

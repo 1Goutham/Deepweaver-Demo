@@ -99,11 +99,11 @@ export default function AboutPage() {
           <SectionHeader eyebrow="Where we operate" title="Two regions, one practice." />
           <div className="mt-14 grid-12 gap-y-14 border-t border-line pt-12 lg:mt-20 lg:pt-16">
             {regions.map((r, i) => (
-              <Reveal key={r.country} delay={0.08 * i} className={i === 0 ? "col-span-12 lg:col-span-6" : "col-span-12 lg:col-span-5 lg:col-start-8"}>
+              <Reveal key={r.country} delay={0.08 * i} className={i === 0 ? "col-span-12 lg:col-span-5" : "col-span-12 lg:col-span-5 lg:col-start-8"}>
                 <p className="eyebrow">{r.role}</p>
-                <h3 className={i === 0 ? "mt-4 text-display-xl text-fg" : "mt-4 text-display-lg text-fg"}>{r.country}</h3>
+                <h3 className="mt-4 text-display-lg text-fg">{r.country}</h3>
                 <p className="mt-1 text-sm text-fg-muted">{r.cities}</p>
-                <ul className="mt-8 max-w-[34rem] divide-y divide-line border-y border-line">
+                <ul className="mt-8 divide-y divide-line border-y border-line">
                   {r.points.map((p) => (
                     <li key={p} className="py-3.5 text-[0.9375rem] sm:text-base">
                       {p}

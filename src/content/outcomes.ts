@@ -39,3 +39,35 @@ export const engagements = [
   { client: "Enterprise ERP estate", sector: "Cross-industry · procurement", body: "Procure-to-pay multi-agent system with intent classification and MCP-based integration.", tags: ["Efficiency", "Cycle time"] },
   { client: "Enterprise horizontal", sector: "Cross-industry · platform", body: "Private AI platform and multi-agent assistant spanning managed, hosted and third-party models.", tags: ["Speed to market", "Efficiency"] },
 ];
+
+/** Flagship customer stories, as the partner site presents them: named clients, problem, solution, outcome. */
+export type Flagship = { logo: string; client: string; pillar: string; problem: string; solution: string; outcome: string; href: string };
+export const flagshipStories: Flagship[] = [
+  {
+    logo: "/clients/landcom.png",
+    client: "Landcom · NSW Government",
+    pillar: "Frontier AI",
+    problem: "Manual, repetitive finance workflows, and an organisation that wanted generative AI in everyday work only under governance it could stand behind.",
+    solution: "Finance workflows automated end to end, then enterprise-wide adoption: a governance model, a retained forward-deployed engineer, and training across every team — built on OCI, Oracle AI Services and Claude.",
+    outcome: "5 FTE of capacity freed every week; 200 staff onboarded at 100% enablement.",
+    href: "#public-sector-genai-enablement",
+  },
+  {
+    logo: "/clients/arb.png",
+    client: "ARB Corporation · ASX-listed manufacturer",
+    pillar: "Digital AI",
+    problem: "More than 12,000 supplier invoices a month validated, coded and routed by hand across global accounts-payable teams.",
+    solution: "An intelligent processing pipeline on Oracle Cloud integrated with JD Edwards: invoices read and validated, line items coded against the system of record, only exceptions routed to a person.",
+    outcome: "90% reduction in invoice processing cost; A$2.9M projected annual saving.",
+    href: "#supplier-invoice-automation",
+  },
+  {
+    logo: "/clients/hearsight.png",
+    client: "HearSight Audio Vision · Assistive technology",
+    pillar: "Physical AI",
+    problem: "People with low vision need the world read to them in real time, without a cloud round trip, a connectivity assumption, or their data leaving the device.",
+    solution: "Smart glasses with every model running on the device: object and obstacle detection, OCR, face recognition, navigation and offline payment assistance.",
+    outcome: "Frontier-grade perception running inside a pair of glasses. Nunnari Labs is HearSight's AI and engineering partner.",
+    href: "#hearsight-assistive-wearable",
+  },
+];

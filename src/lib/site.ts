@@ -11,14 +11,14 @@ export const site = {
     { country: "Australia", cities: ["Sydney", "Melbourne"] },
     { country: "India", cities: ["Coimbatore", "Chennai"] },
   ],
-  linkedin: "https://au.linkedin.com/company/deepweaver",
+  linkedin: "https://www.linkedin.com/company/deepweaver",
 } as const;
 
 export type NavLink = { label: string; href: string; description?: string };
 
 /** The four AI domains — the spine of the information architecture. */
 export const pillarsNav: NavLink[] = [
-  { label: "Digital AI", href: "/digital-ai", description: "Agents, documents and decisions inside the systems of record you already run." },
+  { label: "Digital AI", href: "/digital-ai", description: "AI agents transform enterprise systems into decision engines." },
   { label: "Physical AI", href: "/physical-ai", description: "Perception and autonomy on robots, drones, cameras and wearables." },
   { label: "Frontier AI", href: "/frontier-ai", description: "The strongest models available, applied to work that was out of reach." },
   { label: "Sovereign AI", href: "/sovereign-ai", description: "Self-hosted and in-jurisdiction, for data that cannot leave." },

@@ -90,7 +90,6 @@ export const uniqueAdvantages = {
       cta: "Outcomes",
     },
   ],
-  footnote: "ISO/IEC 42001 certified · National AI Centre listed · NIST AI RMF, EU AI Act and OECD: aligned with, not separately certified.",
 };
 
 export const alliances = [
@@ -100,7 +99,7 @@ export const alliances = [
   { src: "/logos/qualcomm.png", name: "Qualcomm", role: "Physical AI", detail: "On-device inference silicon", w: 754, h: 160 },
   { src: "/logos/ibm.png", name: "IBM", role: "AI governance", detail: "watsonx governance stack", w: 720, h: 284 },
   { src: "/logos/credo-ai.png", name: "Credo AI", role: "AI governance", detail: "Policy and assurance platform", w: 266, h: 67 },
-  { src: "/logos/orionvm.png", name: "OrionVM", role: "Sovereign AI · Australia", detail: "Single-tenant GPU platform on NVIDIA AI Enterprise", w: 578, h: 235, compact: true },
+  { src: "/logos/orionvm.png", name: "OrionVM", role: "Sovereign AI · Australia", detail: "Single-tenant GPU platform on NVIDIA AI Enterprise", w: 627, h: 146 },
   { src: "/logos/e2e-networks.png", name: "E2E Networks", role: "Sovereign AI · India", detail: "Indian GPU cloud for in-country training and inference", w: 1208, h: 284 },
 ];
 
@@ -128,7 +127,6 @@ export const whyChooseUs = {
     { title: "Uplift & Transition", body: "We lead the early work, then train your team to take it over." },
     { title: "As a Service", body: "We own the infrastructure and the application, and run it against an SLA.", highlight: true },
   ],
-  note: "Onshore, offshore and blended — senior teams across Australia and India, in your time zone. Hypercare through to AIOps, with monitoring on every build.",
 };
 
 /** Five service lines, as the partner site lists them today. */

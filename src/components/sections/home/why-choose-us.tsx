@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 /** Five ways to engage, as an editorial list on hairlines. */
 export default function WhyChooseUs() {
-  const { eyebrow, title, sub, modes, note } = whyChooseUs;
+  const { eyebrow, title, sub, modes } = whyChooseUs;
   return (
     <Section id="how-we-work" theme="paper">
       <div className="mx-auto max-w-wide px-gutter">
@@ -33,9 +33,6 @@ export default function WhyChooseUs() {
             </StaggerItem>
           ))}
         </StaggerList>
-        <Reveal delay={0.06}>
-          <p className="mt-6 max-w-[80ch] text-sm text-fg-muted">{note}</p>
-        </Reveal>
 
       </div>
     </Section>
