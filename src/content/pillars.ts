@@ -124,10 +124,7 @@ export const pillars: Pillar[] = [
     ],
     outcome: "Frontier capability running in production, under your own governance.",
     outcomeDetail: "Five layers that take an organisation from first access to frontier models running in production.",
-    related: [
-      { label: "AI forward-deployed engineering", href: "/ai-fde" },
-      { label: "Sovereign AI stack", href: "/sovereign-ai" },
-    ],
+    related: [{ label: "AI forward-deployed engineering", href: "/ai-fde" }],
     hue: "lavender",
   },
   {
