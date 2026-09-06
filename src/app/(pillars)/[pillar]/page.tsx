@@ -5,7 +5,6 @@ import PageHero from "@/components/sections/page-hero";
 import Section from "@/components/ui/section";
 import SectionHeader from "@/components/ui/section-header";
 import Reveal from "@/components/motion/reveal";
-import Facts from "@/components/ui/facts";
 import Cta from "@/components/sections/cta";
 import { pillars, pillarBySlug } from "@/content/pillars";
 import DigitalDeep from "@/components/sections/pillars/digital-deep";
@@ -52,12 +51,7 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
 
   return (
     <>
-      <PageHero
-        eyebrow={p.name}
-        title={p.headline}
-        lead={p.intro}
-        aside={<Facts items={[["Domain", p.short], ["Outcome", p.outcome]]} />}
-      />
+      <PageHero eyebrow={p.name} title={p.headline} lead={p.intro} />
 
       <Section theme="light" pad="lg">
         <div className="mx-auto max-w-wide px-gutter">
