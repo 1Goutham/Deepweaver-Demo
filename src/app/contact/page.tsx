@@ -16,7 +16,7 @@ export default function ContactPage() {
     <>
       <PageHero eyebrow="Contact" title="Tell us where the programme is stuck." lead="We will come back with the right shape of engagement — co-delivery, a centre of excellence, a fixed-scope project, uplift and transition, or as a service." size="md" />
       <Section theme="light" pad="lg">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <div className="grid-12 gap-y-14">
             <Reveal className="col-span-12 lg:col-span-7">
               <ContactForm />

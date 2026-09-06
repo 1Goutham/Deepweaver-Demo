@@ -25,7 +25,7 @@ export default function FactoryBrainPage() {
       />
 
       <Section theme="light" pad="lg">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <div className="grid-12 gap-y-12">
             <Reveal className="col-span-12 lg:col-span-6">
               <p className="eyebrow mb-5">Where it sits</p>
@@ -72,7 +72,7 @@ export default function FactoryBrainPage() {
       </Section>
 
       <Section theme="lilac" pad="lg" id="functions">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <SectionHeader eyebrow="What the Factory Brain does" title="Seven areas, one planning layer." lead="AI never replaces the PLC. It makes PLC-driven factories smarter." />
           <Reveal className="mt-14" delay={0.1}>
             <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -92,7 +92,7 @@ export default function FactoryBrainPage() {
       </Section>
 
       <Section theme="light" pad="lg">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <div className="grid-12 gap-y-12">
             <Reveal className="col-span-12 lg:col-span-7">
               <p className="eyebrow mb-6">What it moves</p>

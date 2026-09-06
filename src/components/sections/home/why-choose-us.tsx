@@ -10,7 +10,7 @@ export default function WhyChooseUs() {
   const { eyebrow, title, sub, modes, note } = whyChooseUs;
   return (
     <Section id="how-we-work" theme="paper">
-      <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-wide px-gutter">
         <div className="grid-12 gap-y-10">
           <div className="col-span-12 lg:col-span-6">
             <SectionHeader eyebrow={eyebrow} title={title} />

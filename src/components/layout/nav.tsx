@@ -108,7 +108,7 @@ export default function Nav() {
       )}
       onMouseLeave={closeMega}
     >
-      <div className="mx-auto flex h-[72px] max-w-wide items-center justify-between px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto flex h-[72px] max-w-wide items-center justify-between px-gutter">
         <Logo variant={dark ? "white" : "navy"} priority className="relative z-[60]" />
 
         {/* Desktop */}

@@ -60,7 +60,7 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
       />
 
       <Section theme="light" pad="lg">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <div className="grid-12 gap-y-12">
             <div className="col-span-12 lg:col-span-5">
               <SectionHeader eyebrow="What it means" title={defTitle} lead={defLead} size="md" as="h2" />
@@ -90,7 +90,7 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
       </Section>
 
       <Section theme="mist" pad="md">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <div className="grid-12 gap-y-12">
             <div className="col-span-12 lg:col-span-5">
               <SectionHeader eyebrow={p.applicationsEyebrow} title={p.applicationsTitle} />
@@ -130,7 +130,7 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
       <Deep />
 
       <Section theme="light" pad="sm" className="border-t border-line">
-        <div className="mx-auto flex max-w-wide items-center justify-between gap-6 px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto flex max-w-wide items-center justify-between gap-6 px-gutter">
           <p className="eyebrow">Next domain</p>
           <Link href={`/${next.slug}`} className="group flex items-baseline gap-4 text-right">
             <span className="font-display text-sm text-fg-soft">{next.index}</span>

@@ -8,7 +8,7 @@ export default function Alliances() {
   const { eyebrow, title, sub } = alliancesSection;
   return (
     <Section id="alliances" theme="mist">
-      <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-wide px-gutter">
         <div className="grid-12 gap-y-8">
           <Reveal className="col-span-12 lg:col-span-7">
             <p className="eyebrow">{eyebrow}</p>
@@ -20,7 +20,7 @@ export default function Alliances() {
         </div>
 
         <Reveal delay={0.1} className="mt-16 lg:mt-24">
-          <ul className="grid grid-cols-2 gap-x-6 gap-y-12 border-t border-line pt-12 sm:grid-cols-3 lg:grid-cols-4 lg:gap-y-16">
+          <ul className="grid grid-cols-2 gap-x-6 gap-y-12 border-t border-line pt-12 md:grid-cols-4 lg:gap-y-16">
             {alliances.map((a) => (
               <li key={a.name} className="flex flex-col">
                 <div className="flex h-10 items-center">

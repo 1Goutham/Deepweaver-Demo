@@ -39,3 +39,13 @@ export const accelerators = [
   { code: "A5", name: "GRC literacy", weeks: "4 weeks", body: "AI literacy and role-based enablement, with a certification pathway for key staff.", module: "G2 Policy, Framework & Literacy" },
   { code: "A6", name: "AIOps baseline", weeks: "4 weeks", body: "Continuous monitoring and evidence on demand — monthly dashboards and an incident register.", module: "G6 AIOps & Managed Governance" },
 ];
+
+/** Governance services, as the partner site lists them. */
+export const governanceServices = [
+  "Assessment and risk tiering of your AI estate",
+  "Policy suite, committee and decision rights",
+  "Impact and risk assessments (ISO 42005, FRIA)",
+  "Testing, evaluation and red-teaming",
+  "Audit, certification readiness and assurance",
+  "AIOps and managed governance against an SLA",
+];

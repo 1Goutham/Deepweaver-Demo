@@ -21,7 +21,7 @@ export const platformPosition = [
 export const australia = {
   intro: "Partnering with Equinix and OrionVM to build private AI capability for enterprises.",
   layers: [
-    { partner: "DeepWeaver", name: "Strategic innovation & compliance", body: "Built with the compliance discipline regulated industries require.", tags: ["ISO/IEC 42001", "NAIC VAIS v1.0", "Model & agent engineering", "Enterprise services", "Solutions & applications"] },
+    { partner: "DeepWeaver × Nunnari Labs", name: "Strategic innovation & compliance", body: "Built with the compliance discipline regulated industries require.", tags: ["ISO/IEC 42001", "NAIC VAIS v1.0", "Model & agent engineering", "Enterprise services", "Solutions & applications"] },
     { partner: "OrionVM", name: "Accelerated compute & lifecycle", body: "Single-tenant GPU platform with NVIDIA AI Enterprise as the lifecycle manager.", tags: ["L40S and above", "Kubernetes GPU orchestration", "NVIDIA AI Enterprise"] },
     { partner: "Equinix", name: "The trusted fabric", body: "Unified digital domain with low-latency interconnect between data and compute.", tags: ["Colocation & interconnect", "Proximity & performance", "Network security"] },
   ],

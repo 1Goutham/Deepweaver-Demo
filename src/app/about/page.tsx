@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import PageHero from "@/components/sections/page-hero";
 import Section from "@/components/ui/section";
 import SectionHeader from "@/components/ui/section-header";
 import Reveal from "@/components/motion/reveal";
@@ -11,38 +10,40 @@ import { vision, mission, howWeShowUp, values, regions, verticals } from "@/cont
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Who we are: vision, mission, how we show up and core values; two regions and one deep tech practice; and the exclusive partnership with Nunnari Labs.",
+  description: "Vision, mission, how we show up and core values; two regions and one deep tech practice; and the exclusive partnership with Nunnari Labs.",
   alternates: { canonical: "/about" },
 };
 
 /**
- * About reads as four brand statements — vision, mission, how we show up,
- * core values — each given its own ground and scale, then the two regions
- * (Australia first) and the partnership.
+ * About opens on Vision and reads as four brand statements — vision, mission,
+ * how we show up, core values — each on its own ground and scale, then the two
+ * regions (Australia first) and the partnership. No introductory section.
  */
 export default function AboutPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Who we are"
-        title="Two regions, one deep tech practice."
-        lead="Enterprise trust in Australia, research-led engineering in India. Pure-play AI experts, ethical and responsible by design, accountable for results rather than effort."
-        aside={<Facts items={[["Australia", "Sydney · Melbourne"], ["India", "Coimbatore · Chennai"], ["Certified", "ISO/IEC 42001"], ["Verticals", verticals.join(" · ")]]} />}
-      />
-
-      {/* 01 Vision — one line, as large as the page allows. */}
-      <Section theme="paper" pad="lg" id="vision">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
-          <Reveal>
-            <p className="eyebrow">Vision</p>
-            <p className="mt-8 max-w-[18ch] text-display-xl text-fg lg:mt-10">{vision}</p>
-          </Reveal>
+      {/* 01 Vision — opens the page. One line, at hero scale, on the dark ground the nav expects. */}
+      <section data-theme="dark" id="vision" className="bg-ink pb-20 pt-[152px] text-white md:pb-28 md:pt-[184px] lg:pb-36 lg:pt-[208px]">
+        <div className="mx-auto max-w-wide px-gutter">
+          <div className="grid-12 gap-y-12">
+            <div className="col-span-12 lg:col-span-9">
+              <Reveal>
+                <p className="eyebrow">Vision</p>
+              </Reveal>
+              <Reveal delay={0.06}>
+                <h1 className="mt-8 max-w-[18ch] text-display-xl text-white lg:mt-10">{vision}</h1>
+              </Reveal>
+            </div>
+            <Reveal delay={0.14} className="col-span-12 lg:col-span-5 lg:col-start-7">
+              <Facts items={[["Australia", "Sydney · Melbourne"], ["India", "Coimbatore · Chennai"], ["Certified", "ISO/IEC 42001"], ["Verticals", verticals.join(" · ")]]} />
+            </Reveal>
+          </div>
         </div>
-      </Section>
+      </section>
 
       {/* 02 Mission — four commitments on the second edge. */}
       <Section theme="light" pad="lg" id="mission">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <div className="grid-12 gap-y-10">
             <Reveal className="col-span-12 lg:col-span-4">
               <p className="eyebrow">Mission</p>
@@ -62,7 +63,7 @@ export default function AboutPage() {
 
       {/* 03 How we show up — six statements, three across. */}
       <Section theme="lilac" pad="lg" id="how-we-show-up">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <SectionHeader eyebrow="How we show up" title="What you can expect from the people in the room." />
           <StaggerList as="ul" className="mt-16 grid gap-x-8 gap-y-12 border-t border-line pt-12 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3 lg:gap-y-16">
             {howWeShowUp.map((h, i) => (
@@ -77,7 +78,7 @@ export default function AboutPage() {
 
       {/* 04 Core values — four words, at display scale. */}
       <Section theme="paper" pad="lg" id="values">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <Reveal>
             <p className="eyebrow">Core values</p>
           </Reveal>
@@ -94,7 +95,7 @@ export default function AboutPage() {
 
       {/* Where we operate — Australia first. */}
       <Section theme="mist" id="regions">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <SectionHeader eyebrow="Where we operate" title="Two regions, one practice." />
           <div className="mt-14 grid-12 gap-y-14 border-t border-line pt-12 lg:mt-20 lg:pt-16">
             {regions.map((r, i) => (
@@ -116,7 +117,7 @@ export default function AboutPage() {
       </Section>
 
       <Section theme="paper" id="partnership">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <div className="grid-12 gap-y-10">
             <Reveal className="col-span-12 lg:col-span-6">
               <p className="eyebrow">Exclusive partnership</p>

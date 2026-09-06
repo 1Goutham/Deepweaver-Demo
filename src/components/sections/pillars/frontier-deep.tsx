@@ -16,7 +16,7 @@ export default function FrontierDeep() {
   return (
     <>
       <Section theme="light" pad="lg" id="platform">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <div className="grid-12 gap-y-12">
             <div className="col-span-12 lg:col-span-6">
               <SectionHeader eyebrow="The Frontier platform · with Anthropic" title="Claude, delivered as a platform your enterprise can run." />
@@ -42,7 +42,7 @@ export default function FrontierDeep() {
       </Section>
 
       <Section theme="lilac" pad="lg" id="fde">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <div className="grid-12 gap-y-12">
             <div className="col-span-12 lg:col-span-6">
               <SectionHeader eyebrow="Forward-deployed engineering" title="Blended consulting and AI engineering, inside your teams." />

@@ -8,7 +8,7 @@ export default function DigitalDeep() {
   return (
     <>
       <Section theme="light" pad="lg" id="packages">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <SectionHeader
             eyebrow="Agentic AI"
             title="Enterprise agents in production."
@@ -48,7 +48,7 @@ export default function DigitalDeep() {
       </Section>
 
       <Section theme="lilac" pad="lg">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <SectionHeader
             eyebrow="Agentic use cases by domain"
             title="One platform and one governance layer underneath, four books of work on top."

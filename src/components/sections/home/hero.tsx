@@ -15,14 +15,14 @@ const rise = (delay: number) => ({
 });
 
 /**
- * Hero. Copy left, the brand's own weave form right. One fluid grid:
+ * Hero. Copy left, the brand's own 3D mark right. One fluid grid:
  * single column to lg, then 6/6. The image scales with its column and
  * is never cropped; heights come from content, not from the viewport.
  */
 export default function Hero() {
   return (
     <section id="hero" data-theme="dark" className="bg-hero relative overflow-hidden text-white">
-      <div className="relative mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+      <div className="relative mx-auto max-w-wide px-gutter">
         <div className="grid-12 items-center gap-y-12 pb-16 pt-[104px] sm:gap-y-14 sm:pb-20 sm:pt-[124px] lg:min-h-[min(100svh,880px)] lg:py-[120px]">
           <div className="col-span-12 lg:col-span-6 lg:pr-4">
             <RevealText
@@ -53,14 +53,14 @@ export default function Hero() {
             transition={{ duration: 1, delay: 0.2, ease: EASE }}
           >
             <Image
-              src="/brand/hero-weave.webp"
-              alt="The DeepWeaver weave: two capsule forms in the brand gradient, stitched by a thread of binary digits."
-              width={1400}
-              height={1400}
+              src="/brand/hero-mark.webp"
+              alt="The DeepWeaver mark in three dimensions: three capsule forms in the brand gradient, threaded by a chain of binary digits."
+              width={1275}
+              height={1233}
               priority
               fetchPriority="high"
-              sizes="(min-width: 1280px) 560px, (min-width: 1024px) 44vw, (min-width: 640px) 420px, 78vw"
-              className="mx-auto h-auto w-full max-w-[min(78vw,340px)] sm:max-w-[420px] lg:max-w-[500px] xl:max-w-[560px]"
+              sizes="(min-width: 1280px) 580px, (min-width: 1024px) 46vw, (min-width: 640px) 440px, 82vw"
+              className="mx-auto h-auto w-full max-w-[min(82vw,360px)] sm:max-w-[440px] lg:max-w-[520px] xl:max-w-[580px]"
             />
           </motion.div>
         </div>

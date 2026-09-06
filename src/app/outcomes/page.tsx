@@ -25,7 +25,7 @@ export default function OutcomesPage() {
       />
 
       <Section theme="light" id="stories">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <ol className="grid gap-px overflow-hidden rounded-md border border-line bg-line md:grid-cols-2">
             {stories.map((s, i) => (
               <Reveal as="li" key={s.slug} id={s.slug} delay={0.04 * (i % 2)} className="flex h-full flex-col bg-bg p-6 sm:p-8 lg:p-9">
@@ -45,7 +45,7 @@ export default function OutcomesPage() {
       </Section>
 
       <Section theme="mist" id="engagements">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <SectionHeader eyebrow="More engagements" title="In production, under NDA." lead="Client names withheld. Sector, system and the measure each engagement moved." />
           <Reveal delay={0.1} className="mt-12 lg:mt-16">
             <ol className="grid gap-px overflow-hidden rounded-md border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">

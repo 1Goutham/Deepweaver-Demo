@@ -226,6 +226,9 @@
   font-weight: 500;
   color: var(--accent);
 }
+/* Page gutter: one fluid value, used by every container, the nav and the footer.
+   20px on a small phone, ~31px on a tablet, 48px from ~1400px up. */
+@utility px-gutter { padding-inline: clamp(1.25rem, 0.25rem + 3.2vw, 3rem); }
 /* Section rhythm: one value, used everywhere. */
 @utility section-pad { padding-block: clamp(6rem, 4rem + 9vw, 12rem); }
 @utility section-pad-sm { padding-block: clamp(4rem, 3rem + 4vw, 7rem); }

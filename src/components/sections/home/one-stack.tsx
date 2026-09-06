@@ -12,7 +12,7 @@ export default function OneStack() {
   const { eyebrow, title, sub, regions, note } = oneStack;
   return (
     <Section id="one-stack" theme="light">
-      <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-wide px-gutter">
         <div className="grid-12 gap-y-8">
           <Reveal className="col-span-12 lg:col-span-7">
             <p className="eyebrow">{eyebrow}</p>

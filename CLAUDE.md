@@ -22,4 +22,4 @@ Next.js 16 · TypeScript · Tailwind v4 · Framer Motion.
 
 - Every section declares `data-theme` (light | dark | deep). Components use semantic tokens (`bg-bg`, `text-fg`, `border-line`) so they work on any theme; the nav mirrors the section beneath it.
 - Semantic tokens live in `@theme inline` so per-section overrides cascade.
-- Motion is gated on `prefers-reduced-motion` via MotionConfig; the hero uses the brand's own weave render as a static image.
+- Motion is gated on `prefers-reduced-motion` via MotionConfig; the hero uses the brand's own 3D mark render (`public/brand/hero-mark.webp`) as a static image.

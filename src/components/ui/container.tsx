@@ -13,7 +13,7 @@ export default function Container({ children, className, size = "site", as = "di
   return (
     <Tag
       className={cn(
-        "mx-auto w-full px-5 sm:px-8 lg:px-12",
+        "mx-auto w-full px-gutter",
         size === "site" && "max-w-site",
         size === "wide" && "max-w-wide",
         size === "prose" && "max-w-prose",

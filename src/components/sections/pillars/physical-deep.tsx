@@ -19,7 +19,7 @@ export default function PhysicalDeep() {
   return (
     <>
       <Section theme="light" pad="lg" id="hearsight">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <div className="grid-12 gap-y-12">
             <div className="col-span-12 lg:col-span-5">
               <Reveal>
@@ -60,7 +60,7 @@ export default function PhysicalDeep() {
       </Section>
 
       <Section theme="lilac" pad="md">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <div className="grid-12 gap-y-10 lg:items-end">
             <div className="col-span-12 lg:col-span-7">
               <SectionHeader eyebrow="For manufacturers" title="The Factory Brain: the orchestration layer between ERP and PLC." lead="AI recommends. Humans approve. The PLC executes. Cloud, hybrid or on-premise." />

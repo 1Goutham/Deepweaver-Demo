@@ -58,7 +58,7 @@ export const oneStack = {
 /** Our unique advantages — four things true of every engagement (partner site, "Our unique advantage"). */
 export const uniqueAdvantages = {
   eyebrow: "Our unique advantages",
-  title: "Governed, AI-native, research-led, and paid on outcomes.",
+  title: "Governed, AI‑native, research‑led, and paid on outcomes.",
   sub: "Four things that are true of every engagement, whether it is a four-week accelerator or a multi-year managed service.",
   items: [
     {
@@ -119,7 +119,7 @@ export const trustMarks = [
 
 export const whyChooseUs = {
   eyebrow: "How we work",
-  title: "Five ways to engage. One owner for the outcome.",
+  title: "Five ways to engage, from co‑delivery to as‑a‑service.",
   sub: "Accountable for results, not effort. Capability transferred, not retained. Every engagement is signed against a measure you already report on — baselined before we start, reported after we ship.",
   modes: [
     { title: "Co-Delivery", body: "We build alongside your delivery teams, sprint by sprint." },
@@ -128,7 +128,7 @@ export const whyChooseUs = {
     { title: "Uplift & Transition", body: "We lead the early work, then train your team to take it over." },
     { title: "As a Service", body: "We own the infrastructure and the application, and run it against an SLA.", highlight: true },
   ],
-  note: "Onshore, offshore and blended — senior teams across Australia and India, in your time zone. Hypercare through to managed services, with AIOps monitoring on every build.",
+  note: "Onshore, offshore and blended — senior teams across Australia and India, in your time zone. Hypercare through to AIOps, with monitoring on every build.",
 };
 
 /** Five service lines, as the partner site lists them today. */

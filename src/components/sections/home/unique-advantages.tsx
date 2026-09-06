@@ -13,7 +13,7 @@ export default function UniqueAdvantages() {
   const { eyebrow, title, sub, items, footnote } = uniqueAdvantages;
   return (
     <Section id="advantages" theme="lilac">
-      <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-wide px-gutter">
         <div className="grid-12 gap-y-8">
           <Reveal className="col-span-12 lg:col-span-7">
             <p className="eyebrow">{eyebrow}</p>
@@ -39,8 +39,8 @@ export default function UniqueAdvantages() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.12} className="mt-12">
-          <p className="text-xs text-fg-soft lg:pl-[calc(100%/12+clamp(1rem,2vw,2rem))]">{footnote}</p>
+        <Reveal delay={0.12} className="mt-12 grid-12">
+          <p className="col-span-12 text-xs text-fg-soft lg:col-span-10 lg:col-start-2">{footnote}</p>
         </Reveal>
       </div>
     </Section>

@@ -16,7 +16,7 @@ type Props = {
 export default function PageHero({ eyebrow, title, lead, aside, children, className, size = "lg" }: Props) {
   return (
     <section data-theme="dark" className={cn("relative bg-ink pb-20 pt-[152px] text-white md:pb-28 md:pt-[184px]", className)}>
-      <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-wide px-gutter">
         <div className="grid-12 gap-y-12">
           <div className="col-span-12 lg:col-span-7">
             {eyebrow && (

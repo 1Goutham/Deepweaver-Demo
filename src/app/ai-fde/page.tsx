@@ -23,7 +23,7 @@ export default function AiFdePage() {
 
       {/* What our FDEs do */}
       <Section theme="light" pad="lg" id="what">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <div className="grid-12 gap-y-12">
             <div className="col-span-12 lg:col-span-5">
               <SectionHeader eyebrow={intro.eyebrow} title={intro.title} />
@@ -50,7 +50,7 @@ export default function AiFdePage() {
 
       {/* Six areas of work */}
       <Section theme="mist" pad="lg" id="areas">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <SectionHeader eyebrow={areas.eyebrow} title={areas.title} lead={areas.sub} />
           <StaggerList as="ol" className="mt-14 grid gap-x-8 border-t border-line md:grid-cols-2 lg:mt-20">
             {areas.items.map(([t, b], i) => (
@@ -68,7 +68,7 @@ export default function AiFdePage() {
 
       {/* Who needs one */}
       <Section theme="paper" pad="lg" id="who">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <SectionHeader eyebrow={who.eyebrow} title={who.title} lead={who.sub} />
           <StaggerList as="ol" className="mt-14 grid gap-x-8 gap-y-10 border-t border-line pt-10 md:grid-cols-3 lg:mt-20">
             {who.segments.map(([t, b], i) => (
@@ -90,7 +90,7 @@ export default function AiFdePage() {
 
       {/* One engineer, five disciplines */}
       <Section theme="lilac" pad="lg" id="disciplines">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <div className="grid-12 gap-y-12">
             <div className="col-span-12 lg:col-span-5">
               <SectionHeader eyebrow={disciplines.eyebrow} title={disciplines.title} />
@@ -119,7 +119,7 @@ export default function AiFdePage() {
 
       {/* How an engagement runs — six steps, progressively disclosed */}
       <Section theme="light" pad="lg" id="engagement">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <SectionHeader eyebrow={engagement.eyebrow} title={engagement.title} />
           <Reveal delay={0.1} className="mt-14 grid-12 lg:mt-20">
             <div className="col-span-12 lg:col-span-9">
@@ -135,7 +135,7 @@ export default function AiFdePage() {
 
       {/* What you get */}
       <Section theme="paper" pad="lg" id="outcomes">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <Reveal>
             <p className="eyebrow">{outcomes.eyebrow}</p>
           </Reveal>

@@ -90,7 +90,7 @@ export const pillars: Pillar[] = [
       { name: "Safety with no fallback", body: "Fail-safe behaviours, geofencing and fleet monitoring designed in, not added after an incident." },
     ],
     outcome: "Autonomous operations in the field, safety and quality lifted.",
-    outcomeDetail: "Most AI stops at the screen. Physical AI has to see, decide and act on hardware with real latency budgets, thermal limits and safety consequences. That discipline is rare, and it is where we started.",
+    outcomeDetail: "Most AI stops at the screen. Physical AI has to see, decide and act on hardware with real latency budgets, thermal limits and safety consequences. That discipline is rare, and it is where we started. We build the full stack: the perception models, the on-device inference that runs them, the docking hubs and digital twins that coordinate them, and the safety layer that keeps a human in control.",
     related: [
       { label: "HearSight, on-device", href: "/physical-ai#hearsight" },
       { label: "The Factory Brain", href: "/factory-brain" },

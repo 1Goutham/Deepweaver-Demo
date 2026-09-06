@@ -11,7 +11,7 @@ import { trustedBy } from "@/content/home";
 export default function TrustedBy() {
   return (
     <Section theme="dark" pad="sm" aria-label="Trusted by" className="border-t border-line">
-      <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-wide px-gutter">
         <div className="grid-12 gap-y-10">
           <Reveal className="col-span-12 lg:col-span-4">
             <p className="eyebrow">Trusted by</p>

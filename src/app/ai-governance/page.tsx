@@ -6,7 +6,7 @@ import Reveal from "@/components/motion/reveal";
 import Facts from "@/components/ui/facts";
 import Disclosure from "@/components/ui/disclosure";
 import Cta from "@/components/sections/cta";
-import { governanceWorkflow, sixPillars, threeLevels, governanceModules, accelerators } from "@/content/governance";
+import { governanceWorkflow, sixPillars, threeLevels, governanceModules, accelerators, governanceServices } from "@/content/governance";
 
 export const metadata: Metadata = {
   title: "AI Governance",
@@ -20,12 +20,32 @@ export default function GovernancePage() {
       <PageHero
         eyebrow="AI Governance"
         title="Governance, run as a workflow."
-        lead="Not a document set — an operating workflow with named owners, controls that block release without evidence, and an audit pack produced on demand. Refreshed annually against regulatory change."
+        lead="ISO/IEC 42001 certified, NIST AI RMF and EU AI Act aligned — with audit evidence produced as a by-product of running the system, not bolted on afterwards."
         aside={<Facts items={[["Certified", "ISO/IEC 42001"], ["Aligned", "NIST AI RMF · EU AI Act"], ["Listed", "National AI Centre"], ["Tooling", "watsonx · Credo AI"]]} />}
       />
 
-      <Section theme="light" pad="lg">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+      <Section theme="light" pad="lg" id="services">
+        <div className="mx-auto max-w-wide px-gutter">
+          <div className="grid-12 gap-y-10">
+            <div className="col-span-12 lg:col-span-5">
+              <SectionHeader eyebrow="Governance services" title="The same workflow, pillars and evidence we run ourselves." lead="Packaged so a public-sector agency or an enterprise can get from an unmanaged AI estate to an audit-ready one in months, not years." />
+            </div>
+            <Reveal delay={0.1} className="col-span-12 lg:col-span-6 lg:col-start-7">
+              <ol className="divide-y divide-line border-y border-line">
+                {governanceServices.map((g, i) => (
+                  <li key={g} className="grid grid-cols-[2.5rem_1fr] items-baseline gap-4 py-4">
+                    <span className="font-display text-sm text-accent">0{i + 1}</span>
+                    <p className="text-[0.9375rem] text-fg sm:text-base">{g}</p>
+                  </li>
+                ))}
+              </ol>
+            </Reveal>
+          </div>
+        </div>
+      </Section>
+
+      <Section theme="paper" pad="lg">
+        <div className="mx-auto max-w-wide px-gutter">
           <SectionHeader eyebrow="The workflow" title="Four steps, then it runs." />
           <Reveal className="mt-14" delay={0.1}>
             <ol className="grid gap-px border-y border-line bg-line md:grid-cols-4">
@@ -44,7 +64,7 @@ export default function GovernancePage() {
       </Section>
 
       <Section theme="mist" pad="lg">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <SectionHeader eyebrow="Six pillars hold it up" title="Leadership, policies, risk, controls, training, reporting." />
           <div className="grid-12 gap-y-12 mt-14">
             <div className="col-span-12">
@@ -76,7 +96,7 @@ export default function GovernancePage() {
       </Section>
 
       <Section theme="light" pad="lg" id="modules">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <SectionHeader
             eyebrow="Modular governance solutions"
             title="Packaged engagements with fixed scope, milestones and deliverables."

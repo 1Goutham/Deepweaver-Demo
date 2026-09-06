@@ -23,12 +23,12 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="What we do"
         title="Five service lines, one owner for the outcome."
-        lead="From where the programme starts to how value is sustained: consulting and governance, production engineering, physical AI and edge, data for AI, and managed services against an SLA."
+        lead="From the first governance conversation to the AIOps that keeps it running — each line has a named outcome you can hold us to."
         aside={<Facts items={[["Delivery", "Onshore, offshore, blended"], ["Regions", "Australia · India"], ["Certified", "ISO/IEC 42001"]]} />}
       />
 
       <Section theme="light" pad="lg" id="lines">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <div className="grid-12 hidden border-b border-line pb-3 md:grid">
             <span className="eyebrow col-span-6">Service line</span>
             <span className="eyebrow col-span-3">Solutions</span>
@@ -64,7 +64,7 @@ export default function ServicesPage() {
       </Section>
 
       <Section theme="lilac" pad="lg" id="fde">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <div className="grid-12 gap-y-10 lg:items-end">
             <div className="col-span-12 lg:col-span-7">
               <SectionHeader eyebrow="AI forward-deployed engineering" title="Blended consulting and AI engineering, inside your teams." lead={fde.intro.body} />
@@ -77,15 +77,17 @@ export default function ServicesPage() {
       </Section>
 
       <Section theme="light" pad="lg" id="engagement">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <SectionHeader eyebrow="How we work" title="Five engagement models." lead="Shaped to how you buy and how you are audited." />
           <Reveal className="mt-14" delay={0.1}>
-            <ol className="grid gap-px border-y border-line bg-line md:grid-cols-5">
+            <ol className="border-t border-line">
               {engagementModels.map((m, i) => (
-                <li key={m.name} className="bg-surface p-6">
-                  <span className="font-display text-sm text-fg-soft">0{i + 1}</span>
-                  <h3 className="mt-3 text-display-xs">{m.name}</h3>
-                  <p className="mt-3 text-[0.875rem] leading-relaxed text-fg-muted">{m.body}</p>
+                <li key={m.name} className="grid-12 items-baseline border-b border-line py-6 md:py-7">
+                  <span className="col-span-12 flex items-baseline gap-5 lg:col-span-6">
+                    <span className="w-6 font-display text-sm text-accent">0{i + 1}</span>
+                    <h3 className="font-display text-display-sm text-fg">{m.name}</h3>
+                  </span>
+                  <p className="col-span-12 mt-2 pl-11 text-[0.9375rem] text-fg-muted lg:col-span-5 lg:col-start-7 lg:mt-0 lg:pl-0">{m.body}</p>
                 </li>
               ))}
             </ol>

@@ -7,7 +7,7 @@ export default function NotFound() {
     <>
       <PageHero eyebrow="404" title="That page is not in the weave." lead="The link may be old, or the page has moved." size="md" />
       <Section theme="light" pad="md">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <Button href="/">Back to the start</Button>
         </div>
       </Section>

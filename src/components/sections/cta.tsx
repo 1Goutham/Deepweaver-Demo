@@ -12,7 +12,7 @@ export default function Cta({
 }: Props) {
   return (
     <Section theme="brand" className="bg-brand-gradient">
-      <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-wide px-gutter">
         <div className="grid-12">
           <Reveal className="col-span-12 lg:col-span-8">
             <p className="eyebrow">{eyebrow}</p>

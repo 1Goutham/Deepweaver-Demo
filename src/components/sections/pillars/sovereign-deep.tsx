@@ -9,7 +9,7 @@ export default function SovereignDeep() {
   return (
     <>
       <Section theme="mist" id="stack">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <SectionHeader eyebrow="The sovereign AI stack, end to end" title="Four stages, with assurance across the top and silicon underneath." />
           <Reveal delay={0.08} className="mt-10 flex flex-wrap items-center gap-2 border-y border-line py-4">
             <span className="eyebrow mr-2">{sovereignStack.top.label}</span>
@@ -41,7 +41,7 @@ export default function SovereignDeep() {
         </div>
       </Section>
       <Section theme="light" pad="lg" id="platform">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <SectionHeader
             eyebrow="Where we sit on a sovereign platform"
             title="The platform supplies sovereign infrastructure. We are the delivery layer above it."
@@ -72,7 +72,7 @@ export default function SovereignDeep() {
       </Section>
 
       <Section theme="paper" pad="lg" id="alliance">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <SectionHeader eyebrow={neocloud.eyebrow} title={neocloud.title} lead={neocloud.lead} />
           <Reveal delay={0.1} className="mt-14">
             <ol className="grid gap-x-8 gap-y-10 border-t border-line pt-10 md:grid-cols-3">
@@ -89,7 +89,7 @@ export default function SovereignDeep() {
       </Section>
 
       <Section theme="lilac" pad="lg" id="australia">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <SectionHeader eyebrow="Sovereign AI · Australia" title="Australian sovereign experience." lead={australia.intro} />
           <div className="mt-14 grid-12 gap-y-12">
             <Reveal className="col-span-12 lg:col-span-7" delay={0.1}>
@@ -126,7 +126,7 @@ export default function SovereignDeep() {
         </div>
       </Section>
       <Section theme="light" pad="lg" id="india">
-        <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-wide px-gutter">
           <SectionHeader eyebrow={india.eyebrow} title={india.title} lead={india.lead} />
           <Reveal delay={0.1} className="mt-14">
             <ol className="grid gap-x-8 gap-y-10 border-t border-line pt-10 md:grid-cols-3">

@@ -22,7 +22,7 @@ export default function AiNativeServices() {
   const { title, sub, pillars } = aiNativeServices;
   return (
     <Section id="domains" theme="paper">
-      <div className="mx-auto max-w-wide px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-wide px-gutter">
         <div className="grid-12 gap-y-8">
           <Reveal className="col-span-12 lg:col-span-7">
             <h2 className="max-w-[16ch] text-display-lg text-fg">{title}</h2>
