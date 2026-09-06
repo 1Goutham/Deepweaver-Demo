@@ -31,10 +31,10 @@ export const aiNativeServices = {
   ],
 };
 
-/** Two regions, one stack. Australia leads: the site is positioned for the Australian market. */
+/** Two regions, one delivery team. Australia leads: the site is positioned for the Australian market. */
 export const oneStack = {
-  eyebrow: "One stack",
-  title: "Two regions. One stack, governed end to end.",
+  eyebrow: "Where we operate",
+  title: "Two regions, one delivery team, governed end to end.",
   sub: "Enterprise trust in Australia, research-led engineering in India — one delivery team with one project history and one governance layer, in your time zone.",
   regions: [
     {

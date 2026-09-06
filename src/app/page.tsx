@@ -9,7 +9,7 @@ import Cta from "@/components/sections/cta";
 
 /**
  * Home establishes positioning and identity; the detail lives on the inner
- * pages. Hero → who trusts us → the four domains → one stack across two
+ * pages. Hero → who trusts us → the four domains → one delivery team across two
  * regions → alliances → how we work → our unique advantages → the close.
  */
 export default function Home() {

@@ -4,7 +4,7 @@ import { oneStack } from "@/content/home";
 import { cn } from "@/lib/utils";
 
 /**
- * Two regions, one stack. Australia leads — larger, first, on the left edge —
+ * Two regions, one delivery team. Australia leads — larger, first, on the left edge —
  * because the site is positioned for the Australian market. India follows on
  * the second edge at a smaller scale. Hairlines, no cards.
  */
