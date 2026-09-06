@@ -54,13 +54,13 @@ export default function Hero() {
           >
             <Image
               src="/brand/hero-mark.webp"
-              alt="The DeepWeaver mark in three dimensions: three capsule forms in the brand gradient, threaded by a chain of binary digits."
-              width={1275}
-              height={1233}
+              alt="The DeepWeaver mark in three dimensions: three capsule forms in the brand gradient."
+              width={1416}
+              height={756}
               priority
               fetchPriority="high"
-              sizes="(min-width: 1280px) 580px, (min-width: 1024px) 46vw, (min-width: 640px) 440px, 82vw"
-              className="mx-auto h-auto w-full max-w-[min(82vw,360px)] sm:max-w-[440px] lg:max-w-[520px] xl:max-w-[580px]"
+              sizes="(min-width: 1280px) 640px, (min-width: 1024px) 48vw, (min-width: 640px) 480px, 86vw"
+              className="mx-auto h-auto w-full max-w-[min(86vw,380px)] sm:max-w-[480px] lg:max-w-[560px] xl:max-w-[640px]"
             />
           </motion.div>
         </div>
