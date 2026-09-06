@@ -48,6 +48,7 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
   const [mega, setMega] = useState(false);
   const closeTimer = useRef<number | undefined>(undefined);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -73,6 +74,15 @@ export default function Nav() {
   }, [open]);
 
   useEffect(() => {
+    if (!mega) return;
+    const onDown = (e: MouseEvent) => {
+      if (!(e.target instanceof Node) || !headerRef.current?.contains(e.target)) setMega(false);
+    };
+    document.addEventListener("mousedown", onDown);
+    return () => document.removeEventListener("mousedown", onDown);
+  }, [mega]);
+
+  useEffect(() => {
     if (!open && !mega) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -84,9 +94,22 @@ export default function Nav() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open, mega]);
 
+  // Hover opens the menu and the trigger toggles it. A click that lands right
+  // after a hover-open is the same intent, so it keeps the menu open rather
+  // than snapping it shut. Choosing a link, Escape, leaving the header, or
+  // clicking anywhere else closes it.
+  const openedAt = useRef(0);
   const openMega = () => {
     window.clearTimeout(closeTimer.current);
-    setMega(true);
+    setMega((v) => {
+      if (!v) openedAt.current = Date.now();
+      return true;
+    });
+  };
+  const toggleMega = () => {
+    window.clearTimeout(closeTimer.current);
+    if (mega && Date.now() - openedAt.current < 700) return;
+    setMega((v) => !v);
   };
   const closeMega = () => {
     closeTimer.current = window.setTimeout(() => setMega(false), 120);
@@ -97,6 +120,7 @@ export default function Nav() {
 
   return (
     <header
+      ref={headerRef}
       data-theme={dark ? "dark" : "light"}
       className={cn(
         "fixed inset-x-0 top-0 z-50 text-fg transition-[background-color,border-color] duration-300",
@@ -128,7 +152,7 @@ export default function Nav() {
               type="button"
               aria-expanded={mega}
               aria-controls="mega-pillars"
-              onClick={() => setMega((v) => !v)}
+              onClick={toggleMega}
               onFocus={openMega}
               className={cn(
                 "inline-flex h-10 items-center gap-1.5 rounded-full px-3 text-[0.8125rem] transition-colors",
@@ -204,7 +228,7 @@ export default function Nav() {
                 <ul className="mt-5 divide-y divide-line border-y border-line">
                   {pillarsNav.map((p) => (
                     <li key={p.href}>
-                      <Link href={p.href} className="group flex items-baseline gap-5 py-3.5">
+                      <Link href={p.href} onClick={() => setMega(false)} className="group flex items-baseline gap-5 py-3.5">
                         <span className="font-display text-display-xs text-fg">{p.label}</span>
                         <span className="ml-auto hidden max-w-[30ch] text-right text-[0.8125rem] text-fg-muted xl:block">{p.description}</span>
                       </Link>
@@ -217,7 +241,7 @@ export default function Nav() {
                 <ul className="mt-5 divide-y divide-line border-y border-line">
                   {offerNav.map((p) => (
                     <li key={p.href}>
-                      <Link href={p.href} className="block py-3.5">
+                      <Link href={p.href} onClick={() => setMega(false)} className="block py-3.5">
                         <span className="font-display text-display-xs text-fg">{p.label}</span>
                         <span className="mt-0.5 block text-[0.8125rem] text-fg-muted">{p.description}</span>
                       </Link>
@@ -247,7 +271,7 @@ export default function Nav() {
               <ul className="divide-y divide-white/10 border-y border-white/10">
                 {pillarsNav.map((p) => (
                   <li key={p.href}>
-                    <Link href={p.href} className="flex items-baseline gap-4 py-4">
+                    <Link href={p.href} onClick={() => setOpen(false)} className="flex items-baseline gap-4 py-4">
                       <span className="font-display text-display-sm">{p.label}</span>
                     </Link>
                   </li>
@@ -256,13 +280,13 @@ export default function Nav() {
               <ul className="mt-8 space-y-1">
                 {[{ label: "Home", href: "/" }, ...primaryNav, ...offerNav.filter((o) => !primaryNav.some((p) => p.href === o.href))].map((item) => (
                   <li key={item.href}>
-                    <Link href={item.href} className="block py-2.5 text-lg font-medium text-white/85">
+                    <Link href={item.href} onClick={() => setOpen(false)} className="block py-2.5 text-lg font-medium text-white/85">
                       {item.label}
                     </Link>
                   </li>
                 ))}
                 <li>
-                  <Link href="/contact" className="block py-2.5 text-lg font-medium text-white/85">
+                  <Link href="/contact" onClick={() => setOpen(false)} className="block py-2.5 text-lg font-medium text-white/85">
                     Contact
                   </Link>
                 </li>

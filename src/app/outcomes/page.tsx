@@ -21,8 +21,8 @@ export default function OutcomesPage() {
     <>
       <PageHero
         eyebrow="Outcomes"
-        title="Systems our clients operate."
-        lead="Every entry here is in production or on real hardware — across regulated and public sector, manufacturing, healthcare, and retail, where AI has to hold up under audit and on the floor. Some clients are anonymised; details are available under NDA."
+        title="Outcomes we delivered for enterprises and factories."
+        lead="Across regulated and public sector, manufacturing, healthcare, and retail, where AI has to hold up under audit and on the floor."
         aside={<Facts items={[["Sectors", "Public sector · Manufacturing · Health · Retail"], ["Regions", "Australia · India"]]} />}
       />
 

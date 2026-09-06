@@ -59,8 +59,8 @@ export default function Hero() {
               height={756}
               priority
               fetchPriority="high"
-              sizes="(min-width: 1280px) 640px, (min-width: 1024px) 48vw, (min-width: 640px) 480px, 86vw"
-              className="mx-auto h-auto w-full max-w-[min(86vw,380px)] sm:max-w-[480px] lg:max-w-[560px] xl:max-w-[640px]"
+              sizes="(min-width: 1280px) 540px, (min-width: 1024px) 42vw, (min-width: 640px) 420px, 76vw"
+              className="mx-auto h-auto w-full max-w-[min(76vw,330px)] sm:max-w-[420px] lg:max-w-[480px] xl:max-w-[540px]"
             />
           </motion.div>
         </div>
