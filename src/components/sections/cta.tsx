@@ -7,7 +7,7 @@ type Props = { eyebrow?: string; title?: string; body?: string };
 
 export default function Cta({
   eyebrow = "Start the conversation",
-  title = "Most AI stops at the screen. Ours reaches the factory floor, the field and the front office.",
+  title = "Extending the reach of AI beyond the screen — from the field to the factory floor and everything in between.",
   body = "Tell us where the programme is stuck and we will bring the right shape of engagement.",
 }: Props) {
   return (

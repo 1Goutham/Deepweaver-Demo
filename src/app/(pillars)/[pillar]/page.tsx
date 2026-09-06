@@ -53,7 +53,7 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
   return (
     <>
       <PageHero
-        eyebrow={`${p.index} · ${p.name}`}
+        eyebrow={p.name}
         title={p.headline}
         lead={p.intro}
         aside={<Facts items={[["Domain", p.short], ["Outcome", p.outcome]]} />}
@@ -132,8 +132,7 @@ export default async function PillarPage({ params }: { params: Promise<{ pillar:
       <Section theme="light" pad="sm" className="border-t border-line">
         <div className="mx-auto flex max-w-wide items-center justify-between gap-6 px-gutter">
           <p className="eyebrow">Next domain</p>
-          <Link href={`/${next.slug}`} className="group flex items-baseline gap-4 text-right">
-            <span className="font-display text-sm text-fg-soft">{next.index}</span>
+          <Link href={`/${next.slug}`} className="group text-right">
             <span className="link-wipe font-display text-display-sm">{next.name}</span>
           </Link>
         </div>

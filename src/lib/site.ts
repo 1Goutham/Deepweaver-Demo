@@ -27,7 +27,7 @@ export const pillarsNav: NavLink[] = [
 /** What we offer — shown under the AI Native Services menu. */
 export const offerNav: NavLink[] = [
   { label: "Services", href: "/services", description: "Five service lines, one owner for the outcome." },
-  { label: "AI FDE", href: "/ai-fde", description: "Forward-deployed engineers, inside your team." },
+  { label: "AI Forward Deployed Engineering", href: "/ai-fde", description: "Blended consulting + AI engineering." },
   { label: "AI Governance", href: "/ai-governance", description: "Governance run as a workflow, ISO/IEC 42001 certified." },
   { label: "Factory Brain", href: "/factory-brain", description: "The orchestration layer between ERP and PLC." },
 ];

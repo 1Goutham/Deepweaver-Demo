@@ -202,10 +202,9 @@ export default function Nav() {
               <div className="col-span-5">
                 <p className="eyebrow">Four AI domains</p>
                 <ul className="mt-5 divide-y divide-line border-y border-line">
-                  {pillarsNav.map((p, i) => (
+                  {pillarsNav.map((p) => (
                     <li key={p.href}>
                       <Link href={p.href} className="group flex items-baseline gap-5 py-3.5">
-                        <span className="w-6 font-display text-xs text-fg-soft">0{i + 1}</span>
                         <span className="font-display text-display-xs text-fg">{p.label}</span>
                         <span className="ml-auto hidden max-w-[30ch] text-right text-[0.8125rem] text-fg-muted xl:block">{p.description}</span>
                       </Link>
@@ -246,10 +245,9 @@ export default function Nav() {
             <nav aria-label="Mobile" className="flex flex-1 flex-col overflow-y-auto px-5 pb-10 sm:px-8">
               <p className="eyebrow mb-4 text-white/60">AI native services</p>
               <ul className="divide-y divide-white/10 border-y border-white/10">
-                {pillarsNav.map((p, i) => (
+                {pillarsNav.map((p) => (
                   <li key={p.href}>
                     <Link href={p.href} className="flex items-baseline gap-4 py-4">
-                      <span className="font-display text-xs text-white/40">0{i + 1}</span>
                       <span className="font-display text-display-sm">{p.label}</span>
                     </Link>
                   </li>
