@@ -268,10 +268,9 @@ export function createHeroLogo(container: HTMLElement, userOptions: Partial<Hero
   scene.add(key, fillLight, sweep, new THREE.AmbientLight(0xffffff, 1.15));
 
   // Shadow catcher: an invisible plane behind the mark for a soft drop shadow.
-  const catcher = new THREE.Mesh(
-    new THREE.PlaneGeometry(40, 40),
-    new THREE.ShadowMaterial({ color: 0x02061a, opacity: 0.22, transparent: true }),
-  );
+  const SHADOW_OPACITY = 0.22;
+  const catcherMaterial = new THREE.ShadowMaterial({ color: 0x02061a, opacity: SHADOW_OPACITY, transparent: true });
+  const catcher = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), catcherMaterial);
   catcher.position.z = -1.1;
   catcher.receiveShadow = true;
   scene.add(catcher);
@@ -349,6 +348,13 @@ export function createHeroLogo(container: HTMLElement, userOptions: Partial<Hero
       material.transparent = false;
       material.opacity = 1;
     }
+    // The shadow arrives after the mark has landed: it starts as the entrance
+    // settles and eases in over the following second, like an object coming to
+    // rest on a lit surface.
+    if (introActive) {
+      const shadowStart = opts.introDelay + opts.introDuration * 0.8;
+      catcherMaterial.opacity = SHADOW_OPACITY * easeOutQuint((t - shadowStart) / 1.1);
+    }
     logo.rotation.set(
       REST.x + THREE.MathUtils.degToRad(pitch + py * 0.8 - 6 * introRot),
       REST.y + THREE.MathUtils.degToRad(yaw + px - 7 * introRot),
@@ -375,6 +381,7 @@ export function createHeroLogo(container: HTMLElement, userOptions: Partial<Hero
     logo.position.set(0, 0, 0);
     material.transparent = false;
     material.opacity = 1;
+    catcherMaterial.opacity = SHADOW_OPACITY;
     renderer.render(scene, camera);
   }
 
@@ -427,6 +434,7 @@ export function createHeroLogo(container: HTMLElement, userOptions: Partial<Hero
   // The entrance owns the first frame: the mark starts invisible and rises in.
   if (introActive) {
     material.opacity = 0;
+    catcherMaterial.opacity = 0;
     renderer.render(scene, camera);
     start();
   } else {
@@ -445,7 +453,7 @@ export function createHeroLogo(container: HTMLElement, userOptions: Partial<Hero
       reduceMotion?.removeEventListener?.("change", onMotionPref);
       for (const g of geometries) g.dispose();
       catcher.geometry.dispose();
-      catcher.material.dispose();
+      catcherMaterial.dispose();
       material.dispose();
       renderer.dispose();
       canvas.remove();
