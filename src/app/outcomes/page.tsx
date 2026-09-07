@@ -7,7 +7,6 @@ import Tag from "@/components/ui/tag";
 import Facts from "@/components/ui/facts";
 import Cta from "@/components/sections/cta";
 import Image from "next/image";
-import Link from "next/link";
 import { stories, engagements, flagshipStories } from "@/content/outcomes";
 
 export const metadata: Metadata = {
@@ -32,7 +31,7 @@ export default function OutcomesPage() {
           <ol className="mt-14 border-t border-line lg:mt-20">
             {flagshipStories.map((f, i) => (
               <Reveal as="li" key={f.client} delay={0.05 * i} className="border-b border-line py-10 lg:py-12">
-                <Link href={f.href} className="group grid-12 gap-y-8">
+                <div className="grid-12 gap-y-8">
                   <div className="col-span-12 lg:col-span-3">
                     <Image src={f.logo} alt={f.client} width={600} height={200} className="h-9 w-auto max-w-[160px] object-contain brightness-0 opacity-85" />
                     <p className="mt-6 font-medium text-fg">{f.client}</p>
@@ -46,7 +45,7 @@ export default function OutcomesPage() {
                       </div>
                     ))}
                   </div>
-                </Link>
+                </div>
               </Reveal>
             ))}
           </ol>

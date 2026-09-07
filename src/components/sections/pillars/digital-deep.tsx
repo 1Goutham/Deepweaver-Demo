@@ -51,7 +51,7 @@ export default function DigitalDeep() {
         <div className="mx-auto max-w-wide px-gutter">
           <SectionHeader
             eyebrow="Agentic use cases by domain"
-            title="One platform and one governance layer underneath, four books of work on top."
+            title="AI agents decouple growth from headcount, unlocking margin expansion and competitive advantage."
           />
           <Reveal className="mt-14 grid gap-px border-y border-line bg-line md:grid-cols-2 xl:grid-cols-4" delay={0.1}>
             {agenticUseCases.map((d) => (

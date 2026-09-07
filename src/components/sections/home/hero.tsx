@@ -31,7 +31,7 @@ export default function Hero() {
               className="max-w-[13ch] text-hero"
             />
             <motion.p className="mt-7 max-w-[42ch] text-lead font-light text-white/72 sm:mt-8" {...rise(0.7)}>
-              ISO/IEC 42001 certified AI engineering for enterprise and government — measured on the outcome, not the effort.
+              ISO/IEC 42001 certified AI native services for enterprise and government — measured on the outcome, not the effort.
             </motion.p>
             <motion.div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4 sm:mt-10" {...rise(0.85)}>
               <Button href="/contact" size="lg" leading={<CollaborateIcon />}>
