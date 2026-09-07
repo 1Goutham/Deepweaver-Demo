@@ -219,7 +219,9 @@ export function createHeroLogo(container: HTMLElement, userOptions: Partial<Hero
   renderer.toneMapping = THREE.NoToneMapping;
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFShadowMap;
+  // Variance shadow maps blur properly, so the shadow reads as soft, diffused
+  // contact shade rather than a hard silhouette.
+  renderer.shadowMap.type = THREE.VSMShadowMap;
   const canvas = renderer.domElement;
   canvas.style.cssText = "position:absolute;inset:0;width:100%;height:100%;display:block;";
   canvas.setAttribute("aria-hidden", "true");
@@ -254,9 +256,10 @@ export function createHeroLogo(container: HTMLElement, userOptions: Partial<Hero
   const key = new THREE.DirectionalLight(0xffffff, 2.2);
   key.position.set(-1.5, 4, 10);
   key.castShadow = true;
-  key.shadow.mapSize.set(2048, 2048);
-  key.shadow.radius = 10;
-  key.shadow.bias = -0.0003;
+  key.shadow.mapSize.set(1024, 1024);
+  key.shadow.radius = 18;
+  key.shadow.blurSamples = 16;
+  key.shadow.bias = -0.0005;
   key.shadow.camera.left = key.shadow.camera.bottom = -5;
   key.shadow.camera.right = key.shadow.camera.top = 5;
   key.shadow.camera.near = 1;
@@ -268,7 +271,7 @@ export function createHeroLogo(container: HTMLElement, userOptions: Partial<Hero
   scene.add(key, fillLight, sweep, new THREE.AmbientLight(0xffffff, 1.15));
 
   // Shadow catcher: an invisible plane behind the mark for a soft drop shadow.
-  const SHADOW_OPACITY = 0.22;
+  const SHADOW_OPACITY = 0.26;
   const catcherMaterial = new THREE.ShadowMaterial({ color: 0x02061a, opacity: SHADOW_OPACITY, transparent: true });
   const catcher = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), catcherMaterial);
   catcher.position.z = -1.1;
