@@ -65,6 +65,6 @@ export const flagshipStories: Flagship[] = [
     pillar: "Physical AI",
     problem: "People with low vision need the world read to them in real time, without a cloud round trip, a connectivity assumption, or their data leaving the device.",
     solution: "Smart glasses with every model running on the device: object and obstacle detection, OCR, face recognition, navigation and offline payment assistance.",
-    outcome: "Frontier-grade perception running inside a pair of glasses. Nunnari Labs is HearSight's AI and engineering partner.",
+    outcome: "Frontier-grade perception running inside a pair of glasses.",
   },
 ];
