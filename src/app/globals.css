@@ -248,6 +248,35 @@
     linear-gradient(180deg, #0c2130 0%, #0e1f3d 100%);
 }
 
+/* Hero glow: two blurred radial layers behind the 3D mark. Transform and
+   opacity only, so they composite on the GPU; periods 11s and 8.5s never
+   line up, so the breathing never reads as a loop. */
+@utility hero-glow {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  filter: blur(36px);
+  will-change: transform, opacity;
+}
+@utility hero-glow-a {
+  left: 6%; top: -4%; width: 96%; height: 104%;
+  background: radial-gradient(closest-side, rgba(106, 93, 242, 0.6), rgba(106, 93, 242, 0));
+  animation: hero-glow-a 11s ease-in-out infinite;
+}
+@utility hero-glow-b {
+  left: -10%; top: 28%; width: 68%; height: 68%;
+  background: radial-gradient(closest-side, rgba(47, 123, 255, 0.55), rgba(47, 123, 255, 0));
+  animation: hero-glow-b 8.5s ease-in-out infinite;
+}
+@keyframes hero-glow-a {
+  0%, 100% { opacity: 0.6; transform: translate3d(0, 0, 0) scale(1); }
+  50% { opacity: 0.95; transform: translate3d(2%, -2%, 0) scale(1.08); }
+}
+@keyframes hero-glow-b {
+  0%, 100% { opacity: 0.5; transform: translate3d(0, 0, 0) scale(1); }
+  50% { opacity: 0.85; transform: translate3d(-3%, 3%, 0) scale(1.1); }
+}
+
 /* Two-tone display headline: first part fg, tail fades to muted.
    Used sparingly — one per page. */
 @utility headline-fade {

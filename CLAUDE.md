@@ -15,6 +15,7 @@ Next.js 16 · TypeScript · Tailwind v4 · Framer Motion.
 - `src/components/ui` — primitives: Section, Button, Eyebrow, SectionHeader, Stat, Tag, Disclosure, Facts
 - `src/components/sections` — composed page sections (home/, pillars/, shared)
 - `src/components/motion` — Reveal, CountUp, Lenis, Magnetic
+- `src/components/three` — the hero mark in real-time 3D (three.js, dynamically imported); `hero-logo.ts` builds and animates it, `hero-logo-view.tsx` hosts it with the glow layers and the still-image fallback
 - `src/content` — typed content modules; content traces to the AINS deck, the website changelog and the partner site (primary reference for the four AI domains, service lines, advantages, FDE and logos). No numeric outcome metrics by design.
 - `public/brand` — supplied DeepWeaver assets (never redrawn)
 
@@ -22,4 +23,4 @@ Next.js 16 · TypeScript · Tailwind v4 · Framer Motion.
 
 - Every section declares `data-theme` (light | dark | deep). Components use semantic tokens (`bg-bg`, `text-fg`, `border-line`) so they work on any theme; the nav mirrors the section beneath it.
 - Semantic tokens live in `@theme inline` so per-section overrides cascade.
-- Motion is gated on `prefers-reduced-motion` via MotionConfig; the hero uses the brand's own 3D mark render (`public/brand/hero-mark.webp`) as a static image.
+- Motion is gated on `prefers-reduced-motion` via MotionConfig. The hero mark is real-time 3D: entrance from the first frame, idle drift, pointer parallax, an occasional light sweep and a breathing glow; it pauses off-screen, draws one still frame under reduced motion, and falls back to `public/brand/hero-mark.webp` without WebGL.

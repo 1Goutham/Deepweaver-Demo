@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import Button from "@/components/ui/button";
 import RevealText from "@/components/motion/reveal-text";
 import { EASE } from "@/components/motion/reveal";
 import { site } from "@/lib/site";
 import { CollaborateIcon, MailIcon } from "@/components/ui/icons";
+import HeroLogoView from "@/components/three/hero-logo-view";
 
 const rise = (delay: number) => ({
   initial: { opacity: 0, y: 14 },
@@ -15,9 +15,9 @@ const rise = (delay: number) => ({
 });
 
 /**
- * Hero. Copy left, the brand's own 3D mark right. One fluid grid:
- * single column to lg, then 6/6. The image scales with its column and
- * is never cropped; heights come from content, not from the viewport.
+ * Hero. Copy left, the brand's mark in real-time 3D right. One fluid grid:
+ * single column to lg, then 6/6. The mark scales with its column and is
+ * never cropped; heights come from content, not from the viewport.
  */
 export default function Hero() {
   return (
@@ -46,23 +46,9 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          <motion.div
-            className="col-span-12 lg:col-span-6"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: EASE }}
-          >
-            <Image
-              src="/brand/hero-mark.webp"
-              alt="The DeepWeaver mark in three dimensions: three capsule forms in the brand gradient."
-              width={1416}
-              height={756}
-              priority
-              fetchPriority="high"
-              sizes="(min-width: 1280px) 540px, (min-width: 1024px) 42vw, (min-width: 640px) 420px, 76vw"
-              className="mx-auto h-auto w-full max-w-[min(76vw,330px)] sm:max-w-[420px] lg:max-w-[480px] xl:max-w-[540px]"
-            />
-          </motion.div>
+          <div className="col-span-12 lg:col-span-6">
+            <HeroLogoView className="mx-auto max-w-[min(76vw,330px)] sm:max-w-[420px] lg:max-w-[480px] xl:max-w-[540px]" />
+          </div>
         </div>
       </div>
     </section>
