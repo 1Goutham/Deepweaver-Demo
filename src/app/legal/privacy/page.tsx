@@ -24,7 +24,7 @@ export default function PrivacyPage() {
             <section className="col-span-12 grid-12 border-t border-line pt-8">
               <h2 className="col-span-12 text-display-xs text-fg lg:col-span-3">Contact enquiries</h2>
               <div className="col-span-12 mt-4 space-y-5 text-[0.9375rem] leading-relaxed text-fg-muted lg:col-span-8 lg:col-start-5 lg:mt-0">
-                <p>Enquiries sent through the contact page go by your own mail client to our contact address and are used only to respond to you.</p>
+                <p>Enquiries sent through the contact form are delivered by email to our contact address, with your name, organisation, email and message, and are used only to respond to you.</p>
               </div>
             </section>
             <section className="col-span-12 grid-12 border-t border-line pt-8">

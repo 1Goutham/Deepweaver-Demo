@@ -28,4 +28,4 @@ npm run lint
 - Every section declares `data-theme="light" | "dark" | "deep"`. Components use the semantic tokens (`bg-bg`, `text-fg`, `text-fg-muted`, `border-line`, `bg-surface`) so one component works on navy and on canvas. The nav watches the section beneath it and switches logo and colours.
 - Semantic tokens are declared in `@theme inline` so per-section overrides cascade.
 - Motion honours `prefers-reduced-motion` through MotionConfig. The hero image is the brand's own weave render, served as WebP with a PNG source.
-- The contact form composes an email to contact@deepweaver.ai; wire a route handler when a CRM is chosen.
+- The contact form posts to `/api/contact`, which validates, rate-limits and emails the enquiry to the contact inbox through Resend. Set `RESEND_API_KEY` and `CONTACT_FROM_EMAIL` in the hosting environment (see `.env.example`).
