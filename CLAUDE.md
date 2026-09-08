@@ -7,7 +7,7 @@ Next.js 16 · TypeScript · Tailwind v4 · Framer Motion.
 - `npm run dev` — local dev server
 - `npm run build` — production build (all routes static)
 - `npm run lint` — eslint
-- `npm test` — unit tests (Node's test runner; `tests/`)
+- `npm test` — unit tests: `tsconfig.test.json` compiles `tests/` and the two pure modules they cover to `.test-dist/`, then Node's built-in runner executes the JavaScript (works on any supported Node, no extra tooling)
 
 ## Structure
 

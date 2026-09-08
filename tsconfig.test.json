@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "incremental": false,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es2020",
+    "rootDir": ".",
+    "outDir": ".test-dist",
+    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true,
+    "types": ["node"]
+  },
+  "include": ["tests/**/*.ts", "src/lib/contact.ts", "src/lib/mail.ts"],
+  "exclude": ["node_modules"]
+}
